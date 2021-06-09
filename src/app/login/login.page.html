@@ -1,43 +1,37 @@
 
 <ion-content>
 
-
-    <div class="login_main_area">
+    <div class="login_area">
       <div class="container">
-        <button class="nav_bar" (click)="back()"><i class='fas fa-arrow-left'></i></button>
-        <div class="login_body_area">
-          <div class="logo"><img src="assets/images/logo.png" alt="logo" title=""></div>
-          <div class="login_body">
-            <h1>Fill the Below information to Log In</h1>
-            <div class="login_box">
-              <h2>login account</h2>
-              <div class="form-group">
-                <div class="icon"><img src="assets/images/icon5.png" alt="icon" title=""></div>
-                <input type="text" class="form-control" placeholder="E-mail" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
-              </div>
-              <div class="form-group">
-                <div class="icon"><img src="assets/images/icon6.png" alt="icon" title=""></div>
-                <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
-                <!-- <button class="btn-password"><i class="zmdi zmdi-eye"></i></button> -->
-              </div>
-              <div class="w-100">
-                <button class="btn-forgot-password">In case you forgot password?</button>
-              </div>
-              <button class="btn" (click)="login()">log in</button>
-              <h4><span>or</span></h4>
-              <ul>
-                <li><a href="#"><img src="assets/images/facebook.png" alt="facebook" title=""></a></li>
-                <li><a href="#"><img src="assets/images/google-plus.png" alt="google plus" title=""></a></li>
-              </ul>
-            </div>
-            <div class="register_box">
-              <h5>Don’t have an Account?</h5>
-              <button class="btn-link" routerLink="/register">register now</button>
-            </div>
+         <button class="nav_bar" (click)="back()"><i class='fas fa-arrow-left'></i></button>
+          <div class="header_area">
+              <h1>login</h1>
           </div>
-        </div>
+          <div class="login_body">
+              <div class="form-group">
+                  <input type="text" class="form-control" placeholder="E-mail" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+              </div>
+              <div class="form-group">
+                 <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+              </div>
+              <div class="form-group">
+                  <button class="btn-link">Forgot Password?</button>
+              </div>
+              <div class="submit_button_box">
+                  <button class="btn" (click)="login()"><i class="zmdi zmdi-long-arrow-right"></i></button>
+              </div>
+          </div>
+          <div class="login_with">
+              <div class="or"><strong>or</strong></div>
+              <h3>Login with social media</h3>
+              <ul>
+                  <li><img src="assets/images/facebook.png" alt="facebook" title="" /></li>
+                  <li><img src="assets/images/twitter.png" alt="twitter" title="" /></li>
+                  <li><img src="assets/images/google.png" alt="google" title="" /></li>
+              </ul>
+              <p>Don’t have an account? <button class="btn-link" routerLink="/register">Register</button></p>
+          </div>
       </div>
     </div>
-    
   
 </ion-content>
