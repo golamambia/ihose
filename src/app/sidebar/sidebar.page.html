@@ -1,0 +1,42 @@
+
+<ion-content>
+
+ 
+  
+  <div class="menubox">
+        	<div class="menu_head">
+             <button class="btn-back" (click)="back()"> <i class="zmdi zmdi-arrow-left"></i> </button>
+             <h1>settings</h1>
+       	    </div>
+            <div class="menu_body">
+            	<ul>
+                    <li><button routerLink="/" (click)="storePage('sidebar')"><span><img src="assets/images/menuicon1.png"  alt=""></span> Home<i class="zmdi zmdi-chevron-right"></i></button></li>
+                    <li *ngIf="userDetails"><button routerLink="/order-list"><span><img src="assets/images/menuicon1.png"  alt=""></span> My Order<i class="zmdi zmdi-chevron-right"></i></button></li>
+                    <li *ngIf="userDetails"><button routerLink="/address-list"><span><img src="assets/images/menuicon2.png"  alt=""></span> Address<i class="zmdi zmdi-chevron-right"></i></button></li>
+      <li *ngIf="userDetails"><button routerLink="/profile" (click)="storePage('sidebar')"><span><img src="assets/images/menuicon2.png"  alt=""></span> profile<i class="zmdi zmdi-chevron-right"></i></button></li>
+      
+      <li *ngIf="userDetails"><button routerLink="/login" (click)="storePage('sidebar')"><span><img src="assets/images/menuicon2.png"  alt=""></span> Login<i class="zmdi zmdi-chevron-right"></i></button></li>
+      <li *ngIf="!userDetails"><button routerLink="/register" (click)="storePage('sidebar')"><span><img src="assets/images/menuicon2.png"  alt=""></span> Registration<i class="zmdi zmdi-chevron-right"></i></button></li>
+      <li *ngIf="userDetails"><button routerLink="/change-password" (click)="storePage('sidebar')"><span><img src="assets/images/menuicon2.png"  alt=""></span> Change Password<i class="zmdi zmdi-chevron-right"></i></button></li>
+
+      <li><button routerLink="/contact" (click)="storePage('sidebar')"><span><img src="assets/images/menuicon1.png"  alt=""></span> Contact us<i class="zmdi zmdi-chevron-right"></i></button></li>
+      <li><button routerLink="/about" (click)="storePage('sidebar')"><span><img src="assets/images/menuicon1.png"  alt=""></span> About<i class="zmdi zmdi-chevron-right"></i></button></li>
+      <li><button routerLink="/privacy-policy" (click)="storePage('sidebar')"><span><img src="assets/images/menuicon1.png"  alt=""></span> Privacy Policy<i class="zmdi zmdi-chevron-right"></i></button></li>
+      <li><button routerLink="/term-condition" (click)="storePage('sidebar')"><span><img src="assets/images/menuicon1.png"  alt=""></span> Terms & Conditions<i class="zmdi zmdi-chevron-right"></i></button></li>
+      <li *ngIf="userDetails" (click)="logout()" ><button><span><img src="assets/images/menuicon7.png"  alt=""></span>Logout<i class="zmdi zmdi-chevron-right"></i></button></li>
+                     <!-- <li><button><span><img src="assets/images/menuicon2.png"  alt=""></span> profile<i class="zmdi zmdi-chevron-right"></i></button></li>
+                	<li><button><span><img src="assets/images/menuicon.png"  alt=""></span> Notification<i class="zmdi zmdi-chevron-right"></i></button></li>
+                    <li><button><span><img src="assets/images/menuicon1.png"  alt=""></span> My Order<i class="zmdi zmdi-chevron-right"></i></button></li>
+                   
+                    
+                    <li><button><span><img src="assets/images/menuicon4.png"  alt=""></span>Settings<i class="zmdi zmdi-chevron-right"></i></button></li>
+                    <li><button><span><img src="assets/images/menuicon5.png"  alt=""></span>Payment<i class="zmdi zmdi-chevron-right"></i></button></li>
+                    <li><button><span><img src="assets/images/menuicon6.png"  alt=""></span>Help<i class="zmdi zmdi-chevron-right"></i></button></li> -->
+                   <!--  <li><button><span><img src="assets/images/menuicon7.png"  alt=""></span>Logout<i class="zmdi zmdi-chevron-right"></i></button></li> -->
+                </ul>
+            </div>
+        </div>
+  
+    
+
+</ion-content>

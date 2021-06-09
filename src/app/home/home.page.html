@@ -1,0 +1,49 @@
+
+
+<ion-content [fullscreen]="true">
+ 
+
+    <div class="home_main_area">
+      <div class="container">
+        <button class="nav_bar" routerLink="/sidebar" (click)="storePage('home')"><i class="fas fa-bars"></i></button>
+        <div class="home_body_area">
+          <div class="logo"><img src="assets/images/logo.png" alt="logo" title=""></div>
+          <div class="home_body ">
+            <h1>welcome to<span>Soni</span></h1>
+            <ul>
+              <li *ngFor="let datalist of data_list">
+                <button  (click)="goTo(datalist.service_id)">
+                  <div class="listing">
+                    <div class="icon" *ngIf="datalist.service_id==4"><img src="assets/images/icon1.png" alt="icon" title=""></div>
+                     <div class="icon" *ngIf="datalist.service_id==7"><img src="assets/images/icon2.png" alt="icon" title=""></div>
+                      <div class="icon"*ngIf="datalist.service_id==8"><img src="assets/images/icon3.png" alt="icon" title=""></div>
+                    <h3>{{datalist.service_name}} <!-- <i class="fas fa-angle-double-right"></i> --></h3>
+                  </div>
+                </button>
+              </li>
+
+             <!--  <li>
+                <button>
+                  <div class="listing">
+                    <div class="icon"><img src="assets/images/icon2.png" alt="icon" title=""></div>
+                    <h3>automotive Hose <i class="fas fa-angle-double-right"></i></h3>
+                  </div>
+                </button>
+              </li>
+              <li>
+                <button>
+                  <div class="listing">
+                    <div class="icon"><img src="assets/images/icon3.png" alt="icon" title=""></div>
+                    <h3>heavy earthmoving equipment hose <i class="fas fa-angle-double-right"></i></h3>
+                  </div>
+                </button>
+              </li> -->
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  
+</ion-content>

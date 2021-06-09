@@ -1,0 +1,82 @@
+<ion-content>
+
+   
+    
+    <div class="header">
+      <div class="top-nav">
+        <button class="btn-back" (click)="back()">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+        <div class="title">Order History</div>
+      </div>
+    </div>
+    
+    <div class="order_history_main_area">
+      <div class="container">
+        
+        <div class="order_history_body" *ngIf="order_list">
+          
+          <div class="order_history" *ngFor="let orderlist of order_list">
+            <h3>{{orderlist.billing_list.orderDate}}<span class="{{orderlist.billing_list.orderStatusColor}}">{{orderlist.billing_list.orderStatus}}</span> <span class="arrow"><i class="fas fa-chevron-up"></i></span></h3>
+            <div class="order_history_contain">
+              <h4>order details</h4>
+              <div class="w-100">
+                <div class="d-flex justify-content-between" *ngFor="let orderlist_item of orderlist.item">
+                  <div class="order_item">
+                   <!--  <div class="item"><img src="assets/addimg1.jpg" alt="image" title=""></div> -->
+                    <h5>{{orderlist_item.up_item}}</h5>
+                  </div>
+                  <div class="price"><i class="fas fa-rupee-sign"></i>{{orderlist_item.up_price}}X{{orderlist_item.up_qty}}</div>
+                </div>
+              </div>
+              <div class="w-100">
+                <div class="d-flex justify-content-between">
+                  <div class="price">Extra Price</div>
+                  <div class="price"><i class="fas fa-rupee-sign"></i>{{orderlist.billing_list.delivery_amt}}</div>
+                </div>
+              </div>
+              <div class="total_price_area">
+                <div class="d-flex justify-content-between">
+                  <div class="price">Total</div>
+                  <div class="price"><i class="fas fa-rupee-sign"></i>{{orderlist.billing_list.uba_alltotal}}</div>
+                </div>
+              </div>
+              <h6>order Status</h6>
+              <p>{{orderlist.billing_list.orderStatus}}</p>
+            </div>
+          </div>
+
+          <!--<div class="order_history">
+            <h3>20 august 2020<span class="ontheway">on the way</span> <span class="arrow"><i class="fas fa-chevron-down"></i></span></h3>
+
+          </div>
+           <div class="order_history">
+            <h3>25 august 2020<span class="canceled">cancel</span> <span class="arrow"><i class="fas fa-chevron-down"></i></span></h3>
+          </div>
+          <div class="order_history">
+            <h3>26 august 2020<span class="ontheway">on the way</span> <span class="arrow"><i class="fas fa-chevron-down"></i></span></h3>
+          </div>
+          <div class="order_history">
+            <h3>28 august 2020<span class="canceled">cancel</span> <span class="arrow"><i class="fas fa-chevron-down"></i></span></h3>
+          </div> -->
+
+        </div>
+
+        <div class="order_empty_area" *ngIf="!order_list">
+          <div class="w-100">
+            <div class="order_empty_img">
+              <img src="assets/images/note.png">
+            </div>
+            <div class="order_empty_contain">
+              <h1>Your order list is empty</h1>
+              <p>Your order list is empty</p>
+              <button class="btn-browse-menu">go to home page</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+   
+  
+</ion-content>

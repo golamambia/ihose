@@ -1,0 +1,48 @@
+
+
+<ion-content [fullscreen]="true">
+ 
+
+    <div class="home_main_area">
+      <div class="container">
+        <button class="nav_bar" routerLink="/" (click)="storePage('home')"><i class="fas fa-arrow-left"></i></button>
+        <div class="home_body_area">
+          <div class="logo"><img src="assets/images/logo.png" alt="logo" title=""></div>
+          <div class="home_body">
+            <h1>Select one</h1>
+            <ul>
+              <li *ngFor="let datalist of data_list">
+                <button (click)="goTo(datalist.subhose_id)">
+                  <div class="listing">
+                    <div class="icon" *ngIf="datalist.subhose_id==1"><img src="assets/images/hoseicon1.png" alt="icon" title=""></div>
+                     <div class="icon" *ngIf="datalist.subhose_id==3"><img src="assets/images/hoseicon2.png" alt="icon" title=""></div>
+                      <div class="icon" *ngIf="datalist.subhose_id==4"><img src="assets/images/hoseicon3.png" alt="icon" title=""></div>
+                    <h3>{{datalist.subhose_name}}<!-- <i class="fas fa-angle-double-right"></i> --></h3>
+                  </div>
+                </button>
+              </li>
+             <!--  <li>
+                <button routerLink="/endfitting-hose">
+                  <div class="listing">
+                    <div class="icon"><img src="assets/images/icon2.png" alt="icon" title=""></div>
+                    <h3>End Fitting Hose <i class="fas fa-angle-double-right"></i></h3>
+                  </div>
+                </button>
+              </li>
+              <li>
+                <button routerLink="/assembly-hose">
+                  <div class="listing">
+                    <div class="icon"><img src="assets/images/icon3.png" alt="icon" title=""></div>
+                    <h3>Hose assembly<i class="fas fa-angle-double-right"></i></h3>
+                  </div>
+                </button>
+              </li> -->
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  
+</ion-content>

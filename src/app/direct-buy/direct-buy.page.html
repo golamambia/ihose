@@ -1,0 +1,127 @@
+
+
+<ion-content>
+
+   
+    
+    <div class="header">
+      <div class="top-nav">
+        <button class="btn-back" (click)="back()">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+        <div class="title">Checkout</div>
+      </div>
+    </div>
+    
+     <div class="delevary_address">
+       <div class="container">
+      	<h3>Delivery Address</h3>
+        </div>
+      	<div class="address_area">
+      		<button class="add_address" ><i class="fas fa-plus"></i></button>
+            <div class="address_area_inner">
+              <ul >
+                 <li *ngFor="let data of address_list; let idx=index" (click)="selectDeliveryAddress(data.usa_id)"  >
+                   <button class="address_box" [ngClass]="{'active': data.usa_id == currentSelected}">
+                    <a href="javascript:void(0)" (click)="edit(data.usa_id)" class="add_icon"><i class="zmdi zmdi-more-vert"></i></a>
+                    <h4>{{data.usa_address}} {{data.usa_doorno}} {{data.usa_landmark}}</h4>
+                   
+                    <h5 *ngIf="data.usa_id == currentSelected">Delivery Here <i class="fas fa-check-circle"></i></h5>
+                    <h5 *ngIf="data.usa_id != currentSelected">Delivery Address </h5>
+                  </button>
+                </li>
+                
+              </ul>
+      		</div>
+      	</div>
+      </div>
+      
+      
+    <div class="dtlCheckout">
+      <div class="container">
+        <h3>Order Summery</h3>
+        <div class="billings">
+          <ul class="billDtl">
+            <li >
+              <span *ngIf="product_info?.hp_subcat==1">{{product_info?.item_name}}</span>
+                  <span *ngIf="product_info?.hp_subcat==5 || product_info?.hp_subcat==6">{{product_info?.hp_partno}}</span>
+                   <span *ngIf="product_info?.hp_subcat==3 || product_info?.hp_subcat==4">{{product_info?.hp_description}}</span>
+
+              
+              <span class="itemTitle">Qty 1X{{(product_info?.hp_price)}}</span>
+              <span class="itemRate"><i class="fas fa-rupee-sign"></i>{{product_info?.hp_price}}</span>
+            </li>
+            <li>
+              <span class="itemTitle">Delivery charge</span>
+              <span class="itemTitle"></span>
+              <span class="itemRate"><i class="fas fa-rupee-sign"></i>0</span>
+            </li>
+            <li class="amountTotal">
+              <span class="itemTitle">To Pay</span>
+              <span class="itemRate"><i class="fas fa-rupee-sign"></i>{{cartTotalAmount2}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+       
+    <div class="billHeading">
+     <div class="container">
+              <div class="payOptTop">
+          <span class="payTitle">Payment Options</span>
+          <!-- <button class="newAdd" href="#">Add New</button> -->
+        </div>
+     
+        <ul class="payOpt" (change)="onChangeHandler($event)" >
+       
+          <li>
+            <label class="dtl">
+              <div class="itemImgWra">
+                <img src="assets/cod.png" alt="" class="itemImg">
+              </div>
+              <div class="desc">
+                <span class="itaemName">Cash on delivery</span>
+              </div>
+            </label>
+            <div class="price">
+              <input type="radio"  value="cod" [checked]="this.datap.paytyp==='cod'">
+            </div>
+          </li>
+          <li>
+            <label class="dtl">
+              <div class="itemImgWra">
+                <img src="assets/cod.png" alt="" class="itemImg">
+              </div>
+              <div class="desc">
+                <span class="itaemName">Online Pay</span>
+              </div>
+            </label>
+            <div class="price">
+              <input value="online" [checked]="this.datap.paytyp==='online'" type="radio" >
+            </div>
+          </li>
+
+
+        </ul>
+
+        </div>
+      </div>
+    
+    
+    
+      
+      
+<div class="bottom-actionWrapper">
+        <div class="btn-action">
+          <span class="total">Total: <i class="fas fa-rupee-sign"></i>{{cartTotalAmount2}}</span>
+          <button class="btn-default" (click)="book_order()">PROCEED <i class="fas fa-long-arrow-alt-right"></i></button>
+        </div>
+        
+      </div>
+      
+   
+
+    
+  
+</ion-content>

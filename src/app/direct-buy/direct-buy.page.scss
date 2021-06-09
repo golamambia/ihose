@@ -1,0 +1,375 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css');
+html, body {
+display: block;
+height: 100%;
+margin: 0;
+font-family: 'Poppins', sans-serif;
+position:relative;
+z-index:1;
+background-color: #ffffff;
+}
+*, ::after, ::before {
+box-sizing: border-box;
+}
+img {
+max-width: 100%;
+height: auto;
+}
+.top-nav {
+width: 100%;
+display: flex;
+align-items: center;
+padding: 15px 1em;
+margin-top: 0;
+margin-bottom: 0;
+background-color: #eb9929;
+position: fixed;
+    z-index: 1;
+}
+.top-nav .btn-back {
+font-size: 2em;
+color: #fff;
+cursor: pointer;
+outline: none;
+background-color: transparent;
+border: none;
+position: absolute;
+}
+.top-nav .title {
+color: #fff;
+font-size: 1.2em;
+font-weight: 500;
+margin: 0 auto;
+text-transform: uppercase;
+letter-spacing: normal;
+}
+.header {
+background-color: #fe5632;
+box-shadow: 0px 2px 5px rgb(0 0 0 / 24%);
+}
+.full-screen.cart {
+flex-direction: column;
+}
+.container {
+padding: 0 1em;
+}
+.delevary_address h3{
+width: 100%;
+box-sizing: border-box;
+margin: 15px 0 15px;
+padding: 0 0;
+color: #000000;
+font-size: 18px;
+}
+.delevary_address .address_area {
+width: 100%;
+box-sizing: border-box;
+display: block;
+padding-left: 70px;
+position: relative;
+
+}
+.address_area_inner {
+overflow: scroll;
+box-sizing: border-box;
+padding: 10px;
+}
+.address_area_inner ul li:nth-of-type(2n) .address_box { background-color:#FFF;}
+.address_area_inner ul li:nth-of-type(2n) .address_box .add_icon {
+color: #000000;
+}
+.address_area_inner ul li:nth-of-type(2n) .address_box h4 {
+color: #000000;
+}
+.address_area_inner ul li:nth-of-type(2n) .address_box h5 {
+
+color: #000000;
+
+}
+.address_area_inner ul{
+margin: 0;
+padding: 0;
+list-style: none;
+display: table;
+width: 100%;
+}
+.address_area_inner ul li {
+display: table-cell;
+vertical-align: top;
+}
+.delevary_address .address_area .add_address {
+/* display: inline-block; */
+min-height: 120px;
+background: #ff0000;
+padding: 20px 15px;
+border: 1px solid #ff0000;
+color: #fff;
+box-sizing: border-box;
+font-size: 28px;
+border-radius: 24px;
+cursor: pointer;
+vertical-align: top;
+position: absolute;
+left: 16px;
+box-shadow: 0px 0px 10px #0000003d;
+margin: 10px 0;
+cursor:pointer;
+outline:none;
+}
+.delevary_address .address_area .add_address:hover{ background-color:#000; color:#fff;}
+.delevary_address .address_area .address_box {
+width: 240px;
+height: 120px;
+box-sizing: border-box;
+padding: 20px 50px 20px 20px;
+border-radius: 20px;
+background: #000;
+margin-right: 12px;
+position: relative;
+box-shadow: 0px 0px 20px #0000002e;
+border: none;
+text-align: left;
+vertical-align: text-top;
+display: block;
+margin-right: 24px;
+outline:none;
+}
+.delevary_address .address_area .address_box .add_icon {
+content: '';
+position: absolute;
+top: 20px;
+right: 15px;
+color: #ffffff;
+font-size: 22px;
+}
+.delevary_address .address_area .address_box h4 {
+width: 100%;
+margin: 0 0 0;
+padding: 0 0;
+color: #ffffff;
+font-size: 16px;
+font-weight: 400;
+margin-top: -44px;
+line-height: 24px;
+}
+.delevary_address .address_area .address_box h5 {
+float: right;
+margin: 0 0;
+padding: 0 0;
+color: #ffffff;
+font-size: 12px;
+position: absolute;
+bottom: 15px;
+right: 15px;
+}
+.delevary_address .address_area .address_box h5 i {
+color: #52ca0f;
+}
+.delevary_address{ margin-top:70px}
+.delevary_address h3 {
+margin: 0;
+font-weight: normal;
+font-size:18px;
+margin-bottom: 10px;
+font-family: 'Poppins', sans-serif;
+}
+/*------- checkout area css stop --------*/
+.dtlCheckout .billings {
+background-color: #ece8e8;
+padding: 1em;
+}
+.dtlCheckout .billings .billDtl {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.dtlCheckout .billings .billDtl li {
+display: -ms-flexbox!important;
+display: flex!important;
+-ms-flex-pack: justify!important;
+justify-content: space-between!important;
+padding-top: .5em;
+padding-bottom: .5em;
+}
+.dtlCheckout .billings .billDtl li span:first-child{ max-width:40%; width:100%;}
+.dtlCheckout .billings .billDtl li:not(.amountTotal) {
+color: #000;
+}
+.dtlCheckout .billings .billDtl li.amountTotal {
+border-top: 1px dashed #6e7faa4d;
+margin-top: .5em;
+padding-top: 1em;
+}
+.dtlCheckout .billings .billDtl li.amountTotal .itemTitle, .dtlCheckout .billings .billDtl li.amountTotal .itemRate {
+font-size: 1.2em;
+font-weight: bold;
+color: #000;
+}
+.dtlCheckout{ margin-top:20px}
+.dtlCheckout h3 {
+margin: 0;
+font-weight: normal;
+font-size: 18px;
+margin-bottom: 10px;
+font-family: 'Poppins', sans-serif;
+}
+.billHeading{ padding-bottom:55px;}
+.billHeading .payOptTop {
+display: -ms-flexbox!important;
+display: flex!important;
+-ms-flex-pack: justify!important;
+justify-content: space-between!important;
+padding-top: 1.1em;
+align-items: center;
+}
+.billHeading .payOptTop .payTitle,  .billHeading .payOptTop .newAdd {
+font-weight: normal;
+font-size: 18px;
+margin-bottom: 10px;
+font-family: 'Poppins', sans-serif;
+}
+.billHeading .payOptTop .newAdd {
+padding: 3px 7px;
+font-size: 14px;
+border: 1px solid #ff0000;
+text-transform: capitalize;
+background-color: transparent;
+color: #ff0000;
+cursor: pointer;
+outline: none;
+font-family: 'Poppins', sans-serif;
+}
+.billHeading .payOptTop .newAdd:hover{ background-color:#fe5632; color:#fff;}
+.billHeading .payOpt {
+list-style: none;
+padding: 0;
+}
+.billHeading .payOpt li:first-child {
+padding-top: 0;
+}
+.billHeading .payOpt li {
+display: -ms-flexbox!important;
+display: flex!important;
+padding-top: .2em;
+padding-bottom: .2em;
+-ms-flex-pack: center!important;
+justify-content: center!important;
+align-items: center;
+}
+.billHeading .payOpt li .dtl {
+display: -ms-flexbox!important;
+display: flex!important;
+-ms-flex-pack: center!important;
+justify-content: center!important;
+align-items: center;
+}
+.billHeading .payOpt li .price {
+margin-left: auto;
+}
+.billHeading .payOpt li .dtl .itemImgWra {
+height: 3em;
+width: 3em;
+-ms-flex-pack: center!important;
+justify-content: center!important;
+align-items: center;
+margin-right: 1em;
+}
+.bottom-actionWrapper {
+position: fixed;
+width: 100%;
+bottom: 0;
+}
+.bottom-actionWrapper .btn-action {
+display: -ms-flexbox!important;
+display: flex!important;
+background-color: #ffffff;
+align-items: center;
+padding: 10px 1em;
+}
+.bottom-actionWrapper .btn-action .total {
+font-size: 1.4em;
+font-weight: bold;
+color: #000;
+}
+.bottom-actionWrapper .btn-action .btn-default {
+margin-left: auto;
+background: #ff0000;
+cursor: pointer;
+color: #ffffff;
+padding: 1em 1.5em;
+font-size: 15px;
+border-radius: 0;
+letter-spacing: 1.3px;
+text-transform: uppercase;
+border: none;
+outline: none;
+}
+
+.active{
+	background: red !important;
+}
+
+
+/*------- new css start ---------*/
+.delevary_time_area {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px 0px;
+}
+.delevary_time_area .delevary_time_body{
+    width: 100%;
+    box-sizing: border-box;
+}
+.delevary_time_area .delevary_time_body h3{
+    width: 100%;
+    box-sizing: border-box;
+    font-weight: normal;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+    color: #000;
+    text-transform: capitalize;
+}
+.delevary_time_area .delevary_time_body .delivery_box {
+    width: 100%;
+    background-color: #ece8e8;
+    padding: 1em;
+}
+.delevary_time_area .delevary_time_body .delivery_box ul {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 0;
+    margin: 0 0 10px;
+}
+.delevary_time_area .delevary_time_body .delivery_box ul li{
+    display: inline-block;
+    list-style: none;
+    margin-right: 10px !important;
+}
+.delevary_time_area .delevary_time_body .delivery_box ul li:last-child{
+    margin-right: 3px !important;
+}
+.delevary_time_area .delevary_time_body .delivery_box label {
+    font-weight: 600;
+    text-transform: capitalize;
+    font-size: 15px;
+}
+.delevary_time_area .delevary_time_body .delivery_box .delivery{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 0;
+    margin: 0 0;
+}
+.delevary_time_area .delevary_time_body .delivery_box .delivery .form-group{
+    display: inline-block;
+    width: 49%;
+}
+.delevary_time_area .delevary_time_body .delivery_box .delivery .form-group .form-control {
+    width: 100%;
+    box-sizing: border-box;
+    height: 38px;
+    padding: 8px 10px;
+    border: 1px solid #adadad;
+}
+/*------- new css stop ---------*/

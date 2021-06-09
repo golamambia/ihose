@@ -1,0 +1,7 @@
+{
+  "name": "ihose",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

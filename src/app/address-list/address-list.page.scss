@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css');
+
+html, body {
+    display: block;
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+	position:relative;
+	z-index:1;
+	background-color: #ffffff;
+
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+.top-nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 15px 1em;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: #eb9929;
+    position: fixed;
+    z-index: 9;
+    top: 0;
+}
+.top-nav .btn-back {
+    font-size: 2em;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+}
+.top-nav .btn-add-address {
+    font-size: 2em;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+.top-nav .title {
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 500;
+    margin: 0 auto;
+    text-transform: uppercase;
+    letter-spacing: normal;
+}
+.header {
+    background-color: #fe5632;
+    box-shadow: 0px 2px 5px rgb(0 0 0 / 24%);
+}
+
+
+.full-screen.cart {
+    flex-direction: column;
+}
+
+
+
+
+.container {
+    padding: 0 1em;
+}
+
+.delevary_address {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 80px 0px 20px;
+    position: relative;
+}
+
+.add_address_box {
+    width: 100%;
+    padding: 30px 28px 20px;
+    position: relative;
+    box-sizing: border-box;
+    box-shadow: 0 0 4px rgb(199 199 199);
+    margin-bottom: 20px;
+}
+.add_address_box p {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 0 0;
+    margin: 0 0 0;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 24px;
+}
+.add_address_box .btn-edit {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 35px;
+    border: 1px solid #000;
+    background: #000;
+    color: #fff;
+    width: 25px;
+    height: 25px;
+    font-size: 11px;
+    cursor: pointer;
+    border-radius: 2px;
+}
+.add_address_box .btn-delete {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: 1px solid #ff0000;
+    background: #ff0000;
+    color: #fff;
+    width: 25px;
+    height: 25px;
+    font-size: 11px;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.container {
+    padding: 0 1em;
+}
+
+
+.sticky_footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #000;
+    z-index: 99;
+    padding: 5px 0;
+    box-shadow: 0 -1px 10px rgb(0 0 0 / 22%);
+}
+
+.sticky_footer p {
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
+.sticky_footer p button {
+    background-color: transparent;
+    border: none;
+    padding: 3px 0;
+    cursor: pointer;
+    color: #fff;
+    text-transform: capitalize;
+    font-weight: 500;
+    position:relative;
+    border: none;
+    outline: none;
+}
+.sticky_footer p button.active i {
+    color: #ff0000;
+}
+.sticky_footer p button small {
+    position: absolute;
+    right: -7px;
+    width: 20px;
+    height: 20px;
+    background-color: #ff0000;
+    top: 0;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 13px;
+}
+.sticky_footer p button i {
+    display: block;
+    font-size: 28px;
+    color: #fff;
+}
+.sticky_footer p button img {
+    max-width: 24px;
+    margin: 0;
+    padding: 0;
+    height: 22px;
+}
+
+.sticky_footer .container{
+    display: -ms-flexbox!important;
+    display: flex!important;-ms-flex-pack: justify!important;
+    justify-content: space-between!important;
+    padding: 6px 1em;
+}
+
+.sticky_footer img{ width:100%; max-width:100%; 
+    }

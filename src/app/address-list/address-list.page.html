@@ -1,0 +1,34 @@
+
+
+<ion-content>
+
+   
+    
+    <div class="header">
+      <div class="top-nav">
+        <button class="btn-back" (click)="back()">
+           <i class="fas fa-arrow-left"></i>
+        </button>
+        <div class="title">Address List</div>
+        <button class="btn-add-address" (click)="gotoAddAddress()">
+          <i class="far fa-plus-square"></i>
+        </button>
+      </div>
+    </div>
+    
+    <div class="delevary_address">
+      <div class="container" *ngFor="let data of address_list">
+        
+
+        <div class="add_address_box">
+          <p>{{data.usa_address}}<br/> {{data.usa_doorno}}<br/> {{data.usa_landmark}}</p>
+          <button class="btn-edit" (click)="edit(data.usa_id)"><i class="fas fa-pen"></i></button>
+          <button class="btn-delete" (click)="delete(data.usa_id)"><i class="fas fa-trash-alt"></i></button>
+        </div>
+        
+        
+
+      </div>
+    </div>
+    
+</ion-content>

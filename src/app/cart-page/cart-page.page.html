@@ -1,0 +1,89 @@
+
+
+<ion-content>
+
+    <div class="full-screen cart">
+      <div class="top-nav">
+        <button class="btn-back" (click)="back()">
+          <i class="zmdi zmdi-arrow-left"></i>
+        </button>
+        <div class="title">Cart</div>
+      </div>
+      
+      <div class="dtlCart">
+        <div class="wrapper" *ngIf="count>0">
+          <ul class="listCard" *ngFor="let menulist of cartdata ; let i=index" >
+            <li *ngIf="menulist.quantity>0">
+              <div class="dtl">
+                <div class="itemImgWra">
+                  <img src="{{img_url}}{{menulist.hp_image}}" alt="" class="itemImg">
+                </div>
+                
+                <div class="desc">
+                  <span class="itaemName">{{menulist.hp_description}}</span>
+                  <p><i class="fas fa-rupee-sign"></i>{{menulist.hp_price}}</p>
+                </div>
+              </div>
+              <div class="price">
+                <div class="number">
+                <input type="text" readonly class="form-control" value="{{menulist.quantity}}">
+                <button class="btn-minus" (click)="decrementQty(i,menulist.hp_id,menulist)"><i class="zmdi zmdi-minus"></i></button>
+                <button class="btn-plus" (click)="incrementQty(i,menulist.hp_id,menulist)"><i class="zmdi zmdi-plus"></i></button>
+              </div>
+                <button  class="remove" (click)="removeQty(i,menulist.hp_id,menulist)">Remove</button>
+              </div>
+            </li>
+           
+          </ul>
+          <div class="billHeading">
+            <span class="billTitle">Bill Details</span>
+            <!-- <button class="promoLink" >Apply Voucher</button> -->
+          </div>
+          <ul class="billDtl">
+            <li>
+              <span class="itemTitle">Item Details</span>
+              <span class="itemRate"><i class="fas fa-rupee-sign"></i>{{cartTotalAmount.toFixed(2)}}</span>
+            </li>
+            <li>
+              <span class="itemTitle">Delivery charge</span>
+              <span class="itemRate"><i class="fas fa-rupee-sign"></i> 0</span>
+            </li>
+            <li class="amountTotal">
+              <span class="itemTitle">To Pay</span>
+              <span class="itemRate"><i class="fas fa-rupee-sign"></i>{{cartTotalAmount.toFixed(2)}}</span>
+            </li>
+          </ul>
+        </div>
+
+<div class="wrapper" *ngIf="!count">
+
+<div class="empty_cart_area">
+            <div class="w-100">
+              <div class="empty_cart_img">
+                <img src="assets/empty-cart-img.jpg">
+              </div>
+              <div class="empty_cart_contain">
+                <h1></h1>
+               
+                <button class="btn-browse-menu" routerLink="/product">browse product</button>
+              </div>
+            </div>
+          </div>
+</div>
+
+      </div>
+
+      <div class="bottom-actionWrapper" *ngIf="count>0">
+        <div class="btn-wrap">
+          <button *ngIf="userDetails" class="btn-default" routerLink="/checkout">Proceed to checkout</button>
+          <button *ngIf="!userDetails" class="btn-default" routerLink="/login">Proceed to checkout</button>
+        </div>
+        
+      </div>
+
+       
+    </div>
+
+    
+  
+</ion-content>
