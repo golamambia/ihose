@@ -1,41 +1,39 @@
 
-
-    <div class="product_main_area">
+    <div class="automotive_area">
       <div class="container">
-        <div class="product_body_area">
-          <div class="header_area">
-            <button class="nav_bar" routerLink="/" (click)="storePage('/home')"><i class="fas fa-arrow-left"></i></button>
-            <div class="logo"><img src="assets/images/logo.png" alt="logo" title=""></div>
-          </div>
-          <div class="search_box_area">
-            <h3>Automotive hoses</h3>
-            <div class="product_type_box">
-              <h3>
-               Search Automotive Hose
-              </h3>
-              <div class="form-group active">
-                <label>
-                 Make</label>
-                <select class="form-control" [(ngModel)]="mk_name" [ngModelOptions]="{standalone: true}">
+          <div class="automotive_body">
+              <div class="header_area">
+                  <button class="btn-back" routerLink="/" (click)="storePage('/home')"><img src="assets/images/back.png" alt="back" title="" /></button>
+                  <h1>Automotive Hoses</h1>
+                  <button class="btn-cart"><img src="assets/images/cart.png" alt="back" title="" /></button>
+              </div>
+              <div class="search_box">
+                  <div class="icon"><i class="zmdi zmdi-search"></i></div>
+                  <input type="text" class="form-control" placeholder="Search Products..." />
+              </div>
+              <h3>Search Automotive Hoses</h3>
+              <div class="form-group">
+                  <label>Make</label>
+                  <select class="form-control" [(ngModel)]="mk_name" [ngModelOptions]="{standalone: true}">
                   <option value="" selected="selected">Select maker</option>
                  <option *ngFor="let mk_list of data_list_maker" value="{{mk_list.mk_id}}">{{mk_list.mk_name}}</option>
                 </select>
-                <span class="iconbox"><img src="assets/images/makeicon.jpg" alt="#"></span>
+                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
-             
-              <div class="form-group active">
-                <label> Part No</label>
-                <input type="text" class="form-control" [(ngModel)]="part_no" [ngModelOptions]="{standalone: true}" placeholder="Part No">
-                  
-                <span class="iconbox"><img src="assets/images/part.jpg" alt="#"></span>
+             <!--  <div class="form-group">
+                  <label>Model No</label>
+                  <select class="form-control">
+                      <option>Select Part</option>
+                  </select>
+                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+              </div> -->
+              <div class="form-group">
+                  <label>Part No</label>
+                   <input type="text" class="form-control2" [(ngModel)]="part_no" [ngModelOptions]="{standalone: true}" placeholder="Part No">
+                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
-          
-             <button class="btn" (click)="gotoProduct()">search</button>
-            </div>
+              <button class="btn" routerLink="/product">search</button>
           </div>
-
-        </div>
       </div>
     </div>
-    
   

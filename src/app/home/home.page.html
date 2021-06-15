@@ -1,49 +1,82 @@
 
 
 <ion-content [fullscreen]="true">
- 
-
-    <div class="home_main_area">
+  
+    <div class="automotive_area">
       <div class="container">
-        <button class="nav_bar" routerLink="/sidebar" (click)="storePage('home')"><i class="fas fa-bars"></i></button>
-        <div class="home_body_area">
-          <div class="logo"><img src="assets/images/logo.png" alt="logo" title=""></div>
-          <div class="home_body ">
-            <h1>welcome to<span>Soni</span></h1>
-            <ul>
-              <li *ngFor="let datalist of data_list">
-                <button  (click)="goTo(datalist.service_id)">
-                  <div class="listing">
-                    <div class="icon" *ngIf="datalist.service_id==4"><img src="assets/images/icon1.png" alt="icon" title=""></div>
-                     <div class="icon" *ngIf="datalist.service_id==7"><img src="assets/images/icon2.png" alt="icon" title=""></div>
-                      <div class="icon"*ngIf="datalist.service_id==8"><img src="assets/images/icon3.png" alt="icon" title=""></div>
-                    <h3>{{datalist.service_name}} <!-- <i class="fas fa-angle-double-right"></i> --></h3>
+          <div class="automotive_body">
+              <div class="header_area">
+                  <button class="btn-back" routerLink="/sidebar" (click)="storePage('home')"><img src="assets/images/menu.png" alt="back" title="" /></button>
+                  <div class="logo"><img src="assets/images/logo2.png" alt="logo" title=""></div>
+                  <button class="btn-cart"><img src="assets/images/cart.png" alt="back" title="" /></button>
+              </div>
+              <div class="search_box">
+                  <div class="icon"><i class="zmdi zmdi-search"></i></div>
+                  <input type="text" class="form-control" placeholder="Search Products..." />
+              </div>
+              <div class="product_area">
+                <h3>
+                    Categories
+                </h3>
+                <div class="category_body">
+                    <div class="category_box" routerLink="/box-hose/1">
+                        <div class="img_box"><img src="assets/images/category1.png"></div>
+                        <p>Bare Hoses</p>
+                        <i class="zmdi zmdi-caret-right-circle"></i>
+                    </div>
+                    <div class="category_box" routerLink="/endfitting-hose/3">
+                        <div class="img_box"><img src="assets/images/category2.png"></div>
+                        <p>End Fittings</p>
+                        <i class="zmdi zmdi-caret-right-circle"></i>
+                    </div>
+                    <div class="category_box" routerLink="/assembly-hose/4">
+                        <div class="img_box"><img src="assets/images/category3.png"></div>
+                        <p>Hose Assembly</p>
+                        <i class="zmdi zmdi-caret-right-circle"></i>
+                    </div>
+                    <div class="category_box" routerLink="/automotive/7">
+                        <div class="img_box"><img src="assets/images/category4.png"></div>
+                        <p>Automotive Hoses</p>
+                        <i class="zmdi zmdi-caret-right-circle"></i>
+                    </div>
+                    <div class="category_box" routerLink="/earth-moving/8">
+                        <div class="img_box"><img src="assets/images/category5.png"></div>
+                        <p>HEM Hoses</p>
+                        <i class="zmdi zmdi-caret-right-circle"></i>
+                    </div>
+                    <div class="category_box" routerLink="/product">
+                        <div class="img_box"><img src="assets/images/category6.png"></div>
+                        <p>See All Products</p>
+                        <i class="zmdi zmdi-caret-right-circle"></i>
+                    </div>
+                </div>
+              </div>
+              <div class="product_area">
+                    <h3>
+                        Trending Products
+                        <button class="btn-see">See All</button>
+                    </h3>
+                  <div class="product_box" routerLink="/product-details/1">
+                    <div class="img_box"><img src="assets/images/product-details.png"></div>
+                    <h4>R2AT - 20.7 MPA</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h5>
+                        Size : 3/16"
+                        <div class="price">INR 50<strong>/Meter</strong></div>
+                      </h5>
                   </div>
-                </button>
-              </li>
-
-             <!--  <li>
-                <button>
-                  <div class="listing">
-                    <div class="icon"><img src="assets/images/icon2.png" alt="icon" title=""></div>
-                    <h3>automotive Hose <i class="fas fa-angle-double-right"></i></h3>
+                  <div class="product_box" routerLink="/product-details/1">
+                    <div class="img_box"><img src="assets/images/product-details.png"></div>
+                    <h4>R2AT - 20.7 MPA</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h5>
+                        Size : 3/16"
+                        <div class="price">INR 50<strong>/Meter</strong></div>
+                      </h5>
                   </div>
-                </button>
-              </li>
-              <li>
-                <button>
-                  <div class="listing">
-                    <div class="icon"><img src="assets/images/icon3.png" alt="icon" title=""></div>
-                    <h3>heavy earthmoving equipment hose <i class="fas fa-angle-double-right"></i></h3>
-                  </div>
-                </button>
-              </li> -->
-
-            </ul>
+              </div>
           </div>
-        </div>
       </div>
     </div>
-    
   
 </ion-content>

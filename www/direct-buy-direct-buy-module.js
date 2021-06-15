@@ -466,7 +466,7 @@ let DirectBuyPage = class DirectBuyPage {
                     };
                     this.http.post(this.bookUrl, data)
                         .subscribe(res => {
-                        console.log(res.json());
+                        //console.log(res.json());
                         this.res = res.json();
                         if (this.res.status == 0) {
                             loading.dismiss();

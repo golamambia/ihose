@@ -1,0 +1,103 @@
+
+<ion-content>
+<ion-refresher (ionRefresh)="doRefresh($event)" slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200">
+    <ion-refresher-content style="margin-top: 150px;"></ion-refresher-content>
+  </ion-refresher>
+
+    <div class="product_main_area">
+      <div class="container">
+        <div class="product_body_area">
+          <div class="header_area">
+            <button class="nav_bar" (click)="back()"><i class="fas fa-arrow-left"></i></button>
+            <div class="logo"><img src="assets/images/logo.png" alt="logo" title=""></div>
+            <button class="btn-cart" routerLink="/cart-page">
+              <i class="zmdi zmdi-shopping-cart"></i>
+              <span class="total_cart" [innerHTML]="cartcount"></span>
+            </button>
+          </div>
+          <div class="search_box_area">
+            <h3>find your product</h3>
+            <div class="form-group">
+              <span class="search-icon"><i class="zmdi zmdi-search"></i></span>
+              <input type="text" (keyup)="listing($event)" [(ngModel)]="search_key" [ngModelOptions]="{standalone:true}" class="form-control" placeholder="Search Products...">
+            </div>
+          </div>
+
+          <div class="category_list_area">
+            <h3>categories</h3>
+            <div class="category_list_body">
+              <ul>
+                <li routerLink="/box-hose/1">
+                  <div class="category_list_box">
+                    <img src="assets/images/img3.jpg">
+                    <h3>Bare Hoses</h3>
+                  </div>
+                </li>
+                <li routerLink="/endfitting-hose/3">
+                  <div class="category_list_box">
+                    <img src="assets/images/img4.jpg">
+                    <h3>End Fittings</h3>
+                  </div>
+                </li>
+                <li routerLink="/assembly-hose/4">
+                  <div class="category_list_box">
+                    <img src="assets/images/img5.jpg">
+                    <h3>Hose Assemblies</h3>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="product_list_area" *ngIf="dataMenu && loader_val == false">
+            <h3>products <!-- <button class="view_all">view all >></button> --></h3>
+            <ul>
+
+              <li *ngFor="let menulist of dataMenu; let i=index">
+                <div class="product_box">
+                  <div class="product_image">
+                    <img src="{{img_url}}{{menulist.hp_image}}" alt="product image" title="">
+                  </div>
+                  <h4 *ngIf="menulist.hp_subcat==1">{{menulist.item_name}}</h4>
+                  <h4 *ngIf="menulist.hp_subcat==5 || menulist.hp_subcat==6">{{menulist.hp_partno}}</h4>
+                   <h4 *ngIf="menulist.hp_subcat==3 || menulist.hp_subcat==4">{{menulist.hp_description}}</h4>
+                  <p *ngIf="menulist.hp_subcat!=3 && menulist.hp_subcat!=4">{{menulist.hp_description}}</p>
+                  <div class="select_number" *ngIf="menulist.quantity>0">
+                    <input type="text" readonly class="form-control" value="{{menulist.quantity}}">                 
+                    
+                   <button class="btn btn-minus" (click)="decrementQty(i,menulist.hp_id,menulist)"><i class="zmdi zmdi-minus"></i></button>
+                      <button class="btn btn-plus" (click)="incrementQty(i,menulist.hp_id,menulist)"><i class="zmdi zmdi-plus"></i></button>
+                  </div>
+                  <button class="btn" (click)="addToCart(i,menulist.hp_id,menulist)" *ngIf="menulist.quantity==0">add <i class="zmdi zmdi-plus"></i></button>
+                  <button class="btn btn-shop" routerLink="/product-details/{{menulist.hp_id}}" (click)="storePage('/product')">shop now</button>
+                </div>
+              </li>
+              
+
+            </ul>
+          </div>
+
+          <div class="product_list_area" *ngIf="loader_val">
+  
+           <div class="loader_box">
+<img src="assets/loader.gif">
+</div>
+
+</div>
+
+<div class="product_list_area" *ngIf="menu_list && menu_list.length==0 && loader_val == false">
+ <div class="empty_menu">
+           Not available
+         </div>
+  </div>
+
+
+        </div>
+      </div>
+    </div>
+    <ion-infinite-scroll #infiniteScroll (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  
+</ion-content>

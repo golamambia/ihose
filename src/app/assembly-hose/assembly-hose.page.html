@@ -1,34 +1,181 @@
+<ion-content [fullscreen]="true">
 
-
-    <div class="product_main_area">
+    <div class="automotive_area">
       <div class="container">
-        <div class="product_body_area">
-          <div class="header_area">
-            <button class="nav_bar" routerLink="/hose-page/4" (click)="storePage('/hose-page/4')"><i class="fas fa-arrow-left"></i></button>
-            <div class="logo"><img src="assets/images/logo.png" alt="logo" title=""></div>
-          </div>
-          <div class="search_box_area">
-             <h3>Assemblies Hose</h3>
-            <div class="product_type_box">
-              <h3>
-               Search Assemblies Hose
-              </h3>
-              <div class="form-group active">
-                <label>
-                Assesmbly Name</label>
-                <select class="form-control" [(ngModel)]="assembly_name" [ngModelOptions]="{standalone: true}">
-                  <option value="" selected="selected">Select name</option>
-                 <option *ngFor="let assembly_ist of assemblyList" value="{{assembly_ist.assembly_id}}">{{assembly_ist.assembly_name}}</option>
-                </select>
-                <span class="iconbox"><img src="assets/images/icon8.jpg" alt="#"></span>
+          <div class="automotive_body">
+              <div class="header_area">
+                  <button class="btn-back" routerLink="/home"><img src="assets/images/back.png" alt="back" title="" /></button>
+                  <h1 *ngIf="tab_val == 'bare'">Hose Assembly - Bare Hoses</h1>
+                  <h1 *ngIf="tab_val == 'endfit'">Hose Assembly - End Fittings</h1>
+                  <h1 *ngIf="tab_val == 'addon'">Hose Assembly - Add On</h1>
+                  <button class="btn-cart"><img src="assets/images/cart.png" alt="back" title="" /></button>
               </div>
-              
-             <button class="btn" (click)="gotoProduct()">search</button>
-            </div>
-          </div>
+              <div class="search_box">
+                  <div class="icon"><i class="zmdi zmdi-search"></i></div>
+                  <input type="text" class="form-control" placeholder="Search Products..." />
+              </div>
+              <ul class="filter">
+                <li (click)="tab_click('bare')" [ngClass]="{'active': tab_val == 'bare'}">Bare Hoses</li>
+                <li (click)="tab_click('endfit')" [ngClass]="{'active': tab_val == 'endfit'}">End Fittings</li>
+                <li (click)="tab_click('addon')" [ngClass]="{'active': tab_val == 'addon'}">Add On</li>
+              </ul>
+               <div class="product_select" *ngIf="tab_val == 'endfit'">
+                <label class="check_box">
+                    <input type="radio" name="" [checked]="endfittab_val == 'endfitA'" (change)="onChangeHandler('endfitA')" />  
+                    <span>End-A</span>
+                </label>
+                <label class="check_box">
+                    <input type="radio" name="" [checked]="endfittab_val == 'endfitB'" (change)="onChangeHandler('endfitB')" />  
+                    <span>End-B</span>
+                </label>
+                <label class="check_box">
+                    <input type="radio" name="" [checked]="endfittab_val == 'endfitAngel'" (change)="onChangeHandler('endfitAngel')"/>  
+                    <span>Angle of Orientation</span>
+                </label>
+                <label class="check_box">
+                    <input type="radio" name="" [checked]="endfittab_val == 'endfitAdapter'" (change)="onChangeHandler('endfitAdapter')"/>  
+                    <span>Adapter</span>
+                </label>
+              </div>
 
-        </div>
+              <div *ngIf="tab_val == 'bare'">
+              <div class="form-group">
+                  <label>Standard</label>
+                  <select class="form-control">
+                      <option>Select Standard</option>
+                  </select>
+                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+              </div>
+              <div class="form-group">
+                  <label>Size</label>
+                  <select class="form-control">
+                      <option>Select Size</option>
+                  </select>
+                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+              </div>
+              <div class="form-group">
+                  <label>Name</label>
+                  <select class="form-control">
+                      <option>Select Name</option>
+                  </select>
+                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+              </div>
+              <div class="form-group">
+                  <label>Pressure</label>
+                  <select class="form-control">
+                      <option>Select Pressure</option>
+                  </select>
+                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+              </div>
+              <div class="form-group form-radio">
+                <label class="radio-inline">
+                    <input type="radio" name="optradio" checked>Hose Length
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="optradio">Overall Length
+                </label>
+              </div>
+              <div class="form-group">
+                  <label>Hose Length</label>
+                  <input type="text" class="form-control" placeholder="Text input" />
+              </div>
+              <button class="btn" (click)="tab_click('endfit')" >SELECT END FITTINGS</button>
+            </div>
+             <div *ngIf="tab_val == 'endfit'">
+
+
+              <div *ngIf="endfittab_val == 'endfitA'">
+              <div class="form-group">
+                  <label>Part Type</label>
+                  <select class="form-control">
+                      <option>Select Part Type</option>
+                  </select>
+                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+              </div>
+              <div class="form-group">
+                  <label>Size</label>
+                  <select class="form-control">
+                      <option>Select Size</option>
+                  </select>
+                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+              </div>
+              <button class="btn" (click)="onChangeHandler('endfitB')">select end-b</button>
+
+            </div>
+            <div *ngIf="endfittab_val == 'endfitB'">
+               <div class="form-group">
+                  <label>Part Type</label>
+                  <select class="form-control">
+                      <option>Select Part Type</option>
+                  </select>
+                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+              </div>
+              <div class="form-group">
+                  <label>Size</label>
+                  <select class="form-control">
+                      <option>Select Size</option>
+                  </select>
+                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+              </div>
+              <button class="btn" (click)="onChangeHandler('endfitAngel')">select Angle of Orientation</button>
+            </div>
+            <div *ngIf="endfittab_val == 'endfitAngel'">
+                  <div class="form-group">
+                  <label>Degree</label>
+                  <select class="form-control">
+                      <option>0</option>
+                  </select>
+                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+              </div>
+              <button class="btn" (click)="onChangeHandler('endfitAdapter')">select adapter</button>
+            </div>
+            <div *ngIf="endfittab_val == 'endfitAdapter'">
+               <div class="form-group form-radio">
+                <label class="radio-inline">
+                    <input type="radio" name="optradio" checked>yes
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="optradio">no
+                </label>
+              </div>
+              <div class="form-group">
+                  <label>Size</label>
+                  <select class="form-control">
+                      <option>Select Size</option>
+                  </select>
+                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+              </div>
+              <div class="form-group">
+                  <label>Angle</label>
+                  <select class="form-control">
+                      <option>Select Angle</option>
+                  </select>
+                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+              </div>
+              <button class="btn" (click)="tab_click('addon')">Select ADD ON</button>
+            </div>
+          
+
+             </div>
+
+              <div *ngIf="tab_val == 'addon'">
+                 <div class="form-group">
+                  <label>Type of Add on</label>
+                  <select class="form-control">
+                      <option>Pyrojacket</option>
+                  </select>
+                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+              </div>
+              <button class="btn" routerLink="/product">send query</button>
+              </div> 
+
+
+
+
+
+
+          </div>
       </div>
     </div>
-    
   
+</ion-content>

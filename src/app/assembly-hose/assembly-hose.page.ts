@@ -30,6 +30,8 @@ pro_id:any;
  //pressure:any='';
  mk_name:any ='';
 part_no:any ='';
+tab_val:any='bare';
+endfittab_val:any='endfitA';
  constructor(public http: Http,
   public navCtrl: NavController,
    public storage: Storage,
@@ -47,6 +49,14 @@ part_no:any ='';
    this.listing_assembly();
   }
 });
+  }
+  tab_click(val){
+    this.tab_val=val;
+  }
+  onChangeHandler(val) {
+   
+    this.endfittab_val=val;
+    //console.log($event);
   }
   storePage(page){
   this.storage.set("goTo", page);
