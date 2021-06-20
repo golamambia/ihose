@@ -6,7 +6,7 @@
       <div class="container">
           <div class="automotive_body">
               <div class="header_area">
-                  <button class="btn-back" routerLink="/sidebar" (click)="storePage('home')"><img src="assets/images/menu.png" alt="back" title="" /></button>
+                 <button class="btn-back" routerLink="/sidebar" (click)="storePage('home')"><img src="assets/images/menu.png" alt="back" title="" /></button>
                   <div class="logo"><img src="assets/images/logo2.png" alt="logo" title=""></div>
                   <button class="btn-cart"><img src="assets/images/cart.png" alt="back" title="" /></button>
               </div>
@@ -19,42 +19,54 @@
                     Categories
                 </h3>
                 <div class="category_body">
-                    <div class="category_box" routerLink="/box-hose/1">
-                        <div class="img_box"><img src="assets/images/category1.png"></div>
+                    <button class="category_box" routerLink="/box-hose/1">
+                      <div class="d-block">
+                        <div class="img_box" ><img src="assets/images/category1.png"></div>
                         <p>Bare Hoses</p>
                         <i class="zmdi zmdi-caret-right-circle"></i>
-                    </div>
-                    <div class="category_box" routerLink="/endfitting-hose/3">
-                        <div class="img_box"><img src="assets/images/category2.png"></div>
+                      </div>
+                    </button>
+                    <button class="category_box" routerLink="/endfitting-hose/3">
+                        <div class="d-block">
+                        <div class="img_box" ><img src="assets/images/category2.png"></div>
                         <p>End Fittings</p>
                         <i class="zmdi zmdi-caret-right-circle"></i>
                     </div>
-                    <div class="category_box" routerLink="/assembly-hose/4">
+                    </button>
+                    <button class="category_box" routerLink="/assembly-hose/4">
+                        <div class="d-block">
                         <div class="img_box"><img src="assets/images/category3.png"></div>
                         <p>Hose Assembly</p>
                         <i class="zmdi zmdi-caret-right-circle"></i>
                     </div>
-                    <div class="category_box" routerLink="/automotive/7">
+                    </button>
+                    <button class="category_box" routerLink="/automotive/7">
+                        <div class="d-block">
                         <div class="img_box"><img src="assets/images/category4.png"></div>
                         <p>Automotive Hoses</p>
                         <i class="zmdi zmdi-caret-right-circle"></i>
                     </div>
-                    <div class="category_box" routerLink="/earth-moving/8">
+                    </button>
+                    <button class="category_box"  routerLink="/earth-moving/8">
+                        <div class="d-block">
                         <div class="img_box"><img src="assets/images/category5.png"></div>
                         <p>HEM Hoses</p>
                         <i class="zmdi zmdi-caret-right-circle"></i>
                     </div>
-                    <div class="category_box" routerLink="/product">
+                    </button>
+                    <button class="category_box" routerLink="/product">
+                        <div class="d-block">
                         <div class="img_box"><img src="assets/images/category6.png"></div>
                         <p>See All Products</p>
                         <i class="zmdi zmdi-caret-right-circle"></i>
                     </div>
+                    </button>
                 </div>
               </div>
               <div class="product_area">
                     <h3>
                         Trending Products
-                        <button class="btn-see">See All</button>
+                        <button class="btn-see" routerLink="/product">See All</button>
                     </h3>
                   <div class="product_box" routerLink="/product-details/1">
                     <div class="img_box"><img src="assets/images/product-details.png"></div>

@@ -1,30 +1,26 @@
 
 <ion-content>
-  
     <div class="login_area">
       <div class="container">
-        <button class="nav_bar" (click)="back()"><i class='fas fa-arrow-left'></i></button>
+         <!-- <button class="nav_bar" (click)="back()"><i class='fas fa-arrow-left'></i></button> -->
           <div class="header_area">
               <h1>register</h1>
           </div>
           <div class="login_body">
               <div class="form-group">
-                 <input type="text" class="form-control" placeholder="Name" [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
+                  <input type="text" class="form-control" placeholder="Name" [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
               </div>
               <div class="form-group">
-                   <input type="text" class="form-control" placeholder="Phone" [(ngModel)]="phone" [ngModelOptions]="{standalone: true}">
+                   <input type="text" placeholder="Email" class="form-control" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
               </div>
-              <div class="form-group">
-                  <input type="text" placeholder="Email" class="form-control" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+              <div class="form-group phone">
+                 <input type="text" class="form-control" placeholder="Phone" [(ngModel)]="phone" [ngModelOptions]="{standalone: true}">
               </div>
-              <div class="form-group">
-                 <input type="text" class="form-control" type="password" placeholder="Password" [(ngModel)]="pass" [ngModelOptions]="{standalone: true}">
+              <div class="form-group Password">
+                  <input type="text" class="form-control" type="password" placeholder="Password" [(ngModel)]="pass" [ngModelOptions]="{standalone: true}">
               </div>
-              <div class="form-group">
-                 <input type="text" class="form-control" placeholder="Confirm Password" [(ngModel)]="confirmPassword" [ngModelOptions]="{standalone: true}">
-              </div>
-              <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Address" [(ngModel)]="address" [ngModelOptions]="{standalone: true}">
+              <div class="form-group Confirm">
+                  <input type="text" class="form-control" placeholder="Confirm Password" [(ngModel)]="confirmPassword" [ngModelOptions]="{standalone: true}">
               </div>
               <div class="submit_button_box">
                   <button class="btn" (click)="register()"><i class="zmdi zmdi-long-arrow-right"></i></button>
@@ -38,9 +34,8 @@
                   <li><img src="assets/images/twitter.png" alt="twitter" title="" /></li>
                   <li><img src="assets/images/google.png" alt="google" title="" /></li>
               </ul>
-              <p>Don’t have an account? <button class="btn-link" routerLink="/login">Register</button></p>
+              <p>Already have an account? <button class="btn-link" routerLink="/login">Login</button></p>
           </div>
       </div>
     </div>
-  
-</ion-content>
+  </ion-content>

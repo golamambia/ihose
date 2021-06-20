@@ -1,0 +1,82 @@
+
+
+<ion-content [fullscreen]="true">
+  
+    <div class="automotive_area">
+      <div class="container">
+          <div class="automotive_body">
+              <div class="header_area">
+                  <button class="btn-back" routerLink="/sidebar" (click)="storePage('home')"><img src="assets/images/menu.png" alt="back" title="" /></button>
+                  <div class="logo"><img src="assets/images/logo2.png" alt="logo" title=""></div>
+                  <button class="btn-cart"><img src="assets/images/cart.png" alt="back" title="" /></button>
+              </div>
+              <div class="search_box">
+                  <div class="icon"><i class="zmdi zmdi-search"></i></div>
+                  <input type="text" class="form-control" placeholder="Search Products..." />
+              </div>
+              <div class="product_area">
+                <h3>
+                    Categories
+                </h3>
+                <div class="category_body">
+                    <div class="category_box" routerLink="/box-hose/1">
+                        <div class="img_box"><img src="assets/images/category1.png"></div>
+                        <p>Bare Hoses</p>
+                        <i class="zmdi zmdi-caret-right-circle"></i>
+                    </div>
+                    <div class="category_box" routerLink="/endfitting-hose/3">
+                        <div class="img_box"><img src="assets/images/category2.png"></div>
+                        <p>End Fittings</p>
+                        <i class="zmdi zmdi-caret-right-circle"></i>
+                    </div>
+                    <div class="category_box" routerLink="/assembly-hose/4">
+                        <div class="img_box"><img src="assets/images/category3.png"></div>
+                        <p>Hose Assembly</p>
+                        <i class="zmdi zmdi-caret-right-circle"></i>
+                    </div>
+                    <div class="category_box" routerLink="/automotive/7">
+                        <div class="img_box"><img src="assets/images/category4.png"></div>
+                        <p>Automotive Hoses</p>
+                        <i class="zmdi zmdi-caret-right-circle"></i>
+                    </div>
+                    <div class="category_box" routerLink="/earth-moving/8">
+                        <div class="img_box"><img src="assets/images/category5.png"></div>
+                        <p>HEM Hoses</p>
+                        <i class="zmdi zmdi-caret-right-circle"></i>
+                    </div>
+                    <div class="category_box" routerLink="/product">
+                        <div class="img_box"><img src="assets/images/category6.png"></div>
+                        <p>See All Products</p>
+                        <i class="zmdi zmdi-caret-right-circle"></i>
+                    </div>
+                </div>
+              </div>
+              <div class="product_area">
+                    <h3>
+                        Trending Products
+                        <button class="btn-see">See All</button>
+                    </h3>
+                  <div class="product_box" routerLink="/product-details/1">
+                    <div class="img_box"><img src="assets/images/product-details.png"></div>
+                    <h4>R2AT - 20.7 MPA</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h5>
+                        Size : 3/16"
+                        <div class="price">INR 50<strong>/Meter</strong></div>
+                      </h5>
+                  </div>
+                  <div class="product_box" routerLink="/product-details/1">
+                    <div class="img_box"><img src="assets/images/product-details.png"></div>
+                    <h4>R2AT - 20.7 MPA</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h5>
+                        Size : 3/16"
+                        <div class="price">INR 50<strong>/Meter</strong></div>
+                      </h5>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  
+</ion-content>

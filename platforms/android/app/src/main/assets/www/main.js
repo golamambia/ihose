@@ -387,25 +387,76 @@ module.exports = webpackAsyncContext;
 /*!***************************************!*\
   !*** ./src/app/app-routing.module.ts ***!
   \***************************************/
-/*! exports provided: AppRoutingModule */
+/*! exports provided: CheckLogged, AppRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CheckLogged", function() { return CheckLogged; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/storage */ "e8h1");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 
 
+
+
+
+
+/***** gaurd */
+let CheckLogged = class CheckLogged {
+    constructor(navCtrl, router, storage) {
+        this.navCtrl = navCtrl;
+        this.router = router;
+        this.storage = storage;
+        this.storage.get("userDetails").then(val => {
+            if (val) {
+                this.userDetails = val;
+            }
+        });
+    }
+    canActivate(route, state) {
+        //check user is logged in
+        this.storage.get("get_started").then(val => {
+            if (val) {
+                this.get_started = val;
+                if (this.userDetails) {
+                    this.router.navigate(['/home']);
+                    //this.navCtrl.navigateForward('/home');
+                }
+                else {
+                    // this.navCtrl.navigateForward('/login');
+                    this.router.navigate(['/login']);
+                }
+                return false;
+            }
+        });
+        return true;
+    }
+};
+CheckLogged.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _ionic_storage__WEBPACK_IMPORTED_MODULE_3__["Storage"] }
+];
+CheckLogged = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({ providedIn: 'root' })
+], CheckLogged);
 
 const routes = [
-    {
-        path: 'home',
-        loadChildren: () => __webpack_require__.e(/*! import() | home-home-module */ "home-home-module").then(__webpack_require__.bind(null, /*! ./home/home.module */ "ct+p")).then(m => m.HomePageModule)
-    },
+    // { 
+    //   path: '', redirectTo: 'home', pathMatch: 'full',
+    //   canActivate: [CheckLogged] 
+    // },
     {
         path: '',
+        canActivate: [CheckLogged],
+        loadChildren: () => __webpack_require__.e(/*! import() | getstarted-page-getstarted-page-module */ "getstarted-page-getstarted-page-module").then(__webpack_require__.bind(null, /*! ./getstarted-page/getstarted-page.module */ "l+nA")).then(m => m.GetstartedPagePageModule)
+    },
+    {
+        path: 'home',
         loadChildren: () => __webpack_require__.e(/*! import() | home-home-module */ "home-home-module").then(__webpack_require__.bind(null, /*! ./home/home.module */ "ct+p")).then(m => m.HomePageModule)
     },
     {
@@ -507,6 +558,10 @@ const routes = [
     {
         path: 'direct-buy/:id',
         loadChildren: () => __webpack_require__.e(/*! import() | direct-buy-direct-buy-module */ "direct-buy-direct-buy-module").then(__webpack_require__.bind(null, /*! ./direct-buy/direct-buy.module */ "Em/G")).then(m => m.DirectBuyPageModule)
+    },
+    {
+        path: 'getstarted-page',
+        loadChildren: () => __webpack_require__.e(/*! import() | getstarted-page-getstarted-page-module */ "getstarted-page-getstarted-page-module").then(__webpack_require__.bind(null, /*! ./getstarted-page/getstarted-page.module */ "l+nA")).then(m => m.GetstartedPagePageModule)
     },
 ];
 let AppRoutingModule = class AppRoutingModule {

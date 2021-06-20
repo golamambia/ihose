@@ -51,7 +51,7 @@ logout(){
         this.page = val;
         this.navCtrl.navigateForward(''+this.page);
     }else{
-    	this.navCtrl.navigateForward('/');
+    	this.navCtrl.navigateForward('/home');
     }
         });
   

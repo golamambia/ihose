@@ -20,6 +20,7 @@ page:any;
    constructor(public http: Http, public navCtrl: NavController, public storage: Storage,public loadingController: LoadingController,public alertController: AlertController) { }
 
   ngOnInit() {
+    //this.storage.set("get_started", 0);
   }
 back(){
 	
@@ -28,7 +29,7 @@ back(){
         this.page = val;
         this.navCtrl.navigateForward(''+this.page);
     }else{
-    	this.navCtrl.navigateForward('/');
+    	this.navCtrl.navigateForward('/home');
     }
         });
   

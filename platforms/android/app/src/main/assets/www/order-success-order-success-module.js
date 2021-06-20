@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<ion-content>\n <div class=\"success_message_area\">\n      <div class=\"container\">\n        <div class=\"success_logo\"><img src=\"assets/check.png\" alt=\"check\" title=\"\"></div>\n        <h1>Order Successful</h1>\n        <h2>Thank you!</h2>\n        <!-- <p>On my way to your table</p> -->\n        <button class=\"btn-success\" routerLink=\"/\">go to home</button>\n      </div>\n    </div>\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<ion-content>\n <div class=\"success_message_area\">\n      <div class=\"container\">\n        <div class=\"success_logo\"><img src=\"assets/check.png\" alt=\"check\" title=\"\"></div>\n        <h1>Order Successful</h1>\n        <h2>Thank you!</h2>\n        <!-- <p>On my way to your table</p> -->\n        <button class=\"btn-success\" routerLink=\"/home\">go to home</button>\n      </div>\n    </div>\n</ion-content>\n");
 
 /***/ }),
 

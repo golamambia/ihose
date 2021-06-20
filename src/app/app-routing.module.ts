@@ -1,15 +1,60 @@
+import { Injectable } from '@angular/core';
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { CanActivate,PreloadAllModules, RouterModule, Routes,Router, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
+import { Storage } from '@ionic/storage';
+import { NavController } from '@ionic/angular';
+/***** gaurd */
+
+@Injectable({ providedIn: 'root' })
+export class CheckLogged implements CanActivate {
+   userDetails: any;
+ get_started:any;
+  constructor(private navCtrl: NavController,private router:Router,
+    public storage: Storage) {
+    this.storage.get("userDetails").then(val=>{
+      if(val){
+        this.userDetails = val;
+      }
+    })
+  }
+ canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    //check user is logged in
+    this.storage.get("get_started").then(val=>{
+      if(val){
+
+        this.get_started=val;
+       if(this.userDetails){
+          this.router.navigate(['/home']);
+       //this.navCtrl.navigateForward('/home');
+      }else{
+       // this.navCtrl.navigateForward('/login');
+        this.router.navigate(['/login']);
+      }
+       return false;
+      }
+    })
+     return true; 
+  }
+}
 
 const routes: Routes = [
+// { 
+//   path: '', redirectTo: 'home', pathMatch: 'full',
+//   canActivate: [CheckLogged] 
+// },
+ {
+    path: '',
+    canActivate: [CheckLogged] ,
+   loadChildren: () => import('./getstarted-page/getstarted-page.module').then( m => m.GetstartedPagePageModule)
+  
+  },
+ 
   {
     path: 'home',
+
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
-  {
-    path: '',
-   loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
+ 
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
@@ -109,6 +154,10 @@ const routes: Routes = [
   {
     path: 'direct-buy/:id',
     loadChildren: () => import('./direct-buy/direct-buy.module').then( m => m.DirectBuyPageModule)
+  },
+  {
+    path: 'getstarted-page',
+    loadChildren: () => import('./getstarted-page/getstarted-page.module').then( m => m.GetstartedPagePageModule)
   },
 ];
 

@@ -3,7 +3,7 @@
       <div class="container">
           <div class="automotive_body">
               <div class="header_area">
-                  <button class="btn-back" routerLink="/" (click)="storePage('/home')"><img src="assets/images/back.png" alt="back" title="" /></button>
+                  <button class="btn-back" routerLink="/home" (click)="storePage('/home')"><img src="assets/images/back.png" alt="back" title="" /></button>
                   <h1>Automotive Hoses</h1>
                   <button class="btn-cart"><img src="assets/images/cart.png" alt="back" title="" /></button>
               </div>
@@ -20,18 +20,22 @@
                 </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
-             <!--  <div class="form-group">
+              <div class="form-group">
                   <label>Model No</label>
                   <select class="form-control">
                       <option>Select Part</option>
                   </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
-              </div> -->
-              <div class="form-group">
+              </div>
+               <div class="form-group">
                   <label>Part No</label>
-                   <input type="text" class="form-control2" [(ngModel)]="part_no" [ngModelOptions]="{standalone: true}" placeholder="Part No">
+      
+                  <select class="form-control" [(ngModel)]="part_no" [ngModelOptions]="{standalone: true}">
+                      <option value="">Select Part</option>
+                  </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
+              
               <button class="btn" routerLink="/product">search</button>
           </div>
       </div>

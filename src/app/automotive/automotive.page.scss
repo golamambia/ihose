@@ -26,23 +26,24 @@ img {
   box-sizing: border-box;
   overflow: hidden;
 }
-.automotive_area:before{
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 31%;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: url(../../assets/images/sape1.png);
-  z-index: 0;
+.automotive_area:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 32%;
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-image: url(../../assets/images/sape1.png);
+    z-index: 0;
 }
-.container{
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0px 30px;
+.container {
+    width: 90%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: auto;
 }
 .automotive_body{
   width: 100%;
@@ -51,12 +52,12 @@ img {
   position: relative;
   z-index: 1;
 }
-.header_area{
-  width: 100%;
-  box-sizing: border-box;
-  overflow: hidden;
-  text-align: center;
-  padding: 30px 0px 50px;
+.header_area {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: center;
+    padding: 18px 0px 24px;
 }
 .header_area h1{
   display: inline-block;
@@ -67,63 +68,68 @@ img {
   font-size: 18px;
   font-weight: 500;
 }
-.header_area .btn-back{
-  display: inline-block;
-  background: transparent;
-  border: none;
-  padding: 3px 0;
-  outline: none;
-  float: left;
+.header_area .btn-back {
+    display: inline-block;
+    background: transparent;
+    border: none;
+    padding: 1px 0;
+    outline: none;
+    float: left;
+    max-width: 22px;
 }
-.header_area .btn-cart{
-  display: inline-block;
-  background: transparent;
-  border: none;
-  padding: 3px 0;
-  outline: none;
-  float: right;
+.header_area .btn-cart {
+    display: inline-block;
+    background: transparent;
+    border: none;
+    padding: 0px 0;
+    outline: none;
+    float: right;
+    max-width: 28px;
 }
 .search_box {
-  width: 100%;
-  box-sizing: border-box;
-  overflow: hidden;
-  border-radius: 5px;
-  position: relative;
-  z-index: 1;
-  margin: 0 0 60px;
+    width: 97%;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 6px;
+    position: relative;
+    z-index: 1;
+    margin: 0 0 58px;
+    box-shadow: 0px 0px 7px #0000001c;
+    margin-left: auto;
+    margin-right: auto;
 }
 .search_box .form-control {
-  width: 100%;
-  height: 50px;
-  background: #ffffff;
-  border: 1px solid #ffffff;
-  font-size: 14px;
-  font-weight: 500;
-  color: #868686;
-  padding: 10px 10px 10px 45px;
-  box-shadow: 0 0 30px rgb(224 59 27);
-  outline: none;
+    width: 100%;
+    height: 48px;
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    color: #868686;
+    padding: 10px 10px 10px 45px;
+    /* box-shadow: 0 0 0px rgb(0, 0, 0); */
+    outline: none;
 }
 .search_box .form-control::placeholder{
   font-weight: 500;
   color: #868686;
 }
 .search_box .icon {
-  position: absolute;
-  top: 7px;
-  left: 15px;
-  font-size: 32px;
-  color: #868686;
+    position: absolute;
+    top: 9px;
+    left: 15px;
+    font-size: 26px;
+    color: #bebebe;
 }
 .automotive_body h3 {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0 0 10px;
-  margin: 0 0 40px;
-  font-size: 18px;
-  font-weight: 600;
-  color: #000000;
-  border-bottom: 1px dashed #949494;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 0 15px;
+    margin: 0 0 30px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000;
+    border-bottom: 1px dashed #949494;
 }
 .form-group{
   width: 100%;
@@ -132,38 +138,29 @@ img {
   margin: 0 0 25px;
 }
 select.form-control {
-  width: 100%;
-  height: 52px;
-  border-radius: 10px;
-  border: 1px solid #8e8e8d;
-  font-size: 14px;
-  font-weight: 400;
-  color: #616161;
-  padding: 15px 15px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  outline: none;
-}
-.form-control2 {
-  width: 100%;
-  height: 52px;
-  border-radius: 10px;
-  border: 1px solid #8e8e8d;
-  font-size: 14px;
-  font-weight: 400;
-  color: #616161;
-  padding: 15px 15px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  outline: none;
+    width: 100%;
+    height: 52px;
+    border-radius: 10px;
+    border: 1px solid #8e8e8d;
+    font-size: 14px;
+    font-weight: 400;
+    color: #616161;
+    padding: 15px 15px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    background-color: transparent;
+    background: transparent;
 }
 .form-group .arrow{
   position: absolute;
   top: 17px;
   right: 17px;
 }
-select.form-control:focus{
-  border-color: #e9492a;
+select.form-control:focus {
+    border-color: #e9492a;
+    background-color: transparent;
+    background: transparent;
 }
 .form-group label {
   position: absolute;
@@ -187,4 +184,40 @@ select.form-control:focus{
   outline: none;
   border-radius: 10px;
   letter-spacing: 1px;
+}
+
+
+
+
+@media(max-width:414px) {
+.search_box {
+    margin: 36px 0 58px;
+}
+}
+@media(max-width:411px) {
+
+.search_box {
+   
+    margin: 40px 0 58px;
+    
+}
+}
+@media(max-width:410px) {
+
+}
+
+@media(max-width:375px) {
+.search_box {
+    margin: 14px 0 58px;
+}
+}
+
+@media(max-width:360px) {
+.search_box {
+    margin: 4px 0 58px;
+}
+}
+
+@media(max-width:320px) {
+
 }

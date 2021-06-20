@@ -32,7 +32,7 @@ back(){
         this.page = val;
         this.navCtrl.navigateForward(''+this.page);
     }else{
-    	this.navCtrl.navigateForward('/');
+    	this.navCtrl.navigateForward('/home');
     }
         });
   
@@ -96,11 +96,13 @@ const addressalrt = await this.alertController.create({
 	loading.dismiss();
 	conpassalrt.present();
 		
-	}else if(this.address == '' || this.address == null){
-	loading.dismiss();
-	addressalrt.present();
+	}
+ //  else if(this.address == '' || this.address == null){
+	// loading.dismiss();
+	// addressalrt.present();
 		
-	}else{
+	// }
+  else{
 	await loading.present();
 	var data ={
 		"name": this.name,

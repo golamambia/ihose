@@ -188,7 +188,7 @@ let ProfilePage = class ProfilePage {
                 this.navCtrl.navigateForward('' + this.page);
             }
             else {
-                this.navCtrl.navigateForward('/');
+                this.navCtrl.navigateForward('/home');
             }
         });
         //this.location.back();
