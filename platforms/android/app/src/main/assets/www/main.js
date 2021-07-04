@@ -428,7 +428,7 @@ let CheckLogged = class CheckLogged {
                 }
                 else {
                     // this.navCtrl.navigateForward('/login');
-                    this.router.navigate(['/login']);
+                    this.router.navigate(['/home']);
                 }
                 return false;
             }

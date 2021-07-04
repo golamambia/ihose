@@ -269,6 +269,7 @@ select.form-control:focus{
     background: #cb4228;
     z-index: 91;
     max-width: 75%;
+    box-shadow: 5px 0px 0px rgb(203 66 40 / 16%);
 }
 .menu_area .menu_heading{
     width: 100%;
@@ -285,16 +286,19 @@ select.form-control:focus{
     font-weight: 500;
 }
 .menu_area .menu_heading .btn-back {
-    padding: 4px 0;
+    padding: 0;
     margin: 0 0;
     outline: none;
     border: none;
     background: transparent;
     float: left;
+    max-width: 24px;
 }
-.menu_area .menu_body{
+.menu_area .menu_body {
     width: 100%;
     box-sizing: border-box;
+    height: 500px;
+    overflow: auto;
 }
 .menu_area .menu_body ul{
     width: 100%;

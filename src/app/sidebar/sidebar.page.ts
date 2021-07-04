@@ -41,7 +41,7 @@ logout(){
 
     this.storage.remove("userDetails");
     this.userDetails = null;
-    this.navCtrl.navigateForward('home');
+    this.navCtrl.navigateForward('/login');
      //this.menu.close();
 
   }

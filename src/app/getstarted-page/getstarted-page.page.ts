@@ -53,7 +53,7 @@ export class GetstartedPagePage implements OnInit {
 
   goToscreen(){
   	 this.storage.set("get_started", 1);
-  	this.navCtrl.navigateForward('/login');
+  	this.navCtrl.navigateForward('/home');
 
   }
 

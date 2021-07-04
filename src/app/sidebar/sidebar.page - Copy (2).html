@@ -1,9 +1,10 @@
 
 <ion-content>
+  
     <div class="menu_area">
         <div class="menu_heading">
-            <button routerLink="/home" class="btn-back"><img src="assets/images/back.png" alt="back" title="" /></button>
-            <h6>Menu</h6>
+            <button class="btn-back" (click)="back()"><img src="assets/images/back.png" alt="back" title="" /></button>
+            <h6>settings</h6>
         </div>
         <div class="menu_body">
             <ul>
@@ -19,7 +20,7 @@
                         Login
                     </a>
                 </li>
-                 <li *ngIf="!userDetails" routerLink="/register" (click)="storePage('sidebar')">
+                <li *ngIf="!userDetails" routerLink="/register" (click)="storePage('sidebar')">
                     <a href="#">
                         <div class="menu_icon"><img src="assets/images/menu2.png"></div>
                         Registration
@@ -37,19 +38,19 @@
                         Address
                     </a>
                 </li>
-                  <!-- <li *ngIf="userDetails" routerLink="/profile" (click)="storePage('sidebar')">
+                  <li *ngIf="userDetails" routerLink="/profile" (click)="storePage('sidebar')">
                     <a href="#">
                         <div class="menu_icon"><img src="assets/images/menu2.png"></div>
                         Profile
                     </a>
-                </li> -->
-                 <!-- <li *ngIf="userDetails">
+                </li>
+                 <li *ngIf="userDetails">
                     <a href="#" routerLink="/change-password" (click)="storePage('sidebar')">
                         <div class="menu_icon"><img src="assets/images/menu2.png"></div>
                         Change Password
                     </a>
-                </li> -->
-               <li routerLink="/about" (click)="storePage('sidebar')">
+                </li>
+                <li routerLink="/about" (click)="storePage('sidebar')">
                     <a href="#">
                         <div class="menu_icon"><img src="assets/images/menu3.png"></div>
                         About
@@ -61,7 +62,7 @@
                         Contact Us
                     </a>
                 </li>
-                 <li routerLink="/privacy-policy" (click)="storePage('sidebar')">
+                <li routerLink="/privacy-policy" (click)="storePage('sidebar')">
                     <a href="#">
                         <div class="menu_icon"><img src="assets/images/menu5.png"></div>
                         Privacy Policy
@@ -73,7 +74,7 @@
                         Terms & Conditions
                     </a>
                 </li>
-                 <li *ngIf="userDetails" class="logout"  (click)="logout()">
+                <li class="logout"  *ngIf="userDetails" (click)="logout()">
                     <a href="#">
                         <div class="menu_icon"><img src="assets/images/menu7.png"></div>
                         Log Out
@@ -110,4 +111,5 @@
           </div>
       </div>
     </div>
-  </ion-content>
+  
+</ion-content>

@@ -14,12 +14,11 @@
                   <div class="icon"><i class="zmdi zmdi-search"></i></div>
                   <input type="text" class="form-control" placeholder="Search Products..." />
               </div>
-               <div class="filter">
-                <button (click)="tab_click('bare')" [ngClass]="{'active': tab_val == 'bare'}">Bare Hoses</button>
-                <button (click)="tab_click('endfit')" [ngClass]="{'active': tab_val == 'endfit'}">End Fittings</button>
-                <button (click)="tab_click('addon')" [ngClass]="{'active': tab_val == 'addon'}">Add On</button>
-              </div>
-             
+              <ul class="filter">
+                <li (click)="tab_click('bare')" [ngClass]="{'active': tab_val == 'bare'}">Bare Hoses</li>
+                <li (click)="tab_click('endfit')" [ngClass]="{'active': tab_val == 'endfit'}">End Fittings</li>
+                <li (click)="tab_click('addon')" [ngClass]="{'active': tab_val == 'addon'}">Add On</li>
+              </ul>
                <div class="product_select" *ngIf="tab_val == 'endfit'">
                 <label class="check_box">
                     <input type="radio" name="" [checked]="endfittab_val == 'endfitA'" (change)="onChangeHandler('endfitA')" />  

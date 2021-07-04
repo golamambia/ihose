@@ -28,7 +28,7 @@ export class CheckLogged implements CanActivate {
        //this.navCtrl.navigateForward('/home');
       }else{
        // this.navCtrl.navigateForward('/login');
-        this.router.navigate(['/login']);
+        this.router.navigate(['/home']);
       }
        return false;
       }

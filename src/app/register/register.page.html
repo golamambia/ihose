@@ -2,7 +2,8 @@
 <ion-content>
     <div class="login_area">
       <div class="container">
-         <!-- <button class="nav_bar" (click)="back()"><i class='fas fa-arrow-left'></i></button> -->
+       <!--  <button class="btn-back"  routerLink="/home" (click)="storePage('/hose-page/4')"><img src="assets/images/back.png" alt="back" title="" /></button> -->
+         <button routerLink="/sidebar" class="nav_bar" (click)="back()"><i class='fas fa-arrow-left'></i></button>
           <div class="header_area">
               <h1>register</h1>
           </div>
@@ -14,7 +15,7 @@
                    <input type="text" placeholder="Email" class="form-control" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
               </div>
               <div class="form-group phone">
-                 <input type="text" class="form-control" placeholder="Phone" [(ngModel)]="phone" [ngModelOptions]="{standalone: true}">
+                 <input type="text" class="form-control" placeholder="Phone" [(ngModel)]="phone" [ngModelOptions]="{standalone: true}" maxlength="10" (keypress)="onlyNumberKey($event)" maxlength="12">
               </div>
               <div class="form-group Password">
                   <input type="text" class="form-control" type="password" placeholder="Password" [(ngModel)]="pass" [ngModelOptions]="{standalone: true}">
@@ -31,7 +32,7 @@
               <h3>Login with social media</h3>
               <ul>
                   <li><img src="assets/images/facebook.png" alt="facebook" title="" /></li>
-                  <li><img src="assets/images/twitter.png" alt="twitter" title="" /></li>
+                  
                   <li><img src="assets/images/google.png" alt="google" title="" /></li>
               </ul>
               <p>Already have an account? <button class="btn-link" routerLink="/login">Login</button></p>
