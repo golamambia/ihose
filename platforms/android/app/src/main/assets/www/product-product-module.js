@@ -18,6 +18,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/storage */ "e8h1");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../environments/environment */ "AytR");
+
 
 
 
@@ -36,6 +38,7 @@ let ProductPage = class ProductPage {
         this.alertController = alertController;
         this.route = route;
         this.toastController = toastController;
+        this.image_path = _environments_environment__WEBPACK_IMPORTED_MODULE_8__["image_path"];
         this.appUrl_product = "https://theitvibe.com/project/ihose/api/getProduct";
         this.img_url = 'https://theitvibe.com/project/ihose/uploads/product/';
         this.cart_data = [];
@@ -55,23 +58,43 @@ let ProductPage = class ProductPage {
         this.assembly_name = '';
         this.mk_name = '';
         this.part_no = '';
+        this.model_no = '';
     }
     ngOnInit() {
         this.route.queryParams.subscribe(params => {
             if (params) {
                 //let queryParams = params;
                 if (params.name) {
+                    this.name = params.name;
                 }
-                this.name = params.name;
-                this.standard = params.standard;
-                this.size = params.size;
-                this.pressure = params.pressure;
-                this.part_type = params.part_type;
-                this.description = params.description;
-                this.assembly_name = params.assembly_name;
-                this.mk_name = params.maker;
-                this.part_no = params.part_no;
-                //console.log(this.size);
+                if (params.standard) {
+                    this.standard = params.standard;
+                }
+                if (params.size) {
+                    this.size = params.size;
+                }
+                if (params.pressure) {
+                    this.pressure = params.pressure;
+                }
+                if (params.part_type) {
+                    this.part_type = params.part_type;
+                }
+                if (params.description) {
+                    this.description = params.description;
+                }
+                if (params.assembly_name) {
+                    this.assembly_name = params.assembly_name;
+                }
+                if (params.maker) {
+                    this.mk_name = params.maker;
+                }
+                if (params.part_no) {
+                    this.part_no = params.part_no;
+                }
+                if (params.model_no) {
+                    this.model_no = params.model_no;
+                }
+                //console.log(params);
             }
         });
     }
@@ -111,11 +134,12 @@ let ProductPage = class ProductPage {
                 "search": this.search_key,
                 "mk_name": this.mk_name,
                 "part_no": this.part_no,
+                "model_no": this.model_no,
             };
             this.http.post(this.appUrl_product, dataPar)
                 .subscribe(res => {
                 this.res = res.json();
-                //console.log(this.res);
+                console.log(this.res);
                 if (this.res && this.res.menu_list) {
                     // loading.dismiss();
                     event.target.complete();
@@ -208,11 +232,12 @@ let ProductPage = class ProductPage {
                 "search": this.search_key,
                 "mk_name": this.mk_name,
                 "part_no": this.part_no,
+                "model_no": this.model_no,
             };
             this.http.post(this.appUrl_product, dataPar)
                 .subscribe(res => {
                 this.res = res.json();
-                // console.log(this.res);
+                //console.log(this.res);
                 if (this.res && this.res.menu_list) {
                     // loading.dismiss();
                     this.loader_val = false;
@@ -228,6 +253,7 @@ let ProductPage = class ProductPage {
                     else {
                         this.dataMenu = [];
                     }
+                    //console.log(this.dataMenu);
                     for (let pro of this.menu_list) {
                         for (let p of this.cart_data) {
                             if (p.hp_id == pro.hp_id) {
@@ -508,7 +534,7 @@ ProductPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n\n<ion-content [fullscreen]=\"true\">\n  \n    <div class=\"automotive_area\">\n      <div class=\"container\">\n          <div class=\"automotive_body\">\n              <div class=\"header_area\">\n                  <button class=\"btn-back\" routerLink=\"/home\" (click)=\"storePage('home')\"><img src=\"assets/images/back.png\" alt=\"back\" title=\"\" /></button>\n                  <div class=\"logo\"><img src=\"assets/images/logo2.png\" alt=\"logo\" title=\"\"></div>\n                  <button class=\"btn-cart\"><img src=\"assets/images/cart.png\" alt=\"back\" title=\"\" /></button>\n              </div>\n              <div class=\"search_box\">\n                  <div class=\"icon\"><i class=\"zmdi zmdi-search\"></i></div>\n                  <input type=\"text\" class=\"form-control\" placeholder=\"Search Products...\" />\n              </div>\n              \n              <div class=\"product_area\">\n                    <!-- <h3>\n                        Trending Products\n                        \n                    </h3> -->\n                  <div class=\"product_box\" routerLink=\"/product-details/1\">\n                    <div class=\"img_box\"><img src=\"assets/images/product-details.png\"></div>\n                    <h4>R2AT - 20.7 MPA</h4>\n                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>\n                    <h5>\n                        Size : 3/16\"\n                        <div class=\"price\">INR 50<strong>/Meter</strong></div>\n                      </h5>\n                  </div>\n                  <div class=\"product_box\" routerLink=\"/product-details/1\">\n                    <div class=\"img_box\"><img src=\"assets/images/product-details.png\"></div>\n                    <h4>R2AT - 20.7 MPA</h4>\n                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>\n                    <h5>\n                        Size : 3/16\"\n                        <div class=\"price\">INR 50<strong>/Meter</strong></div>\n                      </h5>\n                  </div>\n              </div>\n          </div>\n      </div>\n    </div>\n  \n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n\n<ion-content [fullscreen]=\"true\">\n  <ion-refresher (ionRefresh)=\"doRefresh($event)\" slot=\"fixed\" pullFactor=\"0.5\" pullMin=\"100\" pullMax=\"200\">\n    <ion-refresher-content style=\"margin-top: 150px;\"></ion-refresher-content>\n  </ion-refresher>\n    <div class=\"automotive_area\">\n      <div class=\"container\">\n          <div class=\"automotive_body\">\n              <div class=\"header_area\">\n                  <button class=\"btn-back\" routerLink=\"/home\" (click)=\"storePage('home')\"><img src=\"assets/images/back.png\" alt=\"back\" title=\"\" /></button>\n                  <div class=\"logo\"><img src=\"assets/images/logo2.png\" alt=\"logo\" title=\"\"></div>\n                  <button class=\"btn-cart\" routerLink=\"/cart-page\"><img src=\"assets/images/cart.png\" alt=\"back\" title=\"\" /><span class=\"total_cart\" [innerHTML]=\"cartcount\"></span></button>\n              </div>\n              <div class=\"search_box\">\n                  <div class=\"icon\"><i class=\"zmdi zmdi-search\"></i></div>\n                  <input type=\"text\" (keyup)=\"listing($event)\" [(ngModel)]=\"search_key\" [ngModelOptions]=\"{standalone:true}\" class=\"form-control\" placeholder=\"Search Products...\" />\n              </div>\n              \n              <div class=\"product_area\">\n                    <!-- <h3>\n                        Trending Products\n                        \n                    </h3> -->\n                    <div *ngIf=\"dataMenu && loader_val == false\" >\n                  <div class=\"product_box\" *ngFor=\"let menulist of dataMenu; let i=index\" routerLink=\"/product-details/{{menulist.hp_id}}\" >\n                    <div class=\"img_box\">\n                       <img *ngIf=\"menulist.hp_image\" src=\"{{img_url}}{{menulist.hp_image}}\" alt=\"product image\" title=\"\">\n                       <img *ngIf=\"!menulist.hp_image\" src=\"assets/images/noimage.png\" alt=\"product image\" title=\"\">\n                    </div>\n                     <h4 *ngIf=\"menulist.hp_subcat==1\">{{menulist.item_name}}</h4>\n                  <h4 *ngIf=\"menulist.hp_subcat==5 || menulist.hp_subcat==6\">{{menulist.hp_partno}}</h4>\n                   <h4 *ngIf=\"menulist.hp_subcat==3 || menulist.hp_subcat==4\">{{menulist.hp_description}}</h4>\n                  <p *ngIf=\"menulist.hp_subcat!=3 && menulist.hp_subcat!=4\">{{menulist.hp_description}}</p>\n                    <h5>\n                        Size : {{menulist.hp_size}}\"\n                        <div class=\"price\">INR {{menulist.hp_price}}<!-- <strong>/Meter</strong> --></div>\n                      </h5>\n                  </div>\n                  </div>\n\n                   <div class=\"product_box\" *ngIf=\"loader_val\">\n  \n           <div class=\"loader_box\">\n<img src=\"assets/loader.gif\">\n</div>\n\n</div>\n\n<div class=\"product_box\" *ngIf=\"menu_list && menu_list.length==0 && loader_val == false\">\n <div class=\"empty_menu\">\n           Not available\n         </div>\n  </div>\n\n\n              </div>\n          </div>\n      </div>\n    </div>\n  \n</ion-content>\n");
 
 /***/ })
 

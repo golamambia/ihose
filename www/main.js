@@ -16,18 +16,22 @@ module.exports = __webpack_require__(/*! G:\ionic\ihose\src\main.ts */"zUnb");
 /*!*****************************************!*\
   !*** ./src/environments/environment.ts ***!
   \*****************************************/
-/*! exports provided: environment */
+/*! exports provided: environment, host, image_path */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "environment", function() { return environment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "host", function() { return host; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "image_path", function() { return image_path; });
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 const environment = {
     production: false
 };
+const host = 'https://theitvibe.com/project/ihose/api/';
+const image_path = 'https://theitvibe.com/project/ihose/uploads/';
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

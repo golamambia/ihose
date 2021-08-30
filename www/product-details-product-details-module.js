@@ -88,7 +88,7 @@ ProductDetailsPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<ion-content>\n  \n    <div class=\"header_area\">\n        <button class=\"btn-back\" routerLink=\"/home\"><img src=\"assets/images/back2.png\" alt=\"back\" title=\"\"></button>\n        <h1>Product Details</h1>\n        <button class=\"btn-cart\"><img src=\"assets/images/cart2.png\" alt=\"back\" title=\"\"></button>\n    </div>\n    <div class=\"product_details_main_area\">\n        <div class=\"product_img_box\">\n            <img src=\"assets/images/product-details.png\" alt=\"image\" title=\"\">\n        </div>\n        <div class=\"product_body\">\n            <div class=\"container\">\n                <div class=\"product_heading\">\n                    <h1>R2AT - 20.7 MPA (AE J517)</h1>\n                    <div class=\"star\"><img src=\"assets/images/product-star.png\">4.5</div>\n                    <div class=\"size\">\n                        Size : \n                        <select class=\"form-control\">\n                            <option>3/16\"</option>\n                        </select>\n                    </div>\n                    <div class=\"price\">\n                        INR 50<span>/Meter</span>\n                        <div class=\"form-group\">\n                            <button class=\"btn-qtn btn-left\">-</button>\n                            <input type=\"text\" class=\"form-control\" value=\"1\">\n                            <button class=\"btn-qtn btn-right\">-</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"product_description_area\">\n                    <div class=\"product_description\">\n                        <img src=\"assets/images/details1.png\">\n                        <h4>Specification</h4>\n                        <p>SAE 100 R2 AT/ DIN EN853 2SN</p>\n                    </div>\n                    <div class=\"product_description\">\n                        <img src=\"assets/images/details2.png\">\n                        <h4>Construction</h4>\n                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>\n                    </div>\n                    <div class=\"product_description\">\n                        <img src=\"assets/images/details3.png\">\n                        <h4>Temprature Ranges</h4>\n                        <p>-40°C to +100°C (+120°C intermittent)</p>\n                    </div>\n                    <div class=\"product_description\">\n                        <img src=\"assets/images/details4.png\">\n                        <h4>Description Usage</h4>\n                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>\n                    </div>\n                </div>\n                <button class=\"btn btn2 btn3\"><img src=\"assets/images/pdf.png\"> download PDF</button>\n                <button class=\"btn\">add to cart</button>\n               \n            </div>\n        </div>\n    </div>\n  \n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<ion-content>\n  \n    <div class=\"header_area\">\n        <button class=\"btn-back\" routerLink=\"/home\"><img src=\"assets/images/back2.png\" alt=\"back\" title=\"\"></button>\n        <h1>Product Details</h1>\n        <button class=\"btn-cart\" routerLink=\"/cart-page\"><img src=\"assets/images/cart2.png\" alt=\"back\" title=\"\"><span class=\"total_cart\" [innerHTML]=\"cartcount\"></span></button>\n    </div>\n    <div class=\"product_details_main_area\">\n        <div class=\"product_img_box\">\n            <img src=\"{{img_url}}{{product_info?.hp_image}}\" alt=\"details banner\" title=\"\">\n        </div>\n        <div class=\"product_body\">\n            <div class=\"container\">\n                <div class=\"product_heading\">\n                    <h1>{{product_info?.item_name}}{{product_info?.hp_partno}}</h1>\n                    <div class=\"star\"><img src=\"assets/images/product-star.png\">4.5</div>\n                    <div class=\"size\">\n                        Size : \n                        <select class=\"form-control\">\n                            <option>{{product_info?.size_name}}\"</option>\n                        </select>\n                    </div>\n                    <div class=\"price\">\n                        INR {{product_info?.hp_price}}<span>/Meter</span>\n                        <div class=\"form-group\" *ngIf=\"product_info?.quantity>0\">\n                            <button class=\"btn-qtn btn-left\" (click)=\"decrementQty(0,product_info?.hp_id,product_info)\">-</button>\n                            <input type=\"text\" class=\"form-control\" value=\"{{product_info?.quantity}}\">\n                            <button class=\"btn-qtn btn-right\" (click)=\"incrementQty(0,product_info?.hp_id,product_info)\">+</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"product_description_area\">\n                    <div class=\"product_description\">\n                        <img src=\"assets/images/details1.png\">\n                        <h4>Specification</h4>\n                        <p>{{product_info?.hp_description}}</p>\n                    </div>\n                    <div class=\"product_description\">\n                        <img src=\"assets/images/details2.png\">\n                        <h4>Construction</h4>\n                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>\n                    </div>\n                    <div class=\"product_description\">\n                        <img src=\"assets/images/details3.png\">\n                        <h4>Temprature Ranges</h4>\n                        <p>-40°C to +100°C (+120°C intermittent)</p>\n                    </div>\n                    <div class=\"product_description\">\n                        <img src=\"assets/images/details4.png\">\n                        <h4>Description Usage</h4>\n                        <p>{{product_info?.hp_description}}</p>\n                    </div>\n                </div>\n                <button class=\"btn btn2 btn3\"><img src=\"assets/images/pdf.png\"> download PDF</button>\n               <button class=\"btn\" (click)=\"addToCart(0,product_info?.hp_id,product_info)\" *ngIf=\"product_info?.quantity==0\">add to cart</button>\n\n            <!-- <button *ngIf=\"userDetails\" (click)=\"storePage('product-details/'+product_info?.hp_id)\" class=\"btn\" routerLink=\"/direct-buy/{{product_info?.hp_id}}\">buy now</button> -->\n               <!--  <button class=\"btn\">add to cart</button> -->\n               \n            </div>\n        </div>\n    </div>\n  \n</ion-content>\n");
 
 /***/ }),
 
@@ -227,7 +227,7 @@ let ProductDetailsPage = class ProductDetailsPage {
             this.http.post(this.appUrl, data)
                 .subscribe(res => {
                 this.res = res.json();
-                // console.log(this.res);
+                //console.log(this.res);
                 if (this.res) {
                     this.storage.get("userCart").then(val => {
                         if (val) {
@@ -316,8 +316,8 @@ let ProductDetailsPage = class ProductDetailsPage {
     }
     decrementQty(index, hp_id, menulist) {
         /*. if item passed then item.qty. */
-        if (this.dataMenu[index].quantity - 1 <= 0) {
-            this.dataMenu[index].quantity = 0;
+        if (this.dataMenu.quantity - 1 <= 0) {
+            this.dataMenu.quantity = 0;
             //this.menu_list[index].quantity = 0;
             for (let p of this.cart_data) {
                 if (p.hp_id == menulist.hp_id) {
@@ -330,11 +330,11 @@ let ProductDetailsPage = class ProductDetailsPage {
             }
         }
         else {
-            this.dataMenu[index].quantity -= 1;
+            this.dataMenu.quantity -= 1;
             //this.menu_list[index].quantity -= 1;
             for (let p of this.cart_data) {
                 if (p.hp_id == menulist.hp_id) {
-                    p.quantity = parseInt(this.dataMenu[index].quantity);
+                    p.quantity = parseInt(this.dataMenu.quantity);
                     //console.log(this.cart_data);
                     this.storage.set("userCart", this.cart_data);
                     this.getCartItemCount();
@@ -346,12 +346,14 @@ let ProductDetailsPage = class ProductDetailsPage {
     }
     incrementQty(index, hp_id, menulist) {
         /*. if item passed then item.qty. */
-        if (this.dataMenu[index].quantity > 0) {
-            this.dataMenu[index].quantity += 1;
+        //console.log(menulist);
+        if (this.dataMenu.quantity > 0) {
+            //console.log('lol');
+            this.dataMenu.quantity += 1;
             //this.menu_list[index].quantity += 1;
             for (let p of this.cart_data) {
                 if (p.hp_id == menulist.hp_id) {
-                    p.quantity = parseInt(this.dataMenu[index].quantity);
+                    p.quantity = parseInt(this.dataMenu.quantity);
                     //console.log(this.cart_data);
                     this.storage.set("userCart", this.cart_data);
                     this.getCartItemCount();

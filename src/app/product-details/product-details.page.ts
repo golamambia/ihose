@@ -133,7 +133,7 @@ this.cartTotal=this.count;
   .subscribe(res => {
     
     this.res = res.json();
-   // console.log(this.res);
+    //console.log(this.res);
      if(this.res){
 
   this.storage.get("userCart").then(val=>{
@@ -238,8 +238,8 @@ cssClass: 'my-toast-class',
  decrementQty(index:number,hp_id,menulist){
 
 /*. if item passed then item.qty. */
-  if(this.dataMenu[index].quantity-1 <=0){
-    this.dataMenu[index].quantity = 0;
+  if(this.dataMenu.quantity-1 <=0){
+    this.dataMenu.quantity = 0;
     //this.menu_list[index].quantity = 0;
     for (let p of this.cart_data) {
             
@@ -253,12 +253,12 @@ cssClass: 'my-toast-class',
           }
   }
   else{
-    this.dataMenu[index].quantity -= 1;
+    this.dataMenu.quantity -= 1;
     //this.menu_list[index].quantity -= 1;
     for (let p of this.cart_data) {
             
             if (p.hp_id == menulist.hp_id) {
-              p.quantity=parseInt(this.dataMenu[index].quantity);
+              p.quantity=parseInt(this.dataMenu.quantity);
               //console.log(this.cart_data);
               this.storage.set("userCart", this.cart_data);
               this.getCartItemCount();
@@ -272,13 +272,15 @@ cssClass: 'my-toast-class',
 
  incrementQty(index:number,hp_id,menulist){
 /*. if item passed then item.qty. */
-  if(this.dataMenu[index].quantity > 0){
-     this.dataMenu[index].quantity += 1;
+//console.log(menulist);
+  if(this.dataMenu.quantity > 0){
+    //console.log('lol');
+     this.dataMenu.quantity += 1;
      //this.menu_list[index].quantity += 1;
      for (let p of this.cart_data) {
             
             if (p.hp_id == menulist.hp_id) {
-              p.quantity=parseInt(this.dataMenu[index].quantity);
+              p.quantity=parseInt(this.dataMenu.quantity);
               //console.log(this.cart_data);
               this.storage.set("userCart", this.cart_data);
               this.getCartItemCount();

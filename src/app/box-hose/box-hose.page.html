@@ -1,11 +1,20 @@
-
+<!--  <ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Bare Hoses</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+<ion-content>
+  
     <div class="automotive_area">
       <div class="container">
           <div class="automotive_body">
               <div class="header_area">
                   <button class="btn-back"  routerLink="/home" (click)="storePage('/hose-page/4')"><img src="assets/images/back.png" alt="back" title="" /></button>
                   <h1>Bare Hoses</h1>
-                  <button class="btn-cart"><img src="assets/images/cart.png" alt="back" title="" /></button>
+                  <button class="btn-cart" routerLink="/cart-page"><img src="assets/images/cart.png" alt="back" title="" /><span class="total_cart" [innerHTML]="cartcount" ></span></button>
               </div>
               <div class="search_box">
                   <div class="icon"><i class="zmdi zmdi-search"></i></div>
@@ -44,8 +53,8 @@
                 </select> 
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
-              <button class="btn" (click)="gotoProduct1()" routerLink="/product">search</button>
+              <button class="btn" (click)="gotoProduct()" routerLink="/product">search</button>
           </div>
       </div>
     </div>
-  
+  </ion-content>

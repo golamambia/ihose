@@ -4,29 +4,29 @@
     <div class="header_area">
         <button class="btn-back" routerLink="/home"><img src="assets/images/back2.png" alt="back" title=""></button>
         <h1>Product Details</h1>
-        <button class="btn-cart" routerLink="/cart-page"><img src="assets/images/cart2.png" alt="back" title=""><span class="total_cart" [innerHTML]="cartcount"></span></button>
+        <button class="btn-cart"><img src="assets/images/cart2.png" alt="back" title=""></button>
     </div>
     <div class="product_details_main_area">
         <div class="product_img_box">
-            <img src="{{img_url}}{{product_info?.hp_image}}" alt="details banner" title="">
+            <img src="assets/images/product-details.png" alt="image" title="">
         </div>
         <div class="product_body">
             <div class="container">
                 <div class="product_heading">
-                    <h1>{{product_info?.item_name}}{{product_info?.hp_partno}}</h1>
+                    <h1>R2AT - 20.7 MPA (AE J517)</h1>
                     <div class="star"><img src="assets/images/product-star.png">4.5</div>
                     <div class="size">
                         Size : 
                         <select class="form-control">
-                            <option>{{product_info?.size_name}}"</option>
+                            <option>3/16"</option>
                         </select>
                     </div>
                     <div class="price">
-                        INR {{product_info?.hp_price}}<span>/Meter</span>
-                        <div class="form-group" *ngIf="product_info?.quantity>0">
-                            <button class="btn-qtn btn-left" (click)="decrementQty(0,product_info?.hp_id,product_info)">-</button>
-                            <input type="text" class="form-control" value="{{product_info?.quantity}}">
-                            <button class="btn-qtn btn-right" (click)="incrementQty(0,product_info?.hp_id,product_info)">+</button>
+                        INR 50<span>/Meter</span>
+                        <div class="form-group">
+                            <button class="btn-qtn btn-left">-</button>
+                            <input type="text" class="form-control" value="1">
+                            <button class="btn-qtn btn-right">-</button>
                         </div>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                     <div class="product_description">
                         <img src="assets/images/details1.png">
                         <h4>Specification</h4>
-                        <p>{{product_info?.hp_description}}</p>
+                        <p>SAE 100 R2 AT/ DIN EN853 2SN</p>
                     </div>
                     <div class="product_description">
                         <img src="assets/images/details2.png">
@@ -49,14 +49,11 @@
                     <div class="product_description">
                         <img src="assets/images/details4.png">
                         <h4>Description Usage</h4>
-                        <p>{{product_info?.hp_description}}</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
                 </div>
                 <button class="btn btn2 btn3"><img src="assets/images/pdf.png"> download PDF</button>
-               <button class="btn" (click)="addToCart(0,product_info?.hp_id,product_info)" *ngIf="product_info?.quantity==0">add to cart</button>
-
-            <!-- <button *ngIf="userDetails" (click)="storePage('product-details/'+product_info?.hp_id)" class="btn" routerLink="/direct-buy/{{product_info?.hp_id}}">buy now</button> -->
-               <!--  <button class="btn">add to cart</button> -->
+                <button class="btn">add to cart</button>
                
             </div>
         </div>

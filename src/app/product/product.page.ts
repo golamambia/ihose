@@ -4,6 +4,8 @@ import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { LoadingController,ToastController,AlertController} from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { host } from '../../environments/environment';
+import { image_path } from '../../environments/environment';
 
 @Component({
   selector: 'app-product',
@@ -11,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./product.page.scss'],
 })
 export class ProductPage implements OnInit {
+   image_path=image_path;
   appUrl_product = "https://theitvibe.com/project/ihose/api/getProduct";
   img_url='https://theitvibe.com/project/ihose/uploads/product/';
   res:any;
@@ -43,6 +46,7 @@ export class ProductPage implements OnInit {
   assembly_name:any='';
   mk_name:any ='';
   part_no:any ='';
+  model_no:any='';
   sub:any;
    constructor(public http: Http,
    public navCtrl: NavController,
@@ -57,20 +61,44 @@ export class ProductPage implements OnInit {
     this.route.queryParams.subscribe(params => {
   if (params) {
     //let queryParams = params;
-    if(params.name){
-
+    
+        if(params.name){
+      this.name=params.name;
     }
-
-    this.name=params.name;
-    this.standard=params.standard;
-    this.size=params.size;
-    this.pressure=params.pressure;
-    this.part_type=params.part_type;
-    this.description=params.description;
-    this.assembly_name=params.assembly_name;
-    this.mk_name =params.maker;
-    this.part_no=params.part_no;
-    //console.log(this.size);
+    if(params.standard){
+      this.standard=params.standard;
+    }
+    if(params.size){
+      this.size=params.size;
+    }
+    
+    if(params.pressure){
+      this.pressure=params.pressure;
+    }
+    
+    if(params.part_type){
+      this.part_type=params.part_type;
+    }
+    
+    if(params.description){
+      this.description=params.description;
+    }
+    
+    if(params.assembly_name){
+      this.assembly_name=params.assembly_name;
+    }
+    
+    if(params.maker){
+      this.mk_name =params.maker;
+    }
+    
+    if(params.part_no){
+      this.part_no=params.part_no;
+    }
+     if(params.model_no){
+      this.model_no=params.model_no;
+    }
+    //console.log(params);
   }
 });
   }
@@ -113,12 +141,13 @@ setTimeout(() => {
     "search": this.search_key,
     "mk_name":this.mk_name,
     "part_no": this.part_no,
+    "model_no": this.model_no,
         
   }
      this.http.post(this.appUrl_product,dataPar)
   .subscribe(res => {
     this.res = res.json();
-    //console.log(this.res);
+    console.log(this.res);
      if(this.res && this.res.menu_list){
 // loading.dismiss();
 event.target.complete();
@@ -222,13 +251,14 @@ this.loader_val = false;
     "search": this.search_key,
     "mk_name":this.mk_name,
     "part_no": this.part_no,
+    "model_no": this.model_no,
         
   }
   
    this.http.post(this.appUrl_product,dataPar)
   .subscribe(res => {
     this.res = res.json();
-   // console.log(this.res);
+    //console.log(this.res);
      if(this.res && this.res.menu_list){
 // loading.dismiss();
 this.loader_val = false;
@@ -243,6 +273,7 @@ this.loader_val = false;
     }else{
       this.dataMenu = [];
     }
+    //console.log(this.dataMenu);
     for (let pro of this.menu_list) {
     for (let p of this.cart_data) {
             

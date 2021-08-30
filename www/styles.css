@@ -1243,5 +1243,23 @@ sub {
   --height: 33px;
   --width: 75px;
 }
+ion-header ion-toolbar:first-of-type {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.toolbar-background {
+  --background: transparent !important;
+}
+.button-native {
+  --color: #fff !important;
+  padding-top: 12px;
+}
+.toolbar-title {
+  padding-top: 15px;
+  color: white;
+  text-align: center;
+}
 
 /*# sourceMappingURL=styles.css.map*/

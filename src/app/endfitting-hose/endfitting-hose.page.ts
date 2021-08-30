@@ -4,6 +4,8 @@ import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { LoadingController,ToastController,AlertController} from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { host } from '../../environments/environment';
+import { image_path } from '../../environments/environment';
 
 @Component({
   selector: 'app-endfitting-hose',
@@ -35,6 +37,11 @@ pro_id:any;
 desceList:any;
 mk_name:any ='';
 part_no:any ='';
+ count: any = 0;
+   cart_data:any =[];
+  userCart:any;
+  cartTotal:any;
+  cartcount:any=0;
  constructor(public http: Http,
   public navCtrl: NavController,
    public storage: Storage,
@@ -42,6 +49,19 @@ part_no:any ='';
    public alertController: AlertController,
    public route: ActivatedRoute,
    ) { }
+ ionViewWillEnter(){
+    // this.storage.remove("userCart");
+     this.storage.get("userCart").then(val=>{
+      if(val){
+        this.userCart = val;
+        this.cart_data = val;
+       // console.log(val);
+
+
+      }
+        });
+     this.getCartItemCount();
+   }
   ngOnInit() {
   	      this.sub =this.route.params.subscribe(params => {
   if (params) {
@@ -118,7 +138,7 @@ part_no:any ='';
   }
   gotoProduct(){
     this.storage.set("goTo", 'endfitting-hose/3');
-this.navCtrl.navigateForward('product?assembly_name='+this.assembly_name+'&part_type='+this.part_type+'&standard='+this.standard+'&size='+this.size+'&name='+this.productName+'&pressure='+this.pressure+'&description='+this.description+'&maker='+this.mk_name+'&part_no='+this.part_no);
+this.navCtrl.navigateForward('product?part_type='+this.part_type+'&size='+this.size);
 }
 
 getDescription(){
@@ -151,5 +171,24 @@ getDescription(){
     
   });
 }
+     getCartItemCount() {
+    this.count=0;
+    this.storage.get("userCart").then(val=>{
+      if(val){
+       for (let p of this.cart_data) {
+            
+            if (p.quantity >0) {
+              this.count += 1;
+
+            }
+          }
+this.cartTotal=this.count;
+this.cartcount = this.count;
+      }else{
+this.cartTotal=this.count;
+      }
+        });
+
+  }
 
 }

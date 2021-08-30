@@ -8,7 +8,7 @@
                   <h1 *ngIf="tab_val == 'bare'">Hose Assembly - Bare Hoses</h1>
                   <h1 *ngIf="tab_val == 'endfit'">Hose Assembly - End Fittings</h1>
                   <h1 *ngIf="tab_val == 'addon'">Hose Assembly - Add On</h1>
-                  <button class="btn-cart"><img src="assets/images/cart.png" alt="back" title="" /></button>
+                     <button class="btn-cart" routerLink="/cart-page"><img src="assets/images/cart.png" alt="back" title="" /><span class="total_cart" [innerHTML]="cartcount" ></span></button>
               </div>
               <div class="search_box">
                   <div class="icon"><i class="zmdi zmdi-search"></i></div>

@@ -46,7 +46,7 @@ HomePageRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n\n<ion-content [fullscreen]=\"true\">\n  \n    <div class=\"automotive_area\">\n      <div class=\"container\">\n          <div class=\"automotive_body\">\n              <div class=\"header_area\">\n                 <button class=\"btn-back\" routerLink=\"/sidebar\" (click)=\"storePage('home')\"><img src=\"assets/images/menu.png\" alt=\"back\" title=\"\" /></button>\n                  <div class=\"logo\"><img src=\"assets/images/logo2.png\" alt=\"logo\" title=\"\"></div>\n                  <button class=\"btn-cart\"><img src=\"assets/images/cart.png\" alt=\"back\" title=\"\" /></button>\n              </div>\n              <div class=\"search_box\">\n                  <div class=\"icon\"><i class=\"zmdi zmdi-search\"></i></div>\n                  <input type=\"text\" class=\"form-control\" placeholder=\"Search Products...\" />\n              </div>\n              <div class=\"product_area\">\n                <h3>\n                    Categories\n                </h3>\n                <div class=\"category_body\">\n                    <button class=\"category_box\" routerLink=\"/box-hose/1\">\n                      <div class=\"d-block\">\n                        <div class=\"img_box\" ><img src=\"assets/images/category1.png\"></div>\n                        <p>Bare Hoses</p>\n                        <i class=\"zmdi zmdi-caret-right-circle\"></i>\n                      </div>\n                    </button>\n                    <button class=\"category_box\" routerLink=\"/endfitting-hose/3\">\n                        <div class=\"d-block\">\n                        <div class=\"img_box\" ><img src=\"assets/images/category2.png\"></div>\n                        <p>End Fittings</p>\n                        <i class=\"zmdi zmdi-caret-right-circle\"></i>\n                    </div>\n                    </button>\n                    <button class=\"category_box\" routerLink=\"/assembly-hose/4\">\n                        <div class=\"d-block\">\n                        <div class=\"img_box\"><img src=\"assets/images/category3.png\"></div>\n                        <p>Hose Assembly</p>\n                        <i class=\"zmdi zmdi-caret-right-circle\"></i>\n                    </div>\n                    </button>\n                    <button class=\"category_box\" routerLink=\"/automotive/7\">\n                        <div class=\"d-block\">\n                        <div class=\"img_box\"><img src=\"assets/images/category4.png\"></div>\n                        <p>Automotive Hoses</p>\n                        <i class=\"zmdi zmdi-caret-right-circle\"></i>\n                    </div>\n                    </button>\n                    <button class=\"category_box\"  routerLink=\"/earth-moving/8\">\n                        <div class=\"d-block\">\n                        <div class=\"img_box\"><img src=\"assets/images/category5.png\"></div>\n                        <p>HEM Hoses</p>\n                        <i class=\"zmdi zmdi-caret-right-circle\"></i>\n                    </div>\n                    </button>\n                    <button class=\"category_box\" routerLink=\"/product\">\n                        <div class=\"d-block\">\n                        <div class=\"img_box\"><img src=\"assets/images/category6.png\"></div>\n                        <p>See All Products</p>\n                        <i class=\"zmdi zmdi-caret-right-circle\"></i>\n                    </div>\n                    </button>\n                </div>\n              </div>\n              <div class=\"product_area\">\n                    <h3>\n                        Trending Products\n                        <button class=\"btn-see\" routerLink=\"/product\">See All</button>\n                    </h3>\n                  <div class=\"product_box\" routerLink=\"/product-details/1\">\n                    <div class=\"img_box\"><img src=\"assets/images/product-details.png\"></div>\n                    <h4>R2AT - 20.7 MPA</h4>\n                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>\n                    <h5>\n                        Size : 3/16\"\n                        <div class=\"price\">INR 50<strong>/Meter</strong></div>\n                      </h5>\n                  </div>\n                  <div class=\"product_box\" routerLink=\"/product-details/1\">\n                    <div class=\"img_box\"><img src=\"assets/images/product-details.png\"></div>\n                    <h4>R2AT - 20.7 MPA</h4>\n                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>\n                    <h5>\n                        Size : 3/16\"\n                        <div class=\"price\">INR 50<strong>/Meter</strong></div>\n                      </h5>\n                  </div>\n              </div>\n          </div>\n      </div>\n    </div>\n  \n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n\n<ion-content [fullscreen]=\"true\">\n  \n    <div class=\"automotive_area\">\n      <div class=\"container\">\n          <div class=\"automotive_body\">\n              <div class=\"header_area\">\n                 <button class=\"btn-back\" routerLink=\"/sidebar\" (click)=\"storePage('home')\"><img src=\"assets/images/menu.png\" alt=\"back\" title=\"\" /></button>\n                  <div class=\"logo\"><img src=\"assets/images/logo2.png\" alt=\"logo\" title=\"\"></div>\n                  <button class=\"btn-cart\" routerLink=\"/cart-page\"><img src=\"assets/images/cart.png\" alt=\"back\" title=\"\" /><span class=\"total_cart\" [innerHTML]=\"cartcount\" ></span></button>\n              </div>\n              <div class=\"search_box\">\n                  <div class=\"icon\"><i class=\"zmdi zmdi-search\"></i></div>\n                  <input type=\"text\" class=\"form-control\" placeholder=\"Search Products...\" />\n              </div>\n              <div class=\"product_area\">\n                <h3>\n                    Categories\n                </h3>\n                <div class=\"category_body\">\n                    <button class=\"category_box\" routerLink=\"/box-hose/1\">\n                      <div class=\"d-block\">\n                        <div class=\"img_box\" ><img src=\"assets/images/category1.png\"></div>\n                        <p>Bare Hoses</p>\n                        <i class=\"zmdi zmdi-caret-right-circle\"></i>\n                      </div>\n                    </button>\n                    <button class=\"category_box\" routerLink=\"/endfitting-hose/3\">\n                        <div class=\"d-block\">\n                        <div class=\"img_box\" ><img src=\"assets/images/category2.png\"></div>\n                        <p>End Fittings</p>\n                        <i class=\"zmdi zmdi-caret-right-circle\"></i>\n                    </div>\n                    </button>\n                    <button class=\"category_box\" routerLink=\"/assembly-hose/4\">\n                        <div class=\"d-block\">\n                        <div class=\"img_box\"><img src=\"assets/images/category3.png\"></div>\n                        <p>Hose Assembly</p>\n                        <i class=\"zmdi zmdi-caret-right-circle\"></i>\n                    </div>\n                    </button>\n                    <button class=\"category_box\" routerLink=\"/automotive/7\">\n                        <div class=\"d-block\">\n                        <div class=\"img_box\"><img src=\"assets/images/category4.png\"></div>\n                        <p>Automotive Parts</p>\n                        <i class=\"zmdi zmdi-caret-right-circle\"></i>\n                    </div>\n                    </button>\n                    <button class=\"category_box\"  routerLink=\"/earth-moving/8\">\n                        <div class=\"d-block\">\n                        <div class=\"img_box\"><img src=\"assets/images/category5.png\"></div>\n                        <p>HEM Hoses</p>\n                        <i class=\"zmdi zmdi-caret-right-circle\"></i>\n                    </div>\n                    </button>\n                    <button class=\"category_box\" routerLink=\"/product\">\n                        <div class=\"d-block\">\n                        <div class=\"img_box\"><img src=\"assets/images/category6.png\"></div>\n                        <p> HEM Parts</p>\n                        <i class=\"zmdi zmdi-caret-right-circle\"></i>\n                    </div>\n                    </button>\n                </div>\n              </div>\n              <div class=\"product_area\">\n                    <h3>\n                        Trending Products\n                        <button class=\"btn-see\" routerLink=\"/product\">See All</button>\n                    </h3>\n\n                  <div class=\"product_box\"  *ngFor=\"let menulist of dataMenu; let i=index\" routerLink=\"/product-details/{{menulist.hp_id}}\">\n                    <div class=\"img_box\">\n                       <img *ngIf=\"menulist.hp_image\" src=\"{{img_url}}{{menulist.hp_image}}\" alt=\"product image\" title=\"\">\n                       <img *ngIf=\"!menulist.hp_image\" src=\"assets/images/noimage.png\" alt=\"product image\" title=\"\">\n                    </div>\n                    <h4 *ngIf=\"menulist.hp_subcat==1\">{{menulist.item_name}}</h4>\n                  <h4 *ngIf=\"menulist.hp_subcat==5 || menulist.hp_subcat==6\">{{menulist.hp_partno}}</h4>\n                   <h4 *ngIf=\"menulist.hp_subcat==3 || menulist.hp_subcat==4\">{{menulist.hp_description}}</h4>\n                  <p *ngIf=\"menulist.hp_subcat!=3 && menulist.hp_subcat!=4\">{{menulist.hp_description}}</p>\n                    <h5>\n                        Size : {{menulist.hp_size}}\"\n                        <div class=\"price\">INR {{menulist.hp_price}}<!-- <strong>/Meter</strong> --></div>\n                      </h5>\n                  </div>\n\n                  \n\n\n\n              </div>\n\n\n\n          </div>\n      </div>\n    </div>\n  \n</ion-content>\n");
 
 /***/ }),
 
@@ -122,6 +122,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/http */ "qlzE");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/storage */ "e8h1");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../environments/environment */ "AytR");
+
+
 
 
 
@@ -137,15 +140,36 @@ let HomePage = class HomePage {
         this.storage = storage;
         this.loadingController = loadingController;
         this.alertController = alertController;
-        this.appUrl = "https://theitvibe.com/project/ihose/api/getHose";
+        this.imag_path = _environments_environment__WEBPACK_IMPORTED_MODULE_7__["image_path"];
+        this.appUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_7__["host"] + "getHose";
+        this.appUrl_product = _environments_environment__WEBPACK_IMPORTED_MODULE_7__["host"] + "getProduct";
+        this.img_url = _environments_environment__WEBPACK_IMPORTED_MODULE_7__["image_path"] + 'product/';
+        this.cart_data = [];
+        this.cartcount = 0;
+        this.cart = [];
+        this.loader_val = true;
+        this.pageNo = 1;
+        this.dataMenu = [];
+        this.limit = 9;
+        this.count = 0;
+        this.standard = '';
+        this.size = '';
+        this.name = '';
+        this.pressure = '';
+        this.part_type = '';
+        this.description = '';
+        this.assembly_name = '';
+        this.mk_name = '';
+        this.part_no = '';
+        this.model_no = '';
     }
     storePage(page) {
         this.storage.set("goTo", page);
     }
     ngOnInit() {
-        this.listing();
+        //this.listing(); 
     }
-    listing() {
+    listing1() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const loading = yield this.loadingController.create({
                 message: ''
@@ -182,6 +206,113 @@ let HomePage = class HomePage {
         else {
             this.navCtrl.navigateForward('/earth-moving/' + id);
         }
+    }
+    ionViewWillEnter() {
+        // this.storage.remove("userCart");
+        this.storage.get("userCart").then(val => {
+            if (val) {
+                this.userCart = val;
+                this.cart_data = val;
+                // console.log(val);
+            }
+        });
+        this.getCartItemCount();
+        this.listing();
+    }
+    listing() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            //console.log(this.search_key);
+            const loading = yield this.loadingController.create({
+                message: ''
+            });
+            //await loading.present();
+            this.loader_val = true;
+            this.storage.get("userDetails").then(val => {
+                if (val) {
+                    this.userDetails = val;
+                    var data = {
+                        "userId": this.userDetails.user_id,
+                    };
+                }
+            });
+            var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_4__["Headers"]();
+            //console.log(this.userDetails.user_id);
+            if (!this.mainMenuId) {
+                this.mainMenuId = 0;
+            }
+            if (!this.search_key) {
+                this.search_key = '';
+            }
+            var dataPar = {
+                "name": this.name,
+                "standard": this.standard,
+                "size": this.size,
+                "pressure": this.pressure,
+                "assembly_name": this.assembly_name,
+                "part_type": this.part_type,
+                "description": this.description,
+                "search": this.search_key,
+                "mk_name": this.mk_name,
+                "part_no": this.part_no,
+                "model_no": this.model_no,
+            };
+            this.http.post(this.appUrl_product, dataPar)
+                .subscribe(res => {
+                this.res = res.json();
+                // console.log(this.res);
+                if (this.res && this.res.menu_list) {
+                    // loading.dismiss();
+                    this.loader_val = false;
+                    this.menu_list = this.res.menu_list;
+                    if (this.menu_list && this.menu_list.length > 0) {
+                        this.dataMenu = [];
+                        for (let i = 0; i < this.limit; i++) {
+                            if (this.menu_list[i]) {
+                                this.dataMenu.push(this.menu_list[i]);
+                            }
+                        }
+                    }
+                    else {
+                        this.dataMenu = [];
+                    }
+                    //console.log(this.dataMenu);
+                    for (let pro of this.menu_list) {
+                        for (let p of this.cart_data) {
+                            if (p.hp_id == pro.hp_id) {
+                                pro.quantity = p.quantity;
+                                //break;
+                            }
+                        }
+                    }
+                }
+                else {
+                    //alert("Server error");
+                    // loading.dismiss();
+                    this.loader_val = false;
+                }
+            }, (err) => {
+                //console.log(err);
+                // loading.dismiss();
+                this.loader_val = false;
+            });
+        });
+    }
+    getCartItemCount() {
+        this.count = 0;
+        this.storage.get("userCart").then(val => {
+            if (val) {
+                for (let p of this.cart_data) {
+                    if (p.quantity > 0) {
+                        this.count += 1;
+                    }
+                }
+                this.cartTotal = this.count;
+                this.cartcount = this.count;
+            }
+            else {
+                this.cartTotal = this.count;
+            }
+        });
     }
 };
 HomePage.ctorParameters = () => [

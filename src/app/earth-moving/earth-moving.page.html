@@ -5,35 +5,38 @@
               <div class="header_area">
                   <button class="btn-back" routerLink="/home" (click)="storePage('/home')"><img src="assets/images/back.png" alt="back" title="" /></button>
                   <h1>HEM Hoses</h1>
-                  <button class="btn-cart"><img src="assets/images/cart.png" alt="back" title="" /></button>
+                      <button class="btn-cart" routerLink="/cart-page"><img src="assets/images/cart.png" alt="back" title="" /><span class="total_cart" [innerHTML]="cartcount" ></span></button>
               </div>
               <div class="search_box">
                   <div class="icon"><i class="zmdi zmdi-search"></i></div>
                   <input type="text" class="form-control" placeholder="Search Products..." />
               </div>
               <h3>Search HEM Hoses</h3>
-              <div class="form-group">
+                <div class="form-group">
                   <label>Make</label>
-                  <select class="form-control">
-                      <option>Select</option>
-                  </select>
+                  <select class="form-control" [(ngModel)]="mk_name" [ngModelOptions]="{standalone: true}" (change)="getModel($event.target.value)">
+                  <option value="" selected="selected">Select maker</option>
+                 <option *ngFor="let mk_list of data_list_maker" value="{{mk_list.mk_id}}">{{mk_list.mk_name}}</option>
+                </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
               <div class="form-group">
                   <label>Model No</label>
-                  <select class="form-control">
-                      <option>Select Part</option>
+                  <select class="form-control" [(ngModel)]="model_no" [ngModelOptions]="{standalone: true}" >
+                      <option value="">Select model</option>
+                       <option *ngFor="let m of modelList" value="{{m.model_id}}">{{m.model_name}}</option>
                   </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
-              <div class="form-group">
+             <div class="form-group">
                   <label>Part No</label>
-                  <select class="form-control">
-                      <option>Select Part</option>
-                  </select>
-                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+                  <input type="text"class="form-control" [(ngModel)]="part_no" [ngModelOptions]="{standalone: true}" placeholder="Part no">
+                 <!--  <select class="form-control" [(ngModel)]="part_no" [ngModelOptions]="{standalone: true}">
+                      <option value="">Select Part</option>
+                  </select> -->
+                 <!--  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div> -->
               </div>
-              <button class="btn"  routerLink="/product">search</button>
+              <button class="btn" (click)="gotoProduct()">search</button>
           </div>
       </div>
     </div>

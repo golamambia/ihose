@@ -8,7 +8,7 @@
               <div class="header_area">
                  <button class="btn-back" routerLink="/sidebar" (click)="storePage('home')"><img src="assets/images/menu.png" alt="back" title="" /></button>
                   <div class="logo"><img src="assets/images/logo2.png" alt="logo" title=""></div>
-                  <button class="btn-cart"><img src="assets/images/cart.png" alt="back" title="" /></button>
+                  <button class="btn-cart" routerLink="/cart-page"><img src="assets/images/cart.png" alt="back" title="" /><span class="total_cart" [innerHTML]="cartcount" ></span></button>
               </div>
               <div class="search_box">
                   <div class="icon"><i class="zmdi zmdi-search"></i></div>
@@ -43,7 +43,7 @@
                     <button class="category_box" routerLink="/automotive/7">
                         <div class="d-block">
                         <div class="img_box"><img src="assets/images/category4.png"></div>
-                        <p>Automotive Hoses</p>
+                        <p>Automotive Parts</p>
                         <i class="zmdi zmdi-caret-right-circle"></i>
                     </div>
                     </button>
@@ -57,7 +57,7 @@
                     <button class="category_box" routerLink="/product">
                         <div class="d-block">
                         <div class="img_box"><img src="assets/images/category6.png"></div>
-                        <p>See All Products</p>
+                        <p> HEM Parts</p>
                         <i class="zmdi zmdi-caret-right-circle"></i>
                     </div>
                     </button>
@@ -68,25 +68,30 @@
                         Trending Products
                         <button class="btn-see" routerLink="/product">See All</button>
                     </h3>
-                  <div class="product_box" routerLink="/product-details/1">
-                    <div class="img_box"><img src="assets/images/product-details.png"></div>
-                    <h4>R2AT - 20.7 MPA</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+                  <div class="product_box"  *ngFor="let menulist of dataMenu; let i=index" routerLink="/product-details/{{menulist.hp_id}}">
+                    <div class="img_box">
+                       <img *ngIf="menulist.hp_image" src="{{img_url}}{{menulist.hp_image}}" alt="product image" title="">
+                       <img *ngIf="!menulist.hp_image" src="assets/images/noimage.png" alt="product image" title="">
+                    </div>
+                    <h4 *ngIf="menulist.hp_subcat==1">{{menulist.item_name}}</h4>
+                  <h4 *ngIf="menulist.hp_subcat==5 || menulist.hp_subcat==6">{{menulist.hp_partno}}</h4>
+                   <h4 *ngIf="menulist.hp_subcat==3 || menulist.hp_subcat==4">{{menulist.hp_description}}</h4>
+                  <p *ngIf="menulist.hp_subcat!=3 && menulist.hp_subcat!=4">{{menulist.hp_description}}</p>
                     <h5>
-                        Size : 3/16"
-                        <div class="price">INR 50<strong>/Meter</strong></div>
+                        Size : {{menulist.hp_size}}"
+                        <div class="price">INR {{menulist.hp_price}}<!-- <strong>/Meter</strong> --></div>
                       </h5>
                   </div>
-                  <div class="product_box" routerLink="/product-details/1">
-                    <div class="img_box"><img src="assets/images/product-details.png"></div>
-                    <h4>R2AT - 20.7 MPA</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <h5>
-                        Size : 3/16"
-                        <div class="price">INR 50<strong>/Meter</strong></div>
-                      </h5>
-                  </div>
+
+                  
+
+
+
               </div>
+
+
+
           </div>
       </div>
     </div>
