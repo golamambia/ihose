@@ -42,30 +42,34 @@
               <div *ngIf="tab_val == 'bare'">
               <div class="form-group">
                   <label>Standard</label>
-                  <select class="form-control">
-                      <option>Select Standard</option>
+                  <select class="form-control" [(ngModel)]="standard" [ngModelOptions]="{standalone: true}">
+                      <option value="">Select Standard</option>
+                       <option *ngFor="let data_liststandard of data_list_standard" value="{{data_liststandard.standard_id}}">{{data_liststandard.standard_name}}</option>
                   </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
               <div class="form-group">
                   <label>Size</label>
-                  <select class="form-control">
-                      <option>Select Size</option>
+                 <select class="form-control"  [(ngModel)]="size" [ngModelOptions]="{standalone: true}">
+                      <option value="">Select Size</option>
+                       <option *ngFor="let data_listsize of data_list_size" value="{{data_listsize.size_id}}">{{data_listsize.size_name}}</option>
                   </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
               <div class="form-group">
                   <label>Name</label>
-                  <select class="form-control">
-                      <option>Select Name</option>
+                  <select class="form-control" (change)="getPressure($event.target.value)"  [(ngModel)]="productName" [ngModelOptions]="{standalone: true}">
+                      <option value="">Select Name</option>
+                       <option *ngFor="let data_listproductnm of data_list_productnm" value="{{data_listproductnm.item_id}}">{{data_listproductnm.item_name}}</option>
                   </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
               <div class="form-group">
                   <label>Pressure</label>
-                  <select class="form-control">
-                      <option>Select Pressure</option>
-                  </select>
+                  <select class="form-control" [(ngModel)]="pressure" [ngModelOptions]="{standalone: true}">
+                  <option value="" selected="selected" >Select</option>
+                   <option *ngFor="let pressure_list of pressureList" value="{{pressure_list.hp_id}}">{{pressure_list.hp_pressure}}</option>
+                </select> 
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
               <div class="form-group form-radio">
@@ -88,15 +92,17 @@
               <div *ngIf="endfittab_val == 'endfitA'">
               <div class="form-group">
                   <label>Part Type</label>
-                  <select class="form-control">
-                      <option>Select Part Type</option>
-                  </select>
+                  <select class="form-control" [(ngModel)]="part_type" [ngModelOptions]="{standalone: true}">
+                  <option value="" >Select part type</option>
+                 <option *ngFor="let part_list of partList" value="{{part_list.part_id}}">{{part_list.part_name}}</option>
+                </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
               <div class="form-group">
                   <label>Size</label>
-                  <select class="form-control">
-                      <option>Select Size</option>
+                  <select class="form-control"  [(ngModel)]="size" [ngModelOptions]="{standalone: true}">
+                      <option value="">Select Size</option>
+                       <option *ngFor="let data_listsize of data_list_size" value="{{data_listsize.size_id}}">{{data_listsize.size_name}}</option>
                   </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
@@ -106,15 +112,17 @@
             <div *ngIf="endfittab_val == 'endfitB'">
                <div class="form-group">
                   <label>Part Type</label>
-                  <select class="form-control">
-                      <option>Select Part Type</option>
-                  </select>
+                  <select class="form-control" [(ngModel)]="part_type" [ngModelOptions]="{standalone: true}">
+                  <option value="" >Select part type</option>
+                 <option *ngFor="let part_list of partList" value="{{part_list.part_id}}">{{part_list.part_name}}</option>
+                </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
               <div class="form-group">
                   <label>Size</label>
-                  <select class="form-control">
-                      <option>Select Size</option>
+                  <select class="form-control"  [(ngModel)]="size" [ngModelOptions]="{standalone: true}">
+                      <option value="">Select Size</option>
+                       <option *ngFor="let data_listsize of data_list_size" value="{{data_listsize.size_id}}">{{data_listsize.size_name}}</option>
                   </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
@@ -141,8 +149,9 @@
               </div>
               <div class="form-group">
                   <label>Size</label>
-                  <select class="form-control">
-                      <option>Select Size</option>
+                  <select class="form-control"  [(ngModel)]="size" [ngModelOptions]="{standalone: true}">
+                      <option value="">Select Size</option>
+                       <option *ngFor="let data_listsize of data_list_size" value="{{data_listsize.size_id}}">{{data_listsize.size_name}}</option>
                   </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>

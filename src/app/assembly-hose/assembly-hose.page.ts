@@ -13,7 +13,12 @@ import { image_path } from '../../environments/environment';
   styleUrls: ['./assembly-hose.page.scss'],
 })
 export class AssemblyHosePage implements OnInit {
+  appUrl_standard = "https://theitvibe.com/project/ihose/api/getStandard";
+  appUrl_size = "https://theitvibe.com/project/ihose/api/getSize";
+appUrl_proname = "https://theitvibe.com/project/ihose/api/getProductName";
+appUrl_pressure = "https://theitvibe.com/project/ihose/api/getPressure";
 appUrl_part = "https://theitvibe.com/project/ihose/api/getAssemblyName";
+appUrl_parturl = "https://theitvibe.com/project/ihose/api/getPartType";
   res:any;
 
 assemblyList:any;
@@ -39,6 +44,11 @@ endfittab_val:any='endfitA';
   userCart:any;
   cartTotal:any;
   cartcount:any=0;
+  data_list_standard:any;
+  data_list_size:any;
+  data_list_productnm:any;
+  pressureList:any;
+partList:any;
  constructor(public http: Http,
   public navCtrl: NavController,
    public storage: Storage,
@@ -58,6 +68,11 @@ endfittab_val:any='endfitA';
       }
         });
      this.getCartItemCount();
+     this.listing_standard();
+     this.listing_size();
+     this.listing_productname();
+     this.listing_part();
+      
    }
   ngOnInit() {
   	      this.sub =this.route.params.subscribe(params => {
@@ -67,6 +82,7 @@ endfittab_val:any='endfitA';
    // console.log(this.id);
   this.storePage('assembly-hose/4');
    this.listing_assembly();
+   
   }
 });
   }
@@ -105,7 +121,7 @@ endfittab_val:any='endfitA';
     }
   }, (err) => {
     //this.loading.hide();
-    console.log(err);
+   // console.log(err);
     
   });
     
@@ -134,6 +150,148 @@ this.cartTotal=this.count;
       }
         });
 
+  }
+   listing_standard(){
+   var data ={
+    "id": this.id,
+   
+  }
+           
+   this.http.post(this.appUrl_standard, data)
+  .subscribe(res => {
+    
+    this.res = res.json();
+    //console.log(this.res);
+     if(this.res){
+
+ this.data_list_standard =this.res;
+   //this.loading.hide();
+     
+    }else{
+    alert("Server error");
+    //this.loading.hide();
+    
+    }
+  }, (err) => {
+    //this.loading.hide();
+    //console.log(err);
+    
+  });
+    
+  }
+  listing_size(){
+   var data ={
+    "id": this.id,
+   
+  }
+           
+   this.http.post(this.appUrl_size, data)
+  .subscribe(res => {
+    
+    this.res = res.json();
+    //console.log(this.res);
+     if(this.res){
+
+ this.data_list_size =this.res;
+   //this.loading.hide();
+     
+    }else{
+    alert("Server error");
+    //this.loading.hide();
+    
+    }
+  }, (err) => {
+    //this.loading.hide();
+    //console.log(err);
+    
+  });
+    
+  }
+
+ 
+  getPressure(id){
+  //console.log(id);
+  var data ={
+    "id": id,
+   
+  }
+           
+   this.http.post(this.appUrl_pressure, data)
+  .subscribe(res => {
+    
+    this.res = res.json();
+    //console.log(this.res);
+     if(this.res){
+
+ this.pressureList =this.res;
+   //this.loading.hide();
+     
+    }else{
+    alert("Server error");
+    //this.loading.hide();
+    
+    }
+  }, (err) => {
+    //this.loading.hide();
+   // console.log(err);
+    
+  });
+}
+ listing_productname(){
+   var data ={
+    "id": 1,
+   
+  }
+           
+   this.http.post(this.appUrl_proname, data)
+  .subscribe(res => {
+    
+    this.res = res.json();
+    //console.log(this.res);
+     if(this.res){
+
+ this.data_list_productnm =this.res;
+   //this.loading.hide();
+     
+    }else{
+    alert("Server error");
+    //this.loading.hide();
+    
+    }
+  }, (err) => {
+    //this.loading.hide();
+   // console.log(err);
+    
+  });
+    
+  }
+   listing_part(){
+   var data ={
+    "id": this.id,
+   
+  }
+           
+   this.http.post(this.appUrl_parturl, data)
+  .subscribe(res => {
+    
+    this.res = res.json();
+    //console.log(this.res);
+     if(this.res){
+
+ this.partList =this.res;
+   //this.loading.hide();
+     
+    }else{
+    alert("Server error");
+    //this.loading.hide();
+    
+    }
+  }, (err) => {
+    //this.loading.hide();
+    //console.log(err);
+    
+  });
+    
   }
 
 }
