@@ -46,7 +46,7 @@ AssemblyHosePageRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-content [fullscreen]=\"true\">\n\n    <div class=\"automotive_area\">\n      <div class=\"container\">\n          <div class=\"automotive_body\">\n              <div class=\"header_area\">\n                  <button class=\"btn-back\" routerLink=\"/home\"><img src=\"assets/images/back.png\" alt=\"back\" title=\"\" /></button>\n                  <h1 *ngIf=\"tab_val == 'bare'\">Hose Assembly - Bare Hoses</h1>\n                  <h1 *ngIf=\"tab_val == 'endfit'\">Hose Assembly - End Fittings</h1>\n                  <h1 *ngIf=\"tab_val == 'addon'\">Hose Assembly - Add On</h1>\n                     <button class=\"btn-cart\" routerLink=\"/cart-page\"><img src=\"assets/images/cart.png\" alt=\"back\" title=\"\" /><span class=\"total_cart\" [innerHTML]=\"cartcount\" ></span></button>\n              </div>\n              <div class=\"search_box\">\n                  <div class=\"icon\"><i class=\"zmdi zmdi-search\"></i></div>\n                  <input type=\"text\" class=\"form-control\" placeholder=\"Search Products...\" />\n              </div>\n               <div class=\"filter\">\n                <button (click)=\"tab_click('bare')\" [ngClass]=\"{'active': tab_val == 'bare'}\">Bare Hoses</button>\n                <button (click)=\"tab_click('endfit')\" [ngClass]=\"{'active': tab_val == 'endfit'}\">End Fittings</button>\n                <button (click)=\"tab_click('addon')\" [ngClass]=\"{'active': tab_val == 'addon'}\">Add On</button>\n              </div>\n             \n               <div class=\"product_select\" *ngIf=\"tab_val == 'endfit'\">\n                <label class=\"check_box\">\n                    <input type=\"radio\" name=\"\" [checked]=\"endfittab_val == 'endfitA'\" (change)=\"onChangeHandler('endfitA')\" />  \n                    <span>End-A</span>\n                </label>\n                <label class=\"check_box\">\n                    <input type=\"radio\" name=\"\" [checked]=\"endfittab_val == 'endfitB'\" (change)=\"onChangeHandler('endfitB')\" />  \n                    <span>End-B</span>\n                </label>\n                <label class=\"check_box\">\n                    <input type=\"radio\" name=\"\" [checked]=\"endfittab_val == 'endfitAngel'\" (change)=\"onChangeHandler('endfitAngel')\"/>  \n                    <span>Angle of Orientation</span>\n                </label>\n                <label class=\"check_box\">\n                    <input type=\"radio\" name=\"\" [checked]=\"endfittab_val == 'endfitAdapter'\" (change)=\"onChangeHandler('endfitAdapter')\"/>  \n                    <span>Adapter</span>\n                </label>\n              </div>\n\n              <div *ngIf=\"tab_val == 'bare'\">\n              <div class=\"form-group\">\n                  <label>Standard</label>\n                  <select class=\"form-control\" [(ngModel)]=\"standard\" [ngModelOptions]=\"{standalone: true}\">\n                      <option value=\"\">Select Standard</option>\n                       <option *ngFor=\"let data_liststandard of data_list_standard\" value=\"{{data_liststandard.standard_id}}\">{{data_liststandard.standard_name}}</option>\n                  </select>\n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <div class=\"form-group\">\n                  <label>Size</label>\n                 <select class=\"form-control\"  [(ngModel)]=\"size\" [ngModelOptions]=\"{standalone: true}\">\n                      <option value=\"\">Select Size</option>\n                       <option *ngFor=\"let data_listsize of data_list_size\" value=\"{{data_listsize.size_id}}\">{{data_listsize.size_name}}</option>\n                  </select>\n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <div class=\"form-group\">\n                  <label>Name</label>\n                  <select class=\"form-control\" (change)=\"getPressure($event.target.value)\"  [(ngModel)]=\"productName\" [ngModelOptions]=\"{standalone: true}\">\n                      <option value=\"\">Select Name</option>\n                       <option *ngFor=\"let data_listproductnm of data_list_productnm\" value=\"{{data_listproductnm.item_id}}\">{{data_listproductnm.item_name}}</option>\n                  </select>\n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <div class=\"form-group\">\n                  <label>Pressure</label>\n                  <select class=\"form-control\" [(ngModel)]=\"pressure\" [ngModelOptions]=\"{standalone: true}\">\n                  <option value=\"\" selected=\"selected\" >Select</option>\n                   <option *ngFor=\"let pressure_list of pressureList\" value=\"{{pressure_list.hp_id}}\">{{pressure_list.hp_pressure}}</option>\n                </select> \n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <div class=\"form-group form-radio\">\n                <label class=\"radio-inline\">\n                    <input type=\"radio\" name=\"optradio\" checked>Hose Length\n                </label>\n                <label class=\"radio-inline\">\n                    <input type=\"radio\" name=\"optradio\">Overall Length\n                </label>\n              </div>\n              <div class=\"form-group\">\n                  <label>Hose Length</label>\n                  <input type=\"text\" class=\"form-control\" placeholder=\"Text input\" />\n              </div>\n              <button class=\"btn\" (click)=\"tab_click('endfit')\" >SELECT END FITTINGS</button>\n            </div>\n             <div *ngIf=\"tab_val == 'endfit'\">\n\n\n              <div *ngIf=\"endfittab_val == 'endfitA'\">\n              <div class=\"form-group\">\n                  <label>Part Type</label>\n                  <select class=\"form-control\" [(ngModel)]=\"part_type\" [ngModelOptions]=\"{standalone: true}\">\n                  <option value=\"\" >Select part type</option>\n                 <option *ngFor=\"let part_list of partList\" value=\"{{part_list.part_id}}\">{{part_list.part_name}}</option>\n                </select>\n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <div class=\"form-group\">\n                  <label>Size</label>\n                  <select class=\"form-control\"  [(ngModel)]=\"size\" [ngModelOptions]=\"{standalone: true}\">\n                      <option value=\"\">Select Size</option>\n                       <option *ngFor=\"let data_listsize of data_list_size\" value=\"{{data_listsize.size_id}}\">{{data_listsize.size_name}}</option>\n                  </select>\n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <button class=\"btn\" (click)=\"onChangeHandler('endfitB')\">select end-b</button>\n\n            </div>\n            <div *ngIf=\"endfittab_val == 'endfitB'\">\n               <div class=\"form-group\">\n                  <label>Part Type</label>\n                  <select class=\"form-control\" [(ngModel)]=\"part_type\" [ngModelOptions]=\"{standalone: true}\">\n                  <option value=\"\" >Select part type</option>\n                 <option *ngFor=\"let part_list of partList\" value=\"{{part_list.part_id}}\">{{part_list.part_name}}</option>\n                </select>\n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <div class=\"form-group\">\n                  <label>Size</label>\n                  <select class=\"form-control\"  [(ngModel)]=\"size\" [ngModelOptions]=\"{standalone: true}\">\n                      <option value=\"\">Select Size</option>\n                       <option *ngFor=\"let data_listsize of data_list_size\" value=\"{{data_listsize.size_id}}\">{{data_listsize.size_name}}</option>\n                  </select>\n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <button class=\"btn\" (click)=\"onChangeHandler('endfitAngel')\">select Angle of Orientation</button>\n            </div>\n            <div *ngIf=\"endfittab_val == 'endfitAngel'\">\n                  <div class=\"form-group\">\n                  <label>Degree</label>\n                  <select class=\"form-control\">\n                      <option>0</option>\n                  </select>\n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <button class=\"btn\" (click)=\"onChangeHandler('endfitAdapter')\">select adapter</button>\n            </div>\n            <div *ngIf=\"endfittab_val == 'endfitAdapter'\">\n               <div class=\"form-group form-radio\">\n                <label class=\"radio-inline\">\n                    <input type=\"radio\" name=\"optradio\" checked>yes\n                </label>\n                <label class=\"radio-inline\">\n                    <input type=\"radio\" name=\"optradio\">no\n                </label>\n              </div>\n              <div class=\"form-group\">\n                  <label>Size</label>\n                  <select class=\"form-control\"  [(ngModel)]=\"size\" [ngModelOptions]=\"{standalone: true}\">\n                      <option value=\"\">Select Size</option>\n                       <option *ngFor=\"let data_listsize of data_list_size\" value=\"{{data_listsize.size_id}}\">{{data_listsize.size_name}}</option>\n                  </select>\n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <div class=\"form-group\">\n                  <label>Angle</label>\n                  <select class=\"form-control\">\n                      <option>Select Angle</option>\n                  </select>\n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <button class=\"btn\" (click)=\"tab_click('addon')\">Select ADD ON</button>\n            </div>\n          \n\n             </div>\n\n              <div *ngIf=\"tab_val == 'addon'\">\n                 <div class=\"form-group\">\n                  <label>Type of Add on</label>\n                  <select class=\"form-control\">\n                      <option>Pyrojacket</option>\n                  </select>\n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <button class=\"btn\" routerLink=\"/product\">send query</button>\n              </div> \n\n\n\n\n\n\n          </div>\n      </div>\n    </div>\n  \n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-content [fullscreen]=\"true\">\n\n    <div class=\"automotive_area\">\n      <div class=\"container\">\n          <div class=\"automotive_body\">\n              <div class=\"header_area\">\n                  <button class=\"btn-back\" routerLink=\"/home\"><img src=\"assets/images/back.png\" alt=\"back\" title=\"\" /></button>\n                  <h1 *ngIf=\"tab_val == 'bare'\">Hose Assembly - Bare Hoses</h1>\n                  <h1 *ngIf=\"tab_val == 'endfit'\">Hose Assembly - End Fittings</h1>\n                  <h1 *ngIf=\"tab_val == 'addon'\">Hose Assembly - Add On</h1>\n                     <button class=\"btn-cart\" routerLink=\"/cart-page\"><img src=\"assets/images/cart.png\" alt=\"back\" title=\"\" /><span class=\"total_cart\" [innerHTML]=\"cartcount\" ></span></button>\n              </div>\n              <div class=\"search_box\">\n                  <div class=\"icon\"><i class=\"zmdi zmdi-search\"></i></div>\n                  <input type=\"text\" class=\"form-control\" placeholder=\"Search Products...\" />\n              </div>\n               <div class=\"filter\">\n                <button (click)=\"tab_click('bare')\" [ngClass]=\"{'active': tab_val == 'bare'}\">Bare Hoses</button>\n                <button (click)=\"tab_click('endfit')\" [ngClass]=\"{'active': tab_val == 'endfit'}\">End Fittings</button>\n                <button (click)=\"tab_click('addon')\" [ngClass]=\"{'active': tab_val == 'addon'}\">Add On</button>\n              </div>\n             \n               <div class=\"product_select\" *ngIf=\"tab_val == 'endfit'\">\n                <label class=\"check_box\">\n                    <input type=\"radio\" name=\"\" [checked]=\"endfittab_val == 'endfitA'\" (change)=\"onChangeHandler('endfitA')\" />  \n                    <span>End-A</span>\n                </label>\n                <label class=\"check_box\">\n                    <input type=\"radio\" name=\"\" [checked]=\"endfittab_val == 'endfitB'\" (change)=\"onChangeHandler('endfitB')\" />  \n                    <span>End-B</span>\n                </label>\n                <label class=\"check_box\">\n                    <input type=\"radio\" name=\"\" [checked]=\"endfittab_val == 'endfitAngel'\" (change)=\"onChangeHandler('endfitAngel')\"/>  \n                    <span>Angle of Orientation</span>\n                </label>\n                <label class=\"check_box\">\n                    <input type=\"radio\" name=\"\" [checked]=\"endfittab_val == 'endfitAdapter'\" (change)=\"onChangeHandler('endfitAdapter')\"/>  \n                    <span>Adapter</span>\n                </label>\n              </div>\n\n              <div *ngIf=\"tab_val == 'bare'\">\n              <div class=\"form-group\">\n                  <label>Standard</label>\n                  <select class=\"form-control\" [(ngModel)]=\"standard\" [ngModelOptions]=\"{standalone: true}\">\n                      <option value=\"\">Select Standard</option>\n                       <option *ngFor=\"let data_liststandard of data_list_standard\" value=\"{{data_liststandard.standard_id}}\">{{data_liststandard.standard_name}}</option>\n                  </select>\n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <div class=\"form-group\">\n                  <label>Size</label>\n                 <select class=\"form-control\"  [(ngModel)]=\"size\" [ngModelOptions]=\"{standalone: true}\">\n                      <option value=\"\">Select Size</option>\n                       <option *ngFor=\"let data_listsize of data_list_size\" value=\"{{data_listsize.size_id}}\">{{data_listsize.size_name}}</option>\n                  </select>\n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <div class=\"form-group\">\n                  <label>Name</label>\n                  <select class=\"form-control\" (change)=\"getPressure($event.target.value)\"  [(ngModel)]=\"productName\" [ngModelOptions]=\"{standalone: true}\">\n                      <option value=\"\">Select Name</option>\n                       <option *ngFor=\"let data_listproductnm of data_list_productnm\" value=\"{{data_listproductnm.item_id}}\">{{data_listproductnm.item_name}}</option>\n                  </select>\n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <div class=\"form-group\">\n                  <label>Pressure</label>\n                  <select class=\"form-control\" [(ngModel)]=\"pressure\" [ngModelOptions]=\"{standalone: true}\">\n                  <option value=\"\" selected=\"selected\" >Select</option>\n                   <option *ngFor=\"let pressure_list of pressureList\" value=\"{{pressure_list.hp_id}}\">{{pressure_list.hp_pressure}}</option>\n                </select> \n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <div class=\"form-group form-radio\" >\n                <label class=\"radio-inline\">\n                    <input type=\"radio\" [(ngModel)]=\"hose_lengthtype\" [ngModelOptions]=\"{standalone: true}\"   value=\"Hose Length\" [checked]=\"hose_lengthtype==='Hose Length'\">Hose Length\n                </label>\n                <label class=\"radio-inline\">\n                    <input type=\"radio\" [(ngModel)]=\"hose_lengthtype\" [ngModelOptions]=\"{standalone: true}\"  value=\"Overall Length\" [checked]=\"hose_lengthtype==='Overall Length'\">Overall Length\n                </label>\n              </div>\n              <div class=\"form-group\" *ngIf=\"hose_lengthtype == 'Hose Length'\">\n                  <label>Hose Length</label>\n                  <input type=\"text\" [(ngModel)]=\"hose_length\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\" placeholder=\"Text input\" />\n              </div>\n              <button class=\"btn\" (click)=\"tab_click('endfit')\" >SELECT END FITTINGS</button>\n            </div>\n             <div *ngIf=\"tab_val == 'endfit'\">\n\n\n              <div *ngIf=\"endfittab_val == 'endfitA'\">\n              <div class=\"form-group\">\n                  <label>Part Type</label>\n                  <select class=\"form-control\" [(ngModel)]=\"part_type\" [ngModelOptions]=\"{standalone: true}\">\n                  <option value=\"\" >Select part type</option>\n                 <option *ngFor=\"let part_list of partList\" value=\"{{part_list.part_id}}\">{{part_list.part_name}}</option>\n                </select>\n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <div class=\"form-group\">\n                  <label>Size</label>\n                  <select class=\"form-control\"  [(ngModel)]=\"endfitsize\" [ngModelOptions]=\"{standalone: true}\">\n                      <option value=\"\">Select Size</option>\n                       <option *ngFor=\"let data_listsize of data_list_size\" value=\"{{data_listsize.size_id}}\">{{data_listsize.size_name}}</option>\n                  </select>\n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <button class=\"btn\" (click)=\"onChangeHandler('endfitB')\">select end-b</button>\n\n            </div>\n            <div *ngIf=\"endfittab_val == 'endfitB'\">\n               <div class=\"form-group\">\n                  <label>Part Type</label>\n                  <select class=\"form-control\" [(ngModel)]=\"endbpart_type\" [ngModelOptions]=\"{standalone: true}\">\n                  <option value=\"\" >Select part type</option>\n                 <option *ngFor=\"let part_list of partList\" value=\"{{part_list.part_id}}\">{{part_list.part_name}}</option>\n                </select>\n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <div class=\"form-group\">\n                  <label>Size</label>\n                  <select class=\"form-control\"  [(ngModel)]=\"endbsize\" [ngModelOptions]=\"{standalone: true}\">\n                      <option value=\"\">Select Size</option>\n                       <option *ngFor=\"let data_listsize of data_list_size\" value=\"{{data_listsize.size_id}}\">{{data_listsize.size_name}}</option>\n                  </select>\n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <button class=\"btn\" (click)=\"onChangeHandler('endfitAngel')\">select Angle of Orientation</button>\n            </div>\n            <div *ngIf=\"endfittab_val == 'endfitAngel'\">\n                  <div class=\"form-group\">\n                  <label>Degree</label>\n                  <select class=\"form-control\" [(ngModel)]=\"angeldegree\" [ngModelOptions]=\"{standalone: true}\">\n                    <option value=\"\">Select Degree</option>\n                      <option *ngFor=\"let item of [].constructor(180); let i = index\" value=\"{{i+1}}\">{{i+1}}</option>\n                  </select>\n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <button class=\"btn\" (click)=\"onChangeHandler('endfitAdapter')\">select adapter</button>\n            </div>\n            <div *ngIf=\"endfittab_val == 'endfitAdapter'\">\n               <div class=\"form-group form-radio\">\n                <label class=\"radio-inline\">\n                    <input type=\"radio\" [(ngModel)]=\"adapterradio\" [ngModelOptions]=\"{standalone: true}\" value=\"yes\"  [checked]=\"adapterradio==='yes'\">yes\n                </label>\n                <label class=\"radio-inline\">\n                    <input type=\"radio\" [(ngModel)]=\"adapterradio\" [ngModelOptions]=\"{standalone: true}\" value=\"no\"  [checked]=\"adapterradio==='no'\">no\n                </label>\n              </div>\n              <div class=\"form-group\" *ngIf=\"adapterradio=='yes'\">\n                  <label>Size</label>\n                  <select class=\"form-control\"  [(ngModel)]=\"adaptersize\" [ngModelOptions]=\"{standalone: true}\">\n                      <option value=\"\">Select Size</option>\n                       <option *ngFor=\"let data_listsize of data_list_size\" value=\"{{data_listsize.size_id}}\">{{data_listsize.size_name}}</option>\n                  </select>\n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <div class=\"form-group\" *ngIf=\"adapterradio=='yes'\">\n                  <label>Angle</label>\n                  <select class=\"form-control\" [(ngModel)]=\"adapterangel\" [ngModelOptions]=\"{standalone: true}\">\n                      <option value=\"\">Select Angle</option>\n                      <option *ngFor=\"let item of [].constructor(180); let i = index\" value=\"{{i+1}}\">{{i+1}}</option>\n                  </select>\n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <button class=\"btn\" (click)=\"tab_click('addon')\">Select ADD ON</button>\n            </div>\n          \n\n             </div>\n\n              <div *ngIf=\"tab_val == 'addon'\">\n                 <div class=\"form-group\">\n                  <label>Type of Add on</label>\n                  <select class=\"form-control\" [(ngModel)]=\"addon_type\" [ngModelOptions]=\"{standalone: true}\">\n                    <option value=\"\">Select type</option>\n                      <option value=\"1\">Pyrojacket</option>\n                  </select>\n                  <div class=\"arrow\"><img src=\"assets/images/select-arrow.png\" alt=\"select arrow\" title=\"\" /></div>\n              </div>\n              <button class=\"btn\"  (click)=\"send_query('addon_type')\">send query</button>\n              </div> \n\n\n\n\n\n\n          </div>\n      </div>\n    </div>\n  \n</ion-content>");
 
 /***/ }),
 
@@ -121,6 +121,15 @@ let AssemblyHosePage = class AssemblyHosePage {
         this.count = 0;
         this.cart_data = [];
         this.cartcount = 0;
+        this.hose_lengthtype = 'Hose Length';
+        this.endfitsize = '';
+        this.endbpart_type = '';
+        this.endbsize = '';
+        this.angeldegree = '';
+        this.adapterradio = 'yes';
+        this.adaptersize = '';
+        this.adapterangel = '';
+        this.addon_type = '';
     }
     ionViewWillEnter() {
         // this.storage.remove("userCart");
@@ -149,11 +158,160 @@ let AssemblyHosePage = class AssemblyHosePage {
         });
     }
     tab_click(val) {
-        this.tab_val = val;
+        if (val == 'endfit') {
+            if (!this.standard) {
+                this.alertController.create({
+                    message: 'Please select standard',
+                    buttons: ['OK']
+                }).then(resalert => {
+                    resalert.present();
+                });
+            }
+            else if (!this.size) {
+                this.alertController.create({
+                    message: 'Please select size',
+                    buttons: ['OK']
+                }).then(resalert => {
+                    resalert.present();
+                });
+            }
+            else if (!this.productName) {
+                this.alertController.create({
+                    message: 'Please select product',
+                    buttons: ['OK']
+                }).then(resalert => {
+                    resalert.present();
+                });
+            }
+            else if (!this.pressure) {
+                this.alertController.create({
+                    message: 'Please select pressure',
+                    buttons: ['OK']
+                }).then(resalert => {
+                    resalert.present();
+                });
+            }
+            else if (this.hose_lengthtype == 'Hose Length' && !this.hose_length) {
+                this.alertController.create({
+                    message: 'Please enter hose length',
+                    buttons: ['OK']
+                }).then(resalert => {
+                    resalert.present();
+                });
+            }
+            else {
+                this.tab_val = val;
+            }
+            //console.log(this.hose_lengthtype);
+            // this.tab_val=val;
+        }
+        else if (val == 'addon' && this.adapterradio == 'yes') {
+            // alert(val);
+            if (!this.adaptersize) {
+                this.alertController.create({
+                    message: 'Please select size',
+                    buttons: ['OK']
+                }).then(resalert => {
+                    resalert.present();
+                });
+            }
+            else if (!this.adapterangel) {
+                this.alertController.create({
+                    message: 'Please select angel',
+                    buttons: ['OK']
+                }).then(resalert => {
+                    resalert.present();
+                });
+            }
+            else {
+                this.tab_val = val;
+            }
+        }
+        else if (val == 'addon' && this.adapterradio == 'no') {
+            this.tab_val = val;
+        }
+        // else{
+        //    this.tab_val=val;
+        // }
     }
     onChangeHandler(val) {
-        this.endfittab_val = val;
+        if (val == 'endfitB') {
+            if (!this.part_type) {
+                this.alertController.create({
+                    message: 'Please select part type',
+                    buttons: ['OK']
+                }).then(resalert => {
+                    resalert.present();
+                });
+            }
+            else if (!this.endfitsize) {
+                this.alertController.create({
+                    message: 'Please select size',
+                    buttons: ['OK']
+                }).then(resalert => {
+                    resalert.present();
+                });
+            }
+            else {
+                this.endfittab_val = val;
+            }
+        }
+        else if (val == 'endfitAngel') {
+            if (!this.endbpart_type) {
+                this.alertController.create({
+                    message: 'Please select part type',
+                    buttons: ['OK']
+                }).then(resalert => {
+                    resalert.present();
+                });
+            }
+            else if (!this.endbsize) {
+                this.alertController.create({
+                    message: 'Please select size',
+                    buttons: ['OK']
+                }).then(resalert => {
+                    resalert.present();
+                });
+            }
+            else {
+                this.endfittab_val = val;
+            }
+        }
+        else if (val == 'endfitAdapter') {
+            if (!this.angeldegree) {
+                this.alertController.create({
+                    message: 'Please select degree',
+                    buttons: ['OK']
+                }).then(resalert => {
+                    resalert.present();
+                });
+            }
+            else {
+                this.endfittab_val = val;
+            }
+        }
+        else {
+            this.endfittab_val = val;
+        }
         //console.log($event);
+    }
+    send_query(val) {
+        if (val == 'addon_type') {
+            if (!this.addon_type) {
+                this.alertController.create({
+                    message: 'Please select addon',
+                    buttons: ['OK']
+                }).then(resalert => {
+                    resalert.present();
+                });
+            }
+            else {
+                this.navCtrl.navigateForward('product');
+            }
+        }
+        else {
+            this.navCtrl.navigateForward('product');
+        }
     }
     storePage(page) {
         this.storage.set("goTo", page);

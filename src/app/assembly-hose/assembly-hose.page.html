@@ -72,17 +72,17 @@
                 </select> 
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
-              <div class="form-group form-radio">
+              <div class="form-group form-radio" >
                 <label class="radio-inline">
-                    <input type="radio" name="optradio" checked>Hose Length
+                    <input type="radio" [(ngModel)]="hose_lengthtype" [ngModelOptions]="{standalone: true}"   value="Hose Length" [checked]="hose_lengthtype==='Hose Length'">Hose Length
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="optradio">Overall Length
+                    <input type="radio" [(ngModel)]="hose_lengthtype" [ngModelOptions]="{standalone: true}"  value="Overall Length" [checked]="hose_lengthtype==='Overall Length'">Overall Length
                 </label>
               </div>
-              <div class="form-group">
+              <div class="form-group" *ngIf="hose_lengthtype == 'Hose Length'">
                   <label>Hose Length</label>
-                  <input type="text" class="form-control" placeholder="Text input" />
+                  <input type="text" [(ngModel)]="hose_length" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Text input" />
               </div>
               <button class="btn" (click)="tab_click('endfit')" >SELECT END FITTINGS</button>
             </div>
@@ -100,7 +100,7 @@
               </div>
               <div class="form-group">
                   <label>Size</label>
-                  <select class="form-control"  [(ngModel)]="size" [ngModelOptions]="{standalone: true}">
+                  <select class="form-control"  [(ngModel)]="endfitsize" [ngModelOptions]="{standalone: true}">
                       <option value="">Select Size</option>
                        <option *ngFor="let data_listsize of data_list_size" value="{{data_listsize.size_id}}">{{data_listsize.size_name}}</option>
                   </select>
@@ -112,7 +112,7 @@
             <div *ngIf="endfittab_val == 'endfitB'">
                <div class="form-group">
                   <label>Part Type</label>
-                  <select class="form-control" [(ngModel)]="part_type" [ngModelOptions]="{standalone: true}">
+                  <select class="form-control" [(ngModel)]="endbpart_type" [ngModelOptions]="{standalone: true}">
                   <option value="" >Select part type</option>
                  <option *ngFor="let part_list of partList" value="{{part_list.part_id}}">{{part_list.part_name}}</option>
                 </select>
@@ -120,7 +120,7 @@
               </div>
               <div class="form-group">
                   <label>Size</label>
-                  <select class="form-control"  [(ngModel)]="size" [ngModelOptions]="{standalone: true}">
+                  <select class="form-control"  [(ngModel)]="endbsize" [ngModelOptions]="{standalone: true}">
                       <option value="">Select Size</option>
                        <option *ngFor="let data_listsize of data_list_size" value="{{data_listsize.size_id}}">{{data_listsize.size_name}}</option>
                   </select>
@@ -131,8 +131,9 @@
             <div *ngIf="endfittab_val == 'endfitAngel'">
                   <div class="form-group">
                   <label>Degree</label>
-                  <select class="form-control">
-                      <option>0</option>
+                  <select class="form-control" [(ngModel)]="angeldegree" [ngModelOptions]="{standalone: true}">
+                    <option value="">Select Degree</option>
+                      <option *ngFor="let item of [].constructor(180); let i = index" value="{{i+1}}">{{i+1}}</option>
                   </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
@@ -141,24 +142,25 @@
             <div *ngIf="endfittab_val == 'endfitAdapter'">
                <div class="form-group form-radio">
                 <label class="radio-inline">
-                    <input type="radio" name="optradio" checked>yes
+                    <input type="radio" [(ngModel)]="adapterradio" [ngModelOptions]="{standalone: true}" value="yes"  [checked]="adapterradio==='yes'">yes
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="optradio">no
+                    <input type="radio" [(ngModel)]="adapterradio" [ngModelOptions]="{standalone: true}" value="no"  [checked]="adapterradio==='no'">no
                 </label>
               </div>
-              <div class="form-group">
+              <div class="form-group" *ngIf="adapterradio=='yes'">
                   <label>Size</label>
-                  <select class="form-control"  [(ngModel)]="size" [ngModelOptions]="{standalone: true}">
+                  <select class="form-control"  [(ngModel)]="adaptersize" [ngModelOptions]="{standalone: true}">
                       <option value="">Select Size</option>
                        <option *ngFor="let data_listsize of data_list_size" value="{{data_listsize.size_id}}">{{data_listsize.size_name}}</option>
                   </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
-              <div class="form-group">
+              <div class="form-group" *ngIf="adapterradio=='yes'">
                   <label>Angle</label>
-                  <select class="form-control">
-                      <option>Select Angle</option>
+                  <select class="form-control" [(ngModel)]="adapterangel" [ngModelOptions]="{standalone: true}">
+                      <option value="">Select Angle</option>
+                      <option *ngFor="let item of [].constructor(180); let i = index" value="{{i+1}}">{{i+1}}</option>
                   </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
@@ -171,12 +173,13 @@
               <div *ngIf="tab_val == 'addon'">
                  <div class="form-group">
                   <label>Type of Add on</label>
-                  <select class="form-control">
-                      <option>Pyrojacket</option>
+                  <select class="form-control" [(ngModel)]="addon_type" [ngModelOptions]="{standalone: true}">
+                    <option value="">Select type</option>
+                      <option value="1">Pyrojacket</option>
                   </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
-              <button class="btn" routerLink="/product">send query</button>
+              <button class="btn"  (click)="send_query('addon_type')">send query</button>
               </div> 
 
 

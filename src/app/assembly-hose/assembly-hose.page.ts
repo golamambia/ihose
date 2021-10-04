@@ -49,6 +49,17 @@ endfittab_val:any='endfitA';
   data_list_productnm:any;
   pressureList:any;
 partList:any;
+hose_length:any;
+  hose_lengthtype:any='Hose Length';
+endfitsize:any='';
+endbpart_type:any='';
+endbsize:any='';
+angeldegree:any='';
+adapterradio:any='yes';
+adaptersize:any='';
+adapterangel:any='';
+addon_type:any='';
+
  constructor(public http: Http,
   public navCtrl: NavController,
    public storage: Storage,
@@ -87,12 +98,199 @@ partList:any;
 });
   }
   tab_click(val){
-    this.tab_val=val;
+    if(val=='endfit'){
+      if(!this.standard){
+         this.alertController.create({
+      
+     message: 'Please select standard',
+      buttons: ['OK']
+    }).then(resalert => {
+
+      resalert.present();
+
+    });
+      }
+else if(!this.size){
+         this.alertController.create({
+      
+     message: 'Please select size',
+      buttons: ['OK']
+    }).then(resalert => {
+
+      resalert.present();
+
+    });
+      }else if(!this.productName){
+         this.alertController.create({
+      
+     message: 'Please select product',
+      buttons: ['OK']
+    }).then(resalert => {
+
+      resalert.present();
+
+    });
+      }else if(!this.pressure){
+         this.alertController.create({
+      
+     message: 'Please select pressure',
+      buttons: ['OK']
+    }).then(resalert => {
+
+      resalert.present();
+
+    });
+      }else if(this.hose_lengthtype=='Hose Length' && !this.hose_length){
+         this.alertController.create({
+      
+     message: 'Please enter hose length',
+      buttons: ['OK']
+    }).then(resalert => {
+
+      resalert.present();
+
+    });
+      }
+
+
+      else{
+         this.tab_val=val;
+      }
+      
+      //console.log(this.hose_lengthtype);
+     // this.tab_val=val;
+    }else if(val=='addon' && this.adapterradio=='yes'){
+     // alert(val);
+      if(!this.adaptersize){
+         this.alertController.create({
+      
+     message: 'Please select size',
+      buttons: ['OK']
+    }).then(resalert => {
+
+      resalert.present();
+
+    });
+      }else if(!this.adapterangel){
+         this.alertController.create({
+      
+     message: 'Please select angel',
+      buttons: ['OK']
+    }).then(resalert => {
+
+      resalert.present();
+
+    });
+      }
+
+      else{
+         this.tab_val=val;
+      }
+
+   }else if(val=='addon' && this.adapterradio=='no'){
+     this.tab_val=val;
+   }
+
+    // else{
+    //    this.tab_val=val;
+    // }
+   
   }
   onChangeHandler(val) {
-   
-    this.endfittab_val=val;
+   if(val=='endfitB'){
+      if(!this.part_type){
+         this.alertController.create({
+      
+     message: 'Please select part type',
+      buttons: ['OK']
+    }).then(resalert => {
+
+      resalert.present();
+
+    });
+      }else if(!this.endfitsize){
+         this.alertController.create({
+      
+     message: 'Please select size',
+      buttons: ['OK']
+    }).then(resalert => {
+
+      resalert.present();
+
+    });
+      
+      }else{
+        this.endfittab_val=val;
+      }
+
+   }else if(val=='endfitAngel'){
+      if(!this.endbpart_type){
+         this.alertController.create({
+      
+     message: 'Please select part type',
+      buttons: ['OK']
+    }).then(resalert => {
+
+      resalert.present();
+
+    });
+      }else if(!this.endbsize){
+         this.alertController.create({
+      
+     message: 'Please select size',
+      buttons: ['OK']
+    }).then(resalert => {
+
+      resalert.present();
+
+    });
+      
+      }else{
+        this.endfittab_val=val;
+      }
+
+   }
+   else if(val=='endfitAdapter'){
+      if(!this.angeldegree){
+         this.alertController.create({
+      
+     message: 'Please select degree',
+      buttons: ['OK']
+    }).then(resalert => {
+
+      resalert.present();
+
+    });
+      }else{
+        this.endfittab_val=val;
+      }
+
+   } 
+   else{
+        this.endfittab_val=val;
+      }
     //console.log($event);
+  }
+  send_query(val){
+    if(val=='addon_type'){
+      if(!this.addon_type){
+         this.alertController.create({
+      
+     message: 'Please select addon',
+      buttons: ['OK']
+    }).then(resalert => {
+
+      resalert.present();
+
+    });
+      }
+
+      else{
+       this.navCtrl.navigateForward('product');
+      }
+    }else{
+    this.navCtrl.navigateForward('product');
+  }
   }
   storePage(page){
   this.storage.set("goTo", page);
