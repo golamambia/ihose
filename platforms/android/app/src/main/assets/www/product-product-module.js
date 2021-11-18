@@ -59,6 +59,7 @@ let ProductPage = class ProductPage {
         this.mk_name = '';
         this.part_no = '';
         this.model_no = '';
+        this.hp_subcat = '';
     }
     ngOnInit() {
         this.route.queryParams.subscribe(params => {
@@ -93,6 +94,12 @@ let ProductPage = class ProductPage {
                 }
                 if (params.model_no) {
                     this.model_no = params.model_no;
+                }
+                if (params.hp_subcat) {
+                    this.hp_subcat = params.hp_subcat;
+                }
+                if (params.text_search) {
+                    this.search_key = params.text_search;
                 }
                 //console.log(params);
             }
@@ -135,11 +142,12 @@ let ProductPage = class ProductPage {
                 "mk_name": this.mk_name,
                 "part_no": this.part_no,
                 "model_no": this.model_no,
+                "hp_subcat": this.hp_subcat
             };
             this.http.post(this.appUrl_product, dataPar)
                 .subscribe(res => {
                 this.res = res.json();
-                console.log(this.res);
+                //console.log(this.res);
                 if (this.res && this.res.menu_list) {
                     // loading.dismiss();
                     event.target.complete();
@@ -233,6 +241,7 @@ let ProductPage = class ProductPage {
                 "mk_name": this.mk_name,
                 "part_no": this.part_no,
                 "model_no": this.model_no,
+                "hp_subcat": this.hp_subcat
             };
             this.http.post(this.appUrl_product, dataPar)
                 .subscribe(res => {
@@ -534,7 +543,7 @@ ProductPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n\n<ion-content [fullscreen]=\"true\">\n  <ion-refresher (ionRefresh)=\"doRefresh($event)\" slot=\"fixed\" pullFactor=\"0.5\" pullMin=\"100\" pullMax=\"200\">\n    <ion-refresher-content style=\"margin-top: 150px;\"></ion-refresher-content>\n  </ion-refresher>\n    <div class=\"automotive_area\">\n      <div class=\"container\">\n          <div class=\"automotive_body\">\n              <div class=\"header_area\">\n                  <button class=\"btn-back\" routerLink=\"/home\" (click)=\"storePage('home')\"><img src=\"assets/images/back.png\" alt=\"back\" title=\"\" /></button>\n                  <div class=\"logo\"><img src=\"assets/images/logo2.png\" alt=\"logo\" title=\"\"></div>\n                  <button class=\"btn-cart\" routerLink=\"/cart-page\"><img src=\"assets/images/cart.png\" alt=\"back\" title=\"\" /><span class=\"total_cart\" [innerHTML]=\"cartcount\"></span></button>\n              </div>\n              <div class=\"search_box\">\n                  <div class=\"icon\"><i class=\"zmdi zmdi-search\"></i></div>\n                  <input type=\"text\" (keyup)=\"listing($event)\" [(ngModel)]=\"search_key\" [ngModelOptions]=\"{standalone:true}\" class=\"form-control\" placeholder=\"Search Products...\" />\n              </div>\n              \n              <div class=\"product_area\">\n                    <!-- <h3>\n                        Trending Products\n                        \n                    </h3> -->\n                    <div *ngIf=\"dataMenu && loader_val == false\" >\n                  <div class=\"product_box\" *ngFor=\"let menulist of dataMenu; let i=index\" routerLink=\"/product-details/{{menulist.hp_id}}\" >\n                    <div class=\"img_box\">\n                       <img *ngIf=\"menulist.hp_image\" src=\"{{img_url}}{{menulist.hp_image}}\" alt=\"product image\" title=\"\">\n                       <img *ngIf=\"!menulist.hp_image\" src=\"assets/images/noimage.png\" alt=\"product image\" title=\"\">\n                    </div>\n                     <h4 *ngIf=\"menulist.hp_subcat==1\">{{menulist.item_name}}</h4>\n                  <h4 *ngIf=\"menulist.hp_subcat==5 || menulist.hp_subcat==6\">{{menulist.hp_partno}}</h4>\n                   <h4 *ngIf=\"menulist.hp_subcat==3 || menulist.hp_subcat==4\">{{menulist.hp_description}}</h4>\n                  <p *ngIf=\"menulist.hp_subcat!=3 && menulist.hp_subcat!=4\">{{menulist.hp_description}}</p>\n                    <h5>\n                        Size : {{menulist.hp_size}}\"\n                        <div class=\"price\">INR {{menulist.hp_price}}<!-- <strong>/Meter</strong> --></div>\n                      </h5>\n                  </div>\n                  </div>\n\n                   <div class=\"product_box\" *ngIf=\"loader_val\">\n  \n           <div class=\"loader_box\">\n<img src=\"assets/loader.gif\">\n</div>\n\n</div>\n\n<div class=\"product_box\" *ngIf=\"menu_list && menu_list.length==0 && loader_val == false\">\n <div class=\"empty_menu\">\n           Not available\n         </div>\n  </div>\n\n\n              </div>\n          </div>\n      </div>\n    </div>\n  \n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n\n<ion-content [fullscreen]=\"true\">\n  <ion-refresher (ionRefresh)=\"doRefresh($event)\" slot=\"fixed\" pullFactor=\"0.5\" pullMin=\"100\" pullMax=\"200\">\n    <ion-refresher-content style=\"margin-top: 150px;\"></ion-refresher-content>\n  </ion-refresher>\n    <div class=\"automotive_area\">\n      <div class=\"container\">\n          <div class=\"automotive_body\">\n              <div class=\"header_area\">\n                  <button class=\"btn-back\" routerLink=\"/home\" (click)=\"storePage('home')\"><img src=\"assets/images/back.png\" alt=\"back\" title=\"\" /></button>\n                  <div class=\"logo\"><img src=\"assets/images/logo2.png\" alt=\"logo\" title=\"\"></div>\n                  <button class=\"btn-cart\" routerLink=\"/cart-page\"><img src=\"assets/images/cart.png\" alt=\"back\" title=\"\" /><span class=\"total_cart\" [innerHTML]=\"cartcount\"></span></button>\n              </div>\n              <div class=\"search_box\">\n                  <div class=\"icon\"><i class=\"zmdi zmdi-search\"></i></div>\n                  <input type=\"text\" (keyup)=\"listing($event)\" [(ngModel)]=\"search_key\" [ngModelOptions]=\"{standalone:true}\" class=\"form-control\" placeholder=\"Search Products...\" />\n              </div>\n              \n              <div class=\"product_area\">\n                    <!-- <h3>\n                        Trending Products\n                        \n                    </h3> -->\n                    <div *ngIf=\"dataMenu && loader_val == false\" >\n                  <div class=\"product_box\" *ngFor=\"let menulist of dataMenu; let i=index\" routerLink=\"/product-details/{{menulist.hp_id}}\" >\n                    <div class=\"img_box\">\n                       <img *ngIf=\"menulist.hp_image\" src=\"{{img_url}}{{menulist.hp_image}}\" alt=\"product image\" title=\"\">\n                       <img *ngIf=\"!menulist.hp_image\" src=\"assets/images/noimage.png\" alt=\"product image\" title=\"\">\n                    </div>\n                     <h4 *ngIf=\"menulist.hp_subcat==1\">{{menulist.item_name}}</h4>\n                  <h4 *ngIf=\"menulist.hp_subcat==5 || menulist.hp_subcat==6\">{{menulist.hp_partno}}</h4>\n                   <h4 *ngIf=\"menulist.hp_subcat==3 || menulist.hp_subcat==4\">{{menulist.hp_description}}</h4>\n                  <p *ngIf=\"menulist.hp_subcat!=3 && menulist.hp_subcat!=4\">{{menulist.hp_description}}</p>\n                    <h5>\n                      <span *ngIf=\"menulist.size_name\">\n                        Size : {{menulist.size_name}}</span>\n                        <div class=\"price\">INR {{menulist.hp_price}}<!-- <strong>/Meter</strong> --></div>\n                      </h5>\n                  </div>\n                  </div>\n\n                   <div class=\"product_box\" *ngIf=\"loader_val\">\n  \n           <div class=\"loader_box\">\n<img src=\"assets/loader.gif\">\n</div>\n\n</div>\n\n<div class=\"product_box\" *ngIf=\"menu_list && menu_list.length==0 && loader_val == false\">\n <div class=\"empty_menu\">\n           Not available\n         </div>\n  </div>\n\n\n              </div>\n          </div>\n      </div>\n    </div>\n  \n</ion-content>\n");
 
 /***/ })
 

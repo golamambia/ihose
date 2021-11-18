@@ -33,6 +33,7 @@ data_list:any;
   cartTotal:any;
   cartcount:any=0;
   search_key: any;
+  text_search:any='';
   public cart = [];
   mainMenuId:any;
   loader_val:any = true;
@@ -50,6 +51,7 @@ data_list:any;
   mk_name:any ='';
   part_no:any ='';
   model_no:any='';
+  hp_subcat:any='';
   sub:any;
    constructor(public http: Http, public navCtrl: NavController, 
      public storage: Storage,public loadingController: LoadingController,
@@ -90,6 +92,12 @@ loading.dismiss();
   });
     
   }
+   gotoProductserch(){
+  //console.log(this.text_search);
+//this.storage.set("goTo", 'endfitting-hose/3');
+this.navCtrl.navigateForward('product?text_search='+this.text_search);
+}
+  
 goTo(id){
 //console.log(id);
 if(id==4){
@@ -152,6 +160,7 @@ ionViewWillEnter(){
     "mk_name":this.mk_name,
     "part_no": this.part_no,
     "model_no": this.model_no,
+    "hp_subcat":this.hp_subcat
         
   }
   

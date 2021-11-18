@@ -33,7 +33,8 @@
                    <h4 *ngIf="menulist.hp_subcat==3 || menulist.hp_subcat==4">{{menulist.hp_description}}</h4>
                   <p *ngIf="menulist.hp_subcat!=3 && menulist.hp_subcat!=4">{{menulist.hp_description}}</p>
                     <h5>
-                        Size : {{menulist.hp_size}}"
+                      <span *ngIf="menulist.size_name">
+                        Size : {{menulist.size_name}}</span>
                         <div class="price">INR {{menulist.hp_price}}<!-- <strong>/Meter</strong> --></div>
                       </h5>
                   </div>

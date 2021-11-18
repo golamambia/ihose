@@ -15,14 +15,14 @@
                 <div class="product_heading">
                     <h1>{{product_info?.item_name}}{{product_info?.hp_partno}}</h1>
                     <div class="star"><img src="assets/images/product-star.png">4.5</div>
-                    <div class="size">
-                        Size : 
-                        <select class="form-control">
-                            <option>{{product_info?.size_name}}"</option>
-                        </select>
+                    <div class="price" style="margin-bottom: 10px;" *ngIf="product_info?.size_name">
+                        Size : {{product_info?.size_name}}
+                       <!--  <select class="form-control">
+                            <option>{{product_info?.size_name}}</option>
+                        </select> -->
                     </div>
                     <div class="price">
-                        INR {{product_info?.hp_price}}<span>/Meter</span>
+                        INR {{product_info?.hp_price}}<span *ngIf="product_info?.hp_priceunit">/Meter</span>
                         <div class="form-group" *ngIf="product_info?.quantity>0">
                             <button class="btn-qtn btn-left" (click)="decrementQty(0,product_info?.hp_id,product_info)">-</button>
                             <input type="text" class="form-control" value="{{product_info?.quantity}}">
@@ -31,22 +31,22 @@
                     </div>
                 </div>
                 <div class="product_description_area">
-                    <div class="product_description">
+                    <div class="product_description" *ngIf="product_info?.hp_specification">
                         <img src="assets/images/details1.png">
                         <h4>Specification</h4>
-                        <p>{{product_info?.hp_description}}</p>
+                        <p>{{product_info?.hp_specification}}</p>
                     </div>
-                    <div class="product_description">
+                   <div class="product_description" *ngIf="product_info?.hp_construction">
                         <img src="assets/images/details2.png">
                         <h4>Construction</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p>{{product_info?.hp_construction}}</p>
                     </div>
-                    <div class="product_description">
+                   <div class="product_description" *ngIf="product_info?.hp_temperature">
                         <img src="assets/images/details3.png">
-                        <h4>Temprature Ranges</h4>
-                        <p>-40°C to +100°C (+120°C intermittent)</p>
+                        <h4>Temperature Ranges</h4>
+                        <p>{{product_info?.hp_temperature}}</p>
                     </div>
-                    <div class="product_description">
+                   <div class="product_description" *ngIf="product_info?.hp_description">
                         <img src="assets/images/details4.png">
                         <h4>Description Usage</h4>
                         <p>{{product_info?.hp_description}}</p>

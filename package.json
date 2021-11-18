@@ -23,7 +23,7 @@
     "@angular/service-worker": "~11.2.0",
     "@ionic/angular": "^5.5.2",
     "@ionic/storage": "^2.3.1",
-    "com.razorpay.cordova": "1.4.13",
+    "com.razorpay.cordova": "github:razorpay/razorpay-cordova",
     "cordova-android": "9.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

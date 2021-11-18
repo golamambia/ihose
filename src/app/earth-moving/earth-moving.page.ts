@@ -45,6 +45,7 @@ modelList:any;
   userCart:any;
   cartTotal:any;
   cartcount:any=0;
+  text_search:any='';
  constructor(public http: Http,
   public navCtrl: NavController,
    public storage: Storage,
@@ -167,9 +168,14 @@ modelList:any;
     
   });
 }
+  gotoProductserch(){
+  this.storage.set("goTo", 'earth-moving/8');
+this.navCtrl.navigateForward('product?text_search='+this.text_search);
+}
   gotoProduct(){
     this.storage.set("goTo", 'earth-moving/8');
-this.navCtrl.navigateForward('product?maker='+this.mk_name+'&part_no='+this.part_no+'&model_no='+this.model_no);
+this.navCtrl.navigateForward('product?maker='+this.mk_name+'&part_no='+this.part_no+'&model_no='+
+  this.model_no+'&hp_subcat='+this.id);
 }
    getCartItemCount() {
     this.count=0;

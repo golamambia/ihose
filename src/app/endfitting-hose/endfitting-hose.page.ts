@@ -42,6 +42,7 @@ part_no:any ='';
   userCart:any;
   cartTotal:any;
   cartcount:any=0;
+   text_search:any='';
  constructor(public http: Http,
   public navCtrl: NavController,
    public storage: Storage,
@@ -76,6 +77,11 @@ part_no:any ='';
   }
 });
   }
+  gotoProductserch(){
+  //console.log(this.text_search);
+this.storage.set("goTo", 'endfitting-hose/3');
+this.navCtrl.navigateForward('product?text_search='+this.text_search);
+}
   storePage(page){
   this.storage.set("goTo", page);
      
@@ -138,7 +144,7 @@ part_no:any ='';
   }
   gotoProduct(){
     this.storage.set("goTo", 'endfitting-hose/3');
-this.navCtrl.navigateForward('product?part_type='+this.part_type+'&size='+this.size);
+this.navCtrl.navigateForward('product?part_type='+this.part_type+'&size='+this.size+'&hp_subcat='+this.id);
 }
 
 getDescription(){

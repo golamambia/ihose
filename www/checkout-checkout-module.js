@@ -82,6 +82,8 @@ __webpack_require__.r(__webpack_exports__);
 
 //declare module '*';
 //declare var RazorpayCheckout:any;
+//declare module '*';
+//declare var Razorpay: any;
 
 let CheckoutPage = class CheckoutPage {
     constructor(http, navCtrl, storage, loadingController, alertController, toastController, platform) {

@@ -11,8 +11,8 @@
                   <button class="btn-cart" routerLink="/cart-page"><img src="assets/images/cart.png" alt="back" title="" /><span class="total_cart" [innerHTML]="cartcount" ></span></button>
               </div>
               <div class="search_box">
-                  <div class="icon"><i class="zmdi zmdi-search"></i></div>
-                  <input type="text" class="form-control" placeholder="Search Products..." />
+                 <div class="icon" (click)="gotoProductserch()"><i class="zmdi zmdi-search" ></i></div>
+                  <input type="text" class="form-control" [(ngModel)]="text_search" placeholder="Search Products..." />
               </div>
               <div class="product_area">
                 <h3>
@@ -79,7 +79,8 @@
                    <h4 *ngIf="menulist.hp_subcat==3 || menulist.hp_subcat==4">{{menulist.hp_description}}</h4>
                   <p *ngIf="menulist.hp_subcat!=3 && menulist.hp_subcat!=4">{{menulist.hp_description}}</p>
                     <h5>
-                        Size : {{menulist.hp_size}}"
+                       <span *ngIf="menulist.size_name">
+                        Size : {{menulist.size_name}}</span>
                         <div class="price">INR {{menulist.hp_price}}<!-- <strong>/Meter</strong> --></div>
                       </h5>
                   </div>

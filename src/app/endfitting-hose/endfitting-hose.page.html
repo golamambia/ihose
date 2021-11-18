@@ -8,8 +8,8 @@
                      <button class="btn-cart" routerLink="/cart-page"><img src="assets/images/cart.png" alt="back" title="" /><span class="total_cart" [innerHTML]="cartcount" ></span></button>
               </div>
               <div class="search_box">
-                  <div class="icon"><i class="zmdi zmdi-search"></i></div>
-                  <input type="text" class="form-control" placeholder="Search Products..." />
+                  <div class="icon" (click)="gotoProductserch()"><i class="zmdi zmdi-search" ></i></div>
+                  <input type="text" class="form-control" [(ngModel)]="text_search" placeholder="Search Products..." />
               </div>
               <h3>Search End Fittings</h3>
               <div class="form-group">

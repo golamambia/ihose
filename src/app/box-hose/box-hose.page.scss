@@ -106,7 +106,7 @@ img {
     font-size: 14px;
     font-weight: 500;
     color: #868686;
-    padding: 10px 10px 10px 45px;
+    padding: 10px 45px 10px 10px;
     /* box-shadow: 0 0 0px rgb(0, 0, 0); */
     outline: none;
 }
@@ -117,9 +117,11 @@ img {
 .search_box .icon {
     position: absolute;
     top: 9px;
-    left: 15px;
+    
     font-size: 26px;
     color: #bebebe;
+    right: 15px;
+
 }
 .automotive_body h3 {
     width: 100%;

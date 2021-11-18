@@ -40,6 +40,7 @@ part_no:any ='';
   userCart:any;
   cartTotal:any;
   cartcount:any=0;
+text_search:any='';
  constructor(public http: Http,
   public navCtrl: NavController,
    public storage: Storage,
@@ -191,10 +192,16 @@ getPressure(id){
     
   });
 }
-
+gotoProductserch(){
+  //console.log(this.text_search);
+this.storage.set("goTo", 'box-hose/1');
+this.navCtrl.navigateForward('product?text_search='+this.text_search);
+}
 gotoProduct(){
   this.storage.set("goTo", 'box-hose/1');
-this.navCtrl.navigateForward('product?assembly_name='+this.assembly_name+'&part_type='+this.part_type+'&standard='+this.standard+'&size='+this.size+'&name='+this.productName+'&pressure='+this.pressure+'&description='+this.description+'&maker='+this.mk_name+'&part_no='+this.part_no);
+this.navCtrl.navigateForward('product?assembly_name='+this.assembly_name+'&part_type='+this.part_type+
+  '&standard='+this.standard+'&size='+this.size+'&name='+this.productName+'&pressure='+this.pressure+
+  '&description='+this.description+'&maker='+this.mk_name+'&part_no='+this.part_no+'&hp_subcat='+this.id);
 }
      getCartItemCount() {
     this.count=0;

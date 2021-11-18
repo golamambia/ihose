@@ -5,6 +5,8 @@ import { Storage } from '@ionic/storage';
 import { LoadingController,ToastController,AlertController} from '@ionic/angular';
 //declare module '*';
 //declare var RazorpayCheckout:any;
+//declare module '*';
+//declare var Razorpay: any;
 import { Platform } from '@ionic/angular';
 
 @Component({

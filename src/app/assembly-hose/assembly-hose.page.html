@@ -11,8 +11,8 @@
                      <button class="btn-cart" routerLink="/cart-page"><img src="assets/images/cart.png" alt="back" title="" /><span class="total_cart" [innerHTML]="cartcount" ></span></button>
               </div>
               <div class="search_box">
-                  <div class="icon"><i class="zmdi zmdi-search"></i></div>
-                  <input type="text" class="form-control" placeholder="Search Products..." />
+                 <div class="icon" (click)="gotoProductserch()"><i class="zmdi zmdi-search" ></i></div>
+                  <input type="text" class="form-control" [(ngModel)]="text_search" placeholder="Search Products..." />
               </div>
                <div class="filter">
                 <button (click)="tab_click('bare')" [ngClass]="{'active': tab_val == 'bare'}">Bare Hoses</button>
@@ -80,7 +80,8 @@
                     <input type="radio" [(ngModel)]="hose_lengthtype" [ngModelOptions]="{standalone: true}"  value="Overall Length" [checked]="hose_lengthtype==='Overall Length'">Overall Length
                 </label>
               </div>
-              <div class="form-group" *ngIf="hose_lengthtype == 'Hose Length'">
+             <!--  <div class="form-group" *ngIf="hose_lengthtype == 'Hose Length'"> -->
+              <div class="form-group">
                   <label>Hose Length</label>
                   <input type="text" [(ngModel)]="hose_length" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Text input" />
               </div>
@@ -175,7 +176,7 @@
                   <label>Type of Add on</label>
                   <select class="form-control" [(ngModel)]="addon_type" [ngModelOptions]="{standalone: true}">
                     <option value="">Select type</option>
-                      <option value="1">Pyrojacket</option>
+                      <option value="demo">Demo </option>
                   </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>

@@ -47,6 +47,7 @@ export class ProductPage implements OnInit {
   mk_name:any ='';
   part_no:any ='';
   model_no:any='';
+  hp_subcat:any='';
   sub:any;
    constructor(public http: Http,
    public navCtrl: NavController,
@@ -98,6 +99,12 @@ export class ProductPage implements OnInit {
      if(params.model_no){
       this.model_no=params.model_no;
     }
+    if(params.hp_subcat){
+      this.hp_subcat=params.hp_subcat;
+    }
+    if(params.text_search){
+      this.search_key=params.text_search;
+    }
     //console.log(params);
   }
 });
@@ -142,12 +149,13 @@ setTimeout(() => {
     "mk_name":this.mk_name,
     "part_no": this.part_no,
     "model_no": this.model_no,
+    "hp_subcat":this.hp_subcat
         
   }
      this.http.post(this.appUrl_product,dataPar)
   .subscribe(res => {
     this.res = res.json();
-    console.log(this.res);
+    //console.log(this.res);
      if(this.res && this.res.menu_list){
 // loading.dismiss();
 event.target.complete();
@@ -252,6 +260,7 @@ this.loader_val = false;
     "mk_name":this.mk_name,
     "part_no": this.part_no,
     "model_no": this.model_no,
+    "hp_subcat":this.hp_subcat
         
   }
   

@@ -13,6 +13,8 @@ import { image_path } from '../../environments/environment';
   styleUrls: ['./assembly-hose.page.scss'],
 })
 export class AssemblyHosePage implements OnInit {
+  userData: any;
+userDetails: any;
   appUrl_standard = "https://theitvibe.com/project/ihose/api/getStandard";
   appUrl_size = "https://theitvibe.com/project/ihose/api/getSize";
 appUrl_proname = "https://theitvibe.com/project/ihose/api/getProductName";
@@ -59,6 +61,7 @@ adapterradio:any='yes';
 adaptersize:any='';
 adapterangel:any='';
 addon_type:any='';
+ text_search:any='';
 
  constructor(public http: Http,
   public navCtrl: NavController,
@@ -83,6 +86,15 @@ addon_type:any='';
      this.listing_size();
      this.listing_productname();
      this.listing_part();
+     this.storage.get("userDetails").then(val=>{
+      if(val){
+        this.userDetails = val;
+        
+     
+  //console.log(this.userDetails);
+
+      }
+    });
       
    }
   ngOnInit() {
@@ -97,6 +109,11 @@ addon_type:any='';
   }
 });
   }
+    gotoProductserch(){
+  //console.log(this.text_search);
+this.storage.set("goTo", 'box-hose/1');
+this.navCtrl.navigateForward('product?text_search='+this.text_search);
+}
   tab_click(val){
     if(val=='endfit'){
       if(!this.standard){
@@ -271,7 +288,10 @@ else if(!this.size){
       }
     //console.log($event);
   }
-  send_query(val){
+  async send_query(val){
+    const loading = await this.loadingController.create({
+    message: ''
+  });
     if(val=='addon_type'){
       if(!this.addon_type){
          this.alertController.create({
@@ -286,11 +306,85 @@ else if(!this.size){
       }
 
       else{
-       this.navCtrl.navigateForward('product');
-      }
-    }else{
-    this.navCtrl.navigateForward('product');
+await loading.present();
+          var data ={
+    "standard": this.standard,
+    "size": this.size,
+    "productName": this.productName,
+    "pressure": this.pressure,
+    "hose_lengthtype": this.hose_lengthtype,
+    "hose_length": this.hose_length,
+    "endfitsize": this.endfitsize,
+    "part_type": this.part_type,
+    "endbpart_type": this.endbpart_type,
+    "endbsize": this.endbsize,
+    "angeldegree": this.angeldegree,
+    "adapterradio": this.adapterradio,
+    "adaptersize": this.adaptersize,
+    "adapterangel": this.adapterangel,
+    "addon_type": this.addon_type,
+    "user_id":this.userDetails.user_id
+
+   
   }
+           
+   this.http.post(host+'queryMailsend', data)
+  .subscribe(res => {
+    
+    this.res = res.json();
+    console.log(this.res);
+    if(this.res.response){
+    loading.dismiss();
+
+  this.alertController.create({
+      
+     message: 'Your query has been send',
+      buttons: ['OK']
+    }).then(resalert => {
+
+      resalert.present();
+
+    });
+    this.navCtrl.navigateForward('/home');
+     this.standard='';
+     this.size='';
+    this.productName='';
+     this.pressure='';
+    this.hose_lengthtype='';
+     this.hose_length='';
+    this.endfitsize='';
+   this.part_type='';
+   this.endbpart_type='';
+     this.endbsize='';
+   this.angeldegree='';
+     this.adapterradio='';
+     this.adaptersize='';
+     this.adapterangel='';
+     this.addon_type='';
+    }else{
+       loading.dismiss();
+  this.alertController.create({
+      
+     message: 'Something went wrong try again',
+      buttons: ['OK']
+    }).then(resalert => {
+
+      resalert.present();
+
+    });
+    
+    }
+  }, (err) => {
+    //this.loading.hide();
+   // console.log(err);
+    
+  });
+       //this.navCtrl.navigateForward('product');
+      }
+    }
+  //   else{
+  //   this.navCtrl.navigateForward('product');
+  // }
   }
   storePage(page){
   this.storage.set("goTo", page);
@@ -327,7 +421,9 @@ else if(!this.size){
 
   gotoProduct(){
     this.storage.set("goTo", 'assembly-hose/4');
-this.navCtrl.navigateForward('product?assembly_name='+this.assembly_name+'&part_type='+this.part_type+'&standard='+this.standard+'&size='+this.size+'&name='+this.productName+'&pressure='+this.pressure+'&description='+this.description+'&maker='+this.mk_name+'&part_no='+this.part_no);
+this.navCtrl.navigateForward('product?assembly_name='+this.assembly_name+'&part_type='+this.part_type+
+  '&standard='+this.standard+'&size='+this.size+'&name='+this.productName+'&pressure='+this.pressure+
+  '&description='+this.description+'&maker='+this.mk_name+'&part_no='+this.part_no+'&hp_subcat='+this.id);
 }
 
  getCartItemCount() {
@@ -491,5 +587,6 @@ this.cartTotal=this.count;
   });
     
   }
+
 
 }
