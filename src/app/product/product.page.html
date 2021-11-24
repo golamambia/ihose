@@ -40,7 +40,7 @@
                   </div>
                   </div>
 
-                   <div class="product_box" *ngIf="loader_val">
+                   <div class="loader_area" *ngIf="loader_val">
   
            <div class="loader_box">
 <img src="assets/loader.gif">
@@ -48,8 +48,8 @@
 
 </div>
 
-<div class="product_box" *ngIf="menu_list && menu_list.length==0 && loader_val == false">
- <div class="empty_menu">
+<div class="loader_area" *ngIf="menu_list && menu_list.length==0 && loader_val == false">
+ <div class="empty_menu avialable-text">
            Not available
          </div>
   </div>
