@@ -1,4 +1,4 @@
-
+<ion-content [fullscreen]="true">
     <div class="automotive_area">
       <div class="container">
           <div class="automotive_body">
@@ -14,7 +14,7 @@
               <h3>Search End Fittings</h3>
               <div class="form-group">
                   <label>Part Type</label>
-                 <select class="form-control" [(ngModel)]="part_type" (change)="getDescription()" [ngModelOptions]="{standalone: true}">
+                 <select #p class="form-control" [(ngModel)]="part_type" (change)="listing_size(p.value)" [ngModelOptions]="{standalone: true}">
                   <option value="" selected="selected">Select part type</option>
                  <option *ngFor="let part_list of partList" value="{{part_list.part_id}}">{{part_list.part_name}}</option>
                 </select>
@@ -22,12 +22,28 @@
               </div>
               <div class="form-group">
                   <label>Size</label>
-                  <select class="form-control" (change)="getDescription()" [(ngModel)]="size" [ngModelOptions]="{standalone: true}">
+  <ionic-selectable 
+  closeButtonSlot="end"
+    class="form-control"
+    item-content
+    [(ngModel)]="port"
+    [items]="data_list_size"
+    itemValueField="size_id"
+    itemTextField="size_name"
+    [canSearch]="true"
+    placeholder="Select size"
+    (onChange)="portChange($event)" >
+      </ionic-selectable>
+
+</div>
+              <!-- <div class="form-group">
+                  <label>Size</label>
+                  <select class="form-control"  [(ngModel)]="" [ngModelOptions]="{standalone: true}">
                   <option value="" selected="selected">Select size</option>
                  <option *ngFor="let data_listsize of data_list_size" value="{{data_listsize.size_id}}">{{data_listsize.size_name}}</option>
                 </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
-              </div>
+              </div> -->
                <!--  <div class="form-group">
                   <label>Description</label>
                   <select class="form-control" [(ngModel)]="description" [ngModelOptions]="{standalone: true}">
@@ -40,4 +56,5 @@
           </div>
       </div>
     </div>
+    </ion-content>
   

@@ -8,6 +8,9 @@ import { LoadingController,ToastController,AlertController} from '@ionic/angular
 //declare module '*';
 //declare var Razorpay: any;
 import { Platform } from '@ionic/angular';
+import { host } from '../../environments/environment';
+import { image_path } from '../../environments/environment';
+declare var RazorpayCheckout: any;
 
 @Component({
   selector: 'app-checkout',
@@ -17,8 +20,9 @@ import { Platform } from '@ionic/angular';
 
 export class CheckoutPage implements OnInit {
 
-	appUrl = "https://theitvibe.com/project/ihose/api/getAddress";
-	bookUrl = "https://theitvibe.com/project/ihose/api/place_order";
+	appUrl = host+"getAddress";
+	bookUrl = host+"place_order";
+
 	res:any;
 	userDetails: any;
 	editid: any;
@@ -140,6 +144,12 @@ this.menu_list =this.cartdata;
         });
 
   }
+  ionViewDidEnter(){
+  //  this.storage.clear();
+    this.listing();
+  
+    
+  }
   listing(){
   	this.storage.get("userDetails").then(val=>{
       if(val){
@@ -229,79 +239,34 @@ if(this.currentSelected == null){
     await loading.present();
 if(this.paymentmode == 'online'){
 //this.navCtrl.navigateForward('checkout-online?address='+this.currentSelected);
- const options = {
-    description: 'Credits towards consultation',
-     image: 'assets/images/razor_logo.png',
-    currency: 'INR',
-    key: 'rzp_test_Z2LSUDpWE6L9Yg',
-    amount: 10* 100,
-    name: this.userDetails.user.name,
-     //"callback_url": 'https://www.google.com',
-    "handler": function (response){
-      if (typeof response.razorpay_payment_id == 'undefined' ||  response.razorpay_payment_id < 1) {
-  this.redirect_url = '/order-failed';
-   loading.dismiss();
-    //this.navCtrl.navigateForward('order-failed');
-} else {
-  this.redirect_url = '/order-success';
-  //this.navCtrl.navigateForward('order-success');
-       // location.href = this.redirect_url;   
-  var data ={
+var data ={
     "cartTotalAmount": this.cartTotalAmount,
-    "userid": this.user,
-    "name": this.name,
+    "userid": this.userDetails.user_id,
+    "name": this.userDetails.user.name,
     "order_method":'delivery',
     "paymod":this.paymentmode,
     "deliver_address":this.currentSelected,
-    "phone":this.phone,
-    "uba_transaction":response.razorpay_payment_id,
-    "uba_payStatus":'success',
+    "phone":this.userDetails.user.phone,
+    //"pickup_delivery":this.dtime.paytyp,
+    //"uba_delivery_date":this.uba_delivery_date,
     //"uba_delivery_time":this.uba_delivery_time,
     //"use_voucher":this.use_voucher,
     "cart_data":this.cart_data,
     
   }
-//console.log(data);
-//callApi(1, options.amount);
-//  var callApi = (data) => {
-// console.log(data);
-//  }
-}
+this.http.post(host+"place_order_check", data)
+  .subscribe(res => {
+    loading.dismiss();
+    this.res = res.json();
+   //console.log(res.json());
+   if(this.res.status == true){
+     this.test_pay(this.res.data);
+   }
+  }, (err) => {
+    console.log(err);
+    loading.dismiss();
+  });
 
-    },
-    prefill: {
-      email: this.userDetails.user.email,
-      contact: this.userDetails.user.phone,
-      name: this.userDetails.user.name
-    },
-    theme: {
-      color: '#eb9929'
-    },
-    modal: {
-      ondismiss: function() {
-        console.log('dismissed')
-      }
-    }
-};
-
-const successCallback = paymentId => { // <- Here!
-  console.log(121);
-  console.log(paymentId)
- // alert('payment_id: ' + payment_id);
-  
-};
-
-const cancelCallback = error => { // <- Here!
-  console.log(error);
-  // alert(error.description + ' (Error ' + error.code + ')');
-};
-
-
-Razorpay.open(options, successCallback, cancelCallback);
-// Razorpay.on('payment.success', successCallback);
-// Razorpay.on('payment.cancel', cancelCallback);
-// Razorpay.open(options);
-loading.dismiss();
 }else{
 	
 	var data ={
@@ -351,7 +316,7 @@ this.http.post(this.bookUrl, data)
   });
     this.http.post(this.bookUrl, res)
   .subscribe(res => {
-    console.log(res.json());
+    //console.log(res.json());
     this.res = res.json();
     if(this.res.status == 0){
     loading.dismiss();
@@ -372,15 +337,20 @@ this.http.post(this.bookUrl, data)
     loading.dismiss();
   });
   }
+  gotoAddAddress(){
+    this.navCtrl.navigateForward('address-add');
+  }
   edit(id){
 	
-		this.navCtrl.navigateForward('/checkout-addressedit?edit='+id);
+		this.navCtrl.navigateForward('/address-update?edit='+id);
 		
 	}
   back(){
   	this.navCtrl.navigateForward('cart-page');
   }
-
+faild_page(){
+    this.navCtrl.navigateForward('order-failed');
+  }
   callPaymentMethod() {
   var options = {
     description: 'Credits towards consultation',
@@ -427,7 +397,7 @@ var cancelCallback = (error) => { // <- Here!
 // this.platform.ready().then(() => {
 //       Razorpay.open(options, successCallback, cancelCallback);
 //     })
-Razorpay.open(options, successCallback, cancelCallback);
+//Razorpay.open(options, successCallback, cancelCallback);
   // var callApi = function(payment_id, amount) {
   //   let data = {
   //     'payment_id' : payment_id,
@@ -442,6 +412,155 @@ Razorpay.open(options, successCallback, cancelCallback);
   //    })
   // };
 }
+ test_pay(resData){
+
+ const options = {
+    description: 'iHose Payment',
+     image: 'assets/images/razor_logo.png',
+    currency: 'INR',
+    key: 'rzp_test_4KWlZWdIZK78CN',
+    amount: resData.amount,
+    name: this.userDetails.user.name,
+    order_id: resData.id
+  }
+
+  var successCallback = function (success) {
+    //alert('payment_id: ' + success.razorpay_payment_id)
+    //this.navCtrl.navigateForward('order-success');
+    var orderId = success.razorpay_order_id;
+    var signature = success.razorpay_signature;
+    var data ={
+    "cartTotalAmount": this.cartTotalAmount,
+          "userid": this.user,
+    "name": this.name,
+    "order_method":'delivery',
+    "paymod":this.paymentmode,
+    "deliver_address":this.currentSelected,
+    "phone":this.phone,
+    "uba_transaction":success.razorpay_payment_id,
+    "uba_payStatus":'success',
+    //"uba_delivery_time":this.uba_delivery_time,
+    //"use_voucher":this.use_voucher,
+    "cart_data":this.cart_data,
+    "razorpay_order_id":success.razorpay_order_id,
+    "razorpay_signature":success.razorpay_signature,
+    
+  }
+  callApi(data);
+ //this.redirect_url = '/order-failed';
+ //location.href ='/order-failed';
+//this.online_paynw(data);
 
 
+  }
+  var cancelCallback = function (error) {
+    //alert(error.description + ' (Error ' + error.code + ')')
+    //this.navCtrl.navigateForward('order-failed');
+  callFaild();
+  }
+  RazorpayCheckout.on('payment.success', successCallback);
+  RazorpayCheckout.on('payment.cancel', cancelCallback);
+  RazorpayCheckout.open(options);
+  var callApi = (payment_data) => {
+ this.navCtrl.navigateForward('order-success');
+       }
+ var callFaild = () => {
+ 
+this.navCtrl.navigateForward('order-failed');
+       }
+     //"callback_url": 'https://www.google.com',
+//     "handler": function (response){
+//       if (typeof response.razorpay_payment_id == 'undefined' ||  response.razorpay_payment_id < 1) {
+//         this.redirect_url = '/order-failed';
+   
+//     //this.navCtrl.navigateForward('order-failed');
+//       } else {
+//         this.redirect_url = '/order-success';
+//         //this.navCtrl.navigateForward('order-success');
+//              // location.href = this.redirect_url;   
+//         var data ={
+//           "cartTotalAmount": this.cartTotalAmount,
+//           "userid": this.user,
+//     "name": this.name,
+//     "order_method":'delivery',
+//     "paymod":this.paymentmode,
+//     "deliver_address":this.currentSelected,
+//     "phone":this.phone,
+//     "uba_transaction":response.razorpay_payment_id,
+//     "uba_payStatus":'success',
+//     //"uba_delivery_time":this.uba_delivery_time,
+//     //"use_voucher":this.use_voucher,
+//     "cart_data":this.cart_data,
+    
+//   }
+// //console.log(data);
+// //callApi(1, options.amount);
+// //  var callApi = (data) => {
+// // console.log(data);
+// //  }
+// }
+
+//     },
+//     prefill: {
+//       email: this.userDetails.user.email,
+//       contact: this.userDetails.user.phone,
+//       name: this.userDetails.user.name
+//     },
+//     theme: {
+//       color: '#eb9929'
+//     },
+//     modal: {
+//       ondismiss: function() {
+//         console.log('dismissed')
+//       }
+//     }
+// };
+
+// const successCallback = paymentId => { // <- Here!
+//   console.log(121);
+//   console.log(paymentId)
+//  // alert('payment_id: ' + payment_id);
+  
+// };
+
+// const cancelCallback = error => { // <- Here!
+//   console.log(error);
+//   // alert(error.description + ' (Error ' + error.code + ')');
+// };
+
+
+// Razorpay.open(options, successCallback, cancelCallback);
+// // Razorpay.on('payment.success', successCallback);
+// // Razorpay.on('payment.cancel', cancelCallback);
+// // Razorpay.open(options);
+
+
+ }
+async online_paynw(res){
+    const loading = await this.loadingController.create({
+    message: 'Processing...'
+  });
+    this.http.post(this.bookUrl, res)
+  .subscribe(res => {
+    //console.log(res.json());
+    this.res = res.json();
+    if(this.res.status == 0){
+    loading.dismiss();
+    this.navCtrl.navigateForward('order-failed');
+    
+    }else if(this.res.status == 1){
+      this.storage.remove("userCart");
+        this.currentSelected=null;
+        this.use_voucher='';
+    this.navCtrl.navigateForward('order-success');
+    loading.dismiss();
+    }else{
+    //alert("Server error");
+    loading.dismiss();
+    }
+  }, (err) => {
+    console.log(err);
+    loading.dismiss();
+  });
+  }
 }

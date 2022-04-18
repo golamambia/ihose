@@ -4,15 +4,16 @@ import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { LoadingController,ToastController,AlertController} from '@ionic/angular';
 import { Location } from "@angular/common";
-
+import { host } from '../../environments/environment';
+import { image_path } from '../../environments/environment';
 @Component({
   selector: 'app-cart-page',
   templateUrl: './cart-page.page.html',
   styleUrls: ['./cart-page.page.scss'],
 })
 export class CartPagePage implements OnInit {
-appUrl = "https://theitvibe.com/project/ihose/api/getProduct";
-img_url='https://theitvibe.com/project/ihose/uploads/product/';
+appUrl = host+"getProduct";
+img_url=host+'uploads/product/';
 	res:any;
 	userDetails: any;
 	editid: any;

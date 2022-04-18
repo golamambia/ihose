@@ -123,6 +123,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/storage */ "e8h1");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../environments/environment */ "AytR");
+
 
 
 
@@ -143,9 +145,9 @@ let DirectBuyPage = class DirectBuyPage {
         this.toastController = toastController;
         this.platform = platform;
         this.route = route;
-        this.appUrl = "https://theitvibe.com/project/ihose/api/getAddress";
-        this.bookUrl = "https://theitvibe.com/project/ihose/api/place_order";
-        this.appUrl_desc = "https://theitvibe.com/project/ihose/api/getProductDesc";
+        this.appUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_8__["host"] + "getAddress";
+        this.bookUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_8__["host"] + "place_order";
+        this.appUrl_desc = _environments_environment__WEBPACK_IMPORTED_MODULE_8__["host"] + "getProductDesc";
         this.cart_data = [];
         this.cartTotalAmount = 0;
         this.count = 0;
@@ -427,7 +429,7 @@ let DirectBuyPage = class DirectBuyPage {
                         console.log(error);
                         // alert(error.description + ' (Error ' + error.code + ')');
                     };
-                    Razorpay.open(options, successCallback, cancelCallback);
+                    //Razorpay.open(options, successCallback, cancelCallback);
                     // Razorpay.on('payment.success', successCallback);
                     // Razorpay.on('payment.cancel', cancelCallback);
                     // Razorpay.open(options);
@@ -541,7 +543,7 @@ let DirectBuyPage = class DirectBuyPage {
         // this.platform.ready().then(() => {
         //       Razorpay.open(options, successCallback, cancelCallback);
         //     })
-        Razorpay.open(options, successCallback, cancelCallback);
+        //Razorpay.open(options, successCallback, cancelCallback);
         // var callApi = function(payment_id, amount) {
         //   let data = {
         //     'payment_id' : payment_id,

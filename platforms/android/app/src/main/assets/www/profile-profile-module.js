@@ -60,6 +60,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/storage */ "e8h1");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common */ "ofXK");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../environments/environment */ "AytR");
+
 
 
 
@@ -78,8 +80,8 @@ let ProfilePage = class ProfilePage {
         this.loadingController = loadingController;
         this.alertController = alertController;
         this.location = location;
-        this.appUrl = "https://theitvibe.com/project/ihose/api/user";
-        this.appUpdate = "https://theitvibe.com/project/ihose/api/updateUserProfile";
+        this.appUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_8__["host"] + "user";
+        this.appUpdate = _environments_environment__WEBPACK_IMPORTED_MODULE_8__["host"] + "updateUserProfile";
         this.storage.get("userDetails").then(val => {
             if (val) {
                 this.userDetails = val;

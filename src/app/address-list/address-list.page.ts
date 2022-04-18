@@ -5,14 +5,16 @@ import { Storage } from '@ionic/storage';
 import { LoadingController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { Location } from "@angular/common";
+import { host } from '../../environments/environment';
+import { image_path } from '../../environments/environment';
 @Component({
   selector: 'app-address-list',
   templateUrl: './address-list.page.html',
   styleUrls: ['./address-list.page.scss'],
 })
 export class AddressListPage implements OnInit {
-appUrl = "https://theitvibe.com/project/ihose/api/getAddress";
-deleteUrl = "https://theitvibe.com/project/ihose/api/deleteAddressUser";
+appUrl = host+"getAddress";
+deleteUrl = host+"deleteAddressUser";
 	res:any;
 	userDetails: any;
 	editid: any;
@@ -84,7 +86,12 @@ public cartdata = [];
         });
        this.getCartItemCount();
   }
-
+ionViewDidEnter(){
+  //  this.storage.clear();
+    this.listing();
+  
+    
+  }
   ngOnInit() {
 
   }

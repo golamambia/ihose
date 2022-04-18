@@ -4,14 +4,14 @@
           <div class="automotive_body">
               <div class="header_area">
                   <button class="btn-back" routerLink="/home" (click)="storePage('/home')"><img src="assets/images/back.png" alt="back" title="" /></button>
-                  <h1>HEM Hoses</h1>
+                  <h1>HEM Parts</h1>
                       <button class="btn-cart" routerLink="/cart-page"><img src="assets/images/cart.png" alt="back" title="" /><span class="total_cart" [innerHTML]="cartcount" ></span></button>
               </div>
               <div class="search_box">
                  <div class="icon" (click)="gotoProductserch()"><i class="zmdi zmdi-search" ></i></div>
                   <input type="text" class="form-control" [(ngModel)]="text_search" placeholder="Search Products..." />
               </div>
-              <h3>Search HEM Hoses</h3>
+              <h3>Search HEM Parts</h3>
                 <div class="form-group">
                   <label>Make</label>
                   <select class="form-control" [(ngModel)]="mk_name" [ngModelOptions]="{standalone: true}" (change)="getModel($event.target.value)">

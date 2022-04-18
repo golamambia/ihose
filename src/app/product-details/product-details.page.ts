@@ -4,6 +4,8 @@ import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { LoadingController,ToastController,AlertController} from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { host } from '../../environments/environment';
+import { image_path } from '../../environments/environment';
 
 @Component({
   selector: 'app-product-details',
@@ -11,8 +13,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./product-details.page.scss'],
 })
 export class ProductDetailsPage implements OnInit {
-	appUrl="https://theitvibe.com/project/ihose/api/getProductDesc";
- img_url='https://theitvibe.com/project/ihose/uploads/product/';
+	appUrl=host+"getProductDesc";
+ img_url=host+'uploads/product/';
   res:any;
  page:any;
  id:any;

@@ -6,7 +6,11 @@ import { LoadingController,ToastController,AlertController} from '@ionic/angular
 import { ActivatedRoute } from '@angular/router';
 import { host } from '../../environments/environment';
 import { image_path } from '../../environments/environment';
-
+import { IonicSelectableComponent } from 'ionic-selectable';
+class Port {
+  public id: number;
+  public name: string;
+}
 @Component({
   selector: 'app-assembly-hose',
   templateUrl: './assembly-hose.page.html',
@@ -15,12 +19,12 @@ import { image_path } from '../../environments/environment';
 export class AssemblyHosePage implements OnInit {
   userData: any;
 userDetails: any;
-  appUrl_standard = "https://theitvibe.com/project/ihose/api/getStandard";
-  appUrl_size = "https://theitvibe.com/project/ihose/api/getSize";
-appUrl_proname = "https://theitvibe.com/project/ihose/api/getProductName";
-appUrl_pressure = "https://theitvibe.com/project/ihose/api/getPressure";
-appUrl_part = "https://theitvibe.com/project/ihose/api/getAssemblyName";
-appUrl_parturl = "https://theitvibe.com/project/ihose/api/getPartType";
+  appUrl_standard = host+"getStandard";
+  appUrl_size = host+"getSize";
+appUrl_proname = host+"getProductName";
+appUrl_pressure = host+"getPressure";
+appUrl_part = host+"getAssemblyName";
+appUrl_parturl = host+"getPartType";
   res:any;
 
 assemblyList:any;
@@ -33,6 +37,8 @@ pro_id:any;
   name:any='';
   pressure:any='';
   part_type:any='';
+  part_type2:any='';
+  part_type3:any='';
   description:any='';
   assembly_name:any='';
    productName:any ='';
@@ -48,21 +54,40 @@ endfittab_val:any='endfitA';
   cartcount:any=0;
   data_list_standard:any;
   data_list_size:any;
+ data_list_size_ptype:any;
+ data_list_size_ptype2:any;
+ data_list_size_ptype3:any;
+ data_list_size_ptype4:any;
+ data_list_size_ptype5:any;
+ data_list_size_ptype6:any;
+ data_list_size_ptype7:any;
+ data_list_size_ptype8:any;
+
   data_list_productnm:any;
   pressureList:any;
 partList:any;
 hose_length:any;
   hose_lengthtype:any='Hose Length';
 endfitsize:any='';
+endfitsize2:any='';
+endfitsize3:any='';
 endbpart_type:any='';
+endbpart_type2:any='';
+endbpart_type3:any='';
+adapterpart_type:any='';
+adapterpart_type2:any='';
 endbsize:any='';
+endbsize2:any='';
+endbsize3:any='';
 angeldegree:any='';
 adapterradio:any='yes';
 adaptersize:any='';
+adaptersize2:any='';
 adapterangel:any='';
 addon_type:any='';
  text_search:any='';
-
+ ports: Port[];
+  port: Port;
  constructor(public http: Http,
   public navCtrl: NavController,
    public storage: Storage,
@@ -108,6 +133,68 @@ addon_type:any='';
    
   }
 });
+  }
+  portChange(event: {
+    component: IonicSelectableComponent,
+    value: any
+  }) {
+    this.size=event.value.size_id;
+    //console.log('port:', event.value.size_id);
+  }
+  portChange2(event: {
+    component: IonicSelectableComponent,
+    value: any
+  }) {
+    this.endfitsize=event.value.size_id;
+    //console.log('port:', event.value.size_id);
+  }
+  portChange3(event: {
+    component: IonicSelectableComponent,
+    value: any
+  }) {
+    this.endfitsize2=event.value.size_id;
+    //console.log('port:', event.value.size_id);
+  }
+  portChange4(event: {
+    component: IonicSelectableComponent,
+    value: any
+  }) {
+    this.endfitsize3=event.value.size_id;
+    //console.log('port:', event.value.size_id);
+  }
+  portChange5(event: {
+    component: IonicSelectableComponent,
+    value: any
+  }) {
+    this.endbsize=event.value.size_id;
+    //console.log('port:', event.value.size_id);
+  }
+  portChange6(event: {
+    component: IonicSelectableComponent,
+    value: any
+  }) {
+    this.endbsize2=event.value.size_id;
+    //console.log('port:', event.value.size_id);
+  }
+  portChange7(event: {
+    component: IonicSelectableComponent,
+    value: any
+  }) {
+    this.endbsize3=event.value.size_id;
+    //console.log('port:', event.value.size_id);
+  }
+  portChange8(event: {
+    component: IonicSelectableComponent,
+    value: any
+  }) {
+    this.adaptersize=event.value.size_id;
+    //console.log('port:', event.value.size_id);
+  } portChange9(event: {
+    component: IonicSelectableComponent,
+    value: any
+  }) {
+    this.adaptersize2=event.value.size_id;
+    //console.log('port:', event.value.size_id);
   }
     gotoProductserch(){
   //console.log(this.text_search);
@@ -178,20 +265,20 @@ else if(!this.size){
      // this.tab_val=val;
     }else if(val=='addon' && this.adapterradio=='yes'){
      // alert(val);
-      if(!this.adaptersize){
+       if(!this.adapterpart_type){
          this.alertController.create({
       
-     message: 'Please select size',
+     message: 'Please select part type',
       buttons: ['OK']
     }).then(resalert => {
 
       resalert.present();
 
     });
-      }else if(!this.adapterangel){
+      }else if(!this.adaptersize){
          this.alertController.create({
       
-     message: 'Please select angel',
+     message: 'Please select size',
       buttons: ['OK']
     }).then(resalert => {
 
@@ -206,6 +293,10 @@ else if(!this.size){
 
    }else if(val=='addon' && this.adapterradio=='no'){
      this.tab_val=val;
+     this.adapterpart_type='';
+     this.adapterpart_type2='';
+     this.adaptersize='';
+     this.adaptersize2='';
    }
 
     // else{
@@ -293,19 +384,7 @@ else if(!this.size){
     message: ''
   });
     if(val=='addon_type'){
-      if(!this.addon_type){
-         this.alertController.create({
       
-     message: 'Please select addon',
-      buttons: ['OK']
-    }).then(resalert => {
-
-      resalert.present();
-
-    });
-      }
-
-      else{
 await loading.present();
           var data ={
     "standard": this.standard,
@@ -315,13 +394,24 @@ await loading.present();
     "hose_lengthtype": this.hose_lengthtype,
     "hose_length": this.hose_length,
     "endfitsize": this.endfitsize,
+    "endfitsize2": this.endfitsize2,
+    "endfitsize3": this.endfitsize3,
     "part_type": this.part_type,
+    "part_type2": this.part_type2,
+    "part_type3": this.part_type3,
     "endbpart_type": this.endbpart_type,
+    "endbpart_type2": this.endbpart_type2,
+    "endbpart_type3": this.endbpart_type3,
     "endbsize": this.endbsize,
+    "endbsize2": this.endbsize2,
+    "endbsize3": this.endbsize3,
     "angeldegree": this.angeldegree,
     "adapterradio": this.adapterradio,
     "adaptersize": this.adaptersize,
+    "adaptersize2": this.adaptersize2,
     "adapterangel": this.adapterangel,
+    "adapterpart_type": this.adapterpart_type,
+    "adapterpart_type2": this.adapterpart_type2,
     "addon_type": this.addon_type,
     "user_id":this.userDetails.user_id
 
@@ -338,7 +428,7 @@ await loading.present();
 
   this.alertController.create({
       
-     message: 'Your query has been send',
+     message: 'Thank you, Your query has been send',
       buttons: ['OK']
     }).then(resalert => {
 
@@ -353,12 +443,23 @@ await loading.present();
     this.hose_lengthtype='';
      this.hose_length='';
     this.endfitsize='';
+    this.endfitsize2='';
+    this.endfitsize3='';
    this.part_type='';
+   this.part_type2='';
+   this.part_type3='';
    this.endbpart_type='';
+   this.endbpart_type2='';
+   this.endbpart_type3='';
      this.endbsize='';
+     this.endbsize2='';
+     this.endbsize3='';
    this.angeldegree='';
      this.adapterradio='';
+     this.adapterpart_type='';
+     this.adapterpart_type2='';
      this.adaptersize='';
+     this.adaptersize2='';
      this.adapterangel='';
      this.addon_type='';
     }else{
@@ -380,7 +481,7 @@ await loading.present();
     
   });
        //this.navCtrl.navigateForward('product');
-      }
+      
     }
   //   else{
   //   this.navCtrl.navigateForward('product');
@@ -501,7 +602,70 @@ this.cartTotal=this.count;
   });
     
   }
+listing_size_ptype(id,no:number){
+   var data ={
+    "part_type": id,
+   
+  }
+  //console.log(id);
+           
+   this.http.post(host+'getSize2', data)
+  .subscribe(res => {
+    
+    this.res = res.json();
+   // console.log(this.res);
+     if(this.res){
+if(no==2){
+this.data_list_size_ptype2 =this.res;
+}else if(no==3){
+  this.data_list_size_ptype3=this.res;
+}else if(no==4){
+  this.data_list_size_ptype4=this.res;
+}else if(no==5){
+  this.data_list_size_ptype5=this.res;
+}else if(no==6){
+  this.data_list_size_ptype6=this.res;
+}else if(no==7){
+  this.data_list_size_ptype7=this.res;
+}else if(no==8){
+  this.data_list_size_ptype8=this.res;
+}else{
+  this.data_list_size_ptype=this.res;
 
+ }
+   //this.loading.hide();
+     
+    }else{
+     if(no==2){
+this.data_list_size_ptype2 =[];
+}else if(no==3){
+  this.data_list_size_ptype3=[];
+}else if(no==4){
+  this.data_list_size_ptype4=[];
+}else if(no==5){
+  this.data_list_size_ptype5=[];
+}else if(no==6){
+  this.data_list_size_ptype6=[];
+}else if(no==7){
+  this.data_list_size_ptype7=[];
+}else if(no==8){
+  this.data_list_size_ptype8=[];
+}else{
+  this.data_list_size_ptype=[];
+
+    //alert("Server error");
+    //this.loading.hide();
+    
+    }
+}
+
+  }, (err) => {
+    //this.loading.hide();
+    console.log(err);
+    
+  });
+    
+  }
  
   getPressure(id){
   //console.log(id);

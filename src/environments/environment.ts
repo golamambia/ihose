@@ -5,8 +5,8 @@
 export const environment = {
   production: false
 };
-export const host = 'https://theitvibe.com/project/ihose/api/';
-export const image_path = 'https://theitvibe.com/project/ihose/uploads/';
+export const host = 'https://webtechnomind.co.in/project/ihose/api/';
+export const image_path = 'https://webtechnomind.co.in/project/ihose/uploads/';
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

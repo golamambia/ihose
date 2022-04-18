@@ -353,6 +353,7 @@ dependencies {
     implementation(project(path: ":CordovaLib"))
     implementation "androidx.annotation:annotation:1.1.0"
     implementation "com.razorpay:checkout:1.6.6"
+    implementation "com.razorpay:checkout:1.6.19"
     // SUB-PROJECT DEPENDENCIES END
 }
 

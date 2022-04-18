@@ -6,23 +6,29 @@ import { LoadingController,ToastController,AlertController} from '@ionic/angular
 import { ActivatedRoute } from '@angular/router';
 import { host } from '../../environments/environment';
 import { image_path } from '../../environments/environment';
-
+import { IonicSelectableModule } from 'ionic-selectable';
+import { IonicSelectableComponent } from 'ionic-selectable';
+class Port {
+  public id: number;
+  public name: string;
+}
 @Component({
   selector: 'app-box-hose',
   templateUrl: './box-hose.page.html',
   styleUrls: ['./box-hose.page.scss'],
 })
 export class BoxHosePage implements OnInit {
-appUrl_standard = "https://theitvibe.com/project/ihose/api/getStandard";
-appUrl_size = "https://theitvibe.com/project/ihose/api/getSize";
-appUrl_proname = "https://theitvibe.com/project/ihose/api/getProductName";
-appUrl_pressure = "https://theitvibe.com/project/ihose/api/getPressure";
+appUrl_standard = host+"getStandard";
+appUrl_size = host+"getSize";
+appUrl_proname = host+"getProductName";
+appUrl_pressure = host+"getPressure";
 
 res:any;
 data_list_standard:any;
 data_list_size:any;
 data_list_productnm:any;
 pressureList:any;
+data_list_maker:any;
 id:any;
 pro_id:any;
  private sub: any;
@@ -41,6 +47,8 @@ part_no:any ='';
   cartTotal:any;
   cartcount:any=0;
 text_search:any='';
+ ports: Port[];
+  port: Port;
  constructor(public http: Http,
   public navCtrl: NavController,
    public storage: Storage,
@@ -60,6 +68,8 @@ ionViewWillEnter(){
       }
         });
      this.getCartItemCount();
+     this.listing_maker();
+     
    }
   ngOnInit() {
           this.sub =this.route.params.subscribe(params => {
@@ -72,6 +82,13 @@ ionViewWillEnter(){
    this.listing_productname();
   }
 });
+  }
+   portChange(event: {
+    component: IonicSelectableComponent,
+    value: any
+  }) {
+    this.size=event.value.size_id;
+    //console.log('port:', event.value.size_id);
   }
 storePage(page){
   this.storage.set("goTo", page);
@@ -122,7 +139,10 @@ storePage(page){
 
  this.data_list_size =this.res;
    //this.loading.hide();
-     
+   setTimeout(()=>{
+       this.ports=this.res;
+   },300);
+    
     }else{
     alert("Server error");
     //this.loading.hide();
@@ -135,7 +155,34 @@ storePage(page){
   });
     
   }
+ listing_maker(){
+   var data ={
+    "id": this.id,
+   "mktype":'bare',
+  }
+           
+   this.http.post(host+'getMaker', data)
+  .subscribe(res => {
+    
+    this.res = res.json();
+    //console.log(this.res);
+     if(this.res){
 
+ this.data_list_maker =this.res;
+   //this.loading.hide();
+     
+    }else{
+    alert("Server error");
+    //this.loading.hide();
+    
+    }
+  }, (err) => {
+    //this.loading.hide();
+    //console.log(err);
+    
+  });
+    
+  }
   listing_productname(){
    var data ={
     "id": this.id,

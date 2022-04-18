@@ -123,6 +123,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/storage */ "e8h1");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common */ "ofXK");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../environments/environment */ "AytR");
+
 
 
 
@@ -141,8 +143,8 @@ let CartPagePage = class CartPagePage {
         this.alertController = alertController;
         this.toastController = toastController;
         this.location = location;
-        this.appUrl = "https://theitvibe.com/project/ihose/api/getProduct";
-        this.img_url = 'https://theitvibe.com/project/ihose/uploads/product/';
+        this.appUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_8__["host"] + "getProduct";
+        this.img_url = _environments_environment__WEBPACK_IMPORTED_MODULE_8__["host"] + 'uploads/product/';
         this.cart_data = [];
         this.cartTotalAmount = 0;
         this.cartcount = 0;

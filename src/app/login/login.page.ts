@@ -4,6 +4,8 @@ import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { LoadingController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
+import { host } from '../../environments/environment';
+import { image_path } from '../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
-appUrl = "https://theitvibe.com/project/ihose/api/login";
+appUrl =host+"login";
 page:any;
   email: any;
   password: any;

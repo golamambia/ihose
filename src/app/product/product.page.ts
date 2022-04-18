@@ -14,8 +14,8 @@ import { image_path } from '../../environments/environment';
 })
 export class ProductPage implements OnInit {
    image_path=image_path;
-  appUrl_product = "https://theitvibe.com/project/ihose/api/getProduct";
-  img_url='https://theitvibe.com/project/ihose/uploads/product/';
+  appUrl_product = host+"getProduct";
+  img_url=host+'uploads/product/';
   res:any;
  page:any;
  product_list:any;

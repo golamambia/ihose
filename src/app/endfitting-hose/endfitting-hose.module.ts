@@ -7,13 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { EndfittingHosePageRoutingModule } from './endfitting-hose-routing.module';
 
 import { EndfittingHosePage } from './endfitting-hose.page';
-
+import { IonicSelectableModule } from 'ionic-selectable';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EndfittingHosePageRoutingModule
+    EndfittingHosePageRoutingModule,
+    IonicSelectableModule
   ],
   declarations: [EndfittingHosePage]
 })

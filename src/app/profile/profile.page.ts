@@ -5,6 +5,8 @@ import { Storage } from '@ionic/storage';
 import { LoadingController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { Location } from "@angular/common";
+import { host } from '../../environments/environment';
+import { image_path } from '../../environments/environment';
 
 @Component({
   selector: 'app-profile',
@@ -14,8 +16,8 @@ import { Location } from "@angular/common";
 export class ProfilePage implements OnInit {
 userData: any;
 userDetails: any;
-appUrl = "https://theitvibe.com/project/ihose/api/user";
-appUpdate = "https://theitvibe.com/project/ihose/api/updateUserProfile";
+appUrl =host+"user";
+appUpdate =host+"updateUserProfile";
 page:any;
   email: any;
   photo: any;

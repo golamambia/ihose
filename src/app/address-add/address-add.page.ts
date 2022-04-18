@@ -4,6 +4,8 @@ import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { LoadingController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
+import { host } from '../../environments/environment';
+import { image_path } from '../../environments/environment';
 
 @Component({
   selector: 'app-address-add',
@@ -11,7 +13,7 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./address-add.page.scss'],
 })
 export class AddressAddPage implements OnInit {
-appUrl = "https://theitvibe.com/project/ihose/api/saveAddress";
+appUrl = host+"saveAddress";
 	res:any;
 	userDetails: any;
   usa_address: any;
@@ -82,7 +84,7 @@ if(this.usa_address == '' || this.usa_address == null){
 
 	this.http.post(this.appUrl, data, { headers: headers })
 	.subscribe(res => {
-		console.log(res.json());
+		//console.log(res.json());
 		this.res = res.json();
 		if(this.res.status == 0){
 		loading.dismiss();
@@ -98,8 +100,8 @@ if(this.usa_address == '' || this.usa_address == null){
 		
 		}else if(this.res.status == 1){
 		successalrt.present();
-		
-		this.navCtrl.navigateForward('address-list');
+		this.navCtrl.back();
+		//this.navCtrl.navigateForward('address-list');
 		loading.dismiss();
 		}else{
 		//alert("Server error");
@@ -118,7 +120,8 @@ if(this.usa_address == '' || this.usa_address == null){
 
 back(){
 
-  		this.navCtrl.navigateForward('address-list');
+  		//this.navCtrl.navigateForward('address-list');
+  		this.navCtrl.back();
   }
 
 }

@@ -4,13 +4,16 @@ import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { LoadingController,ToastController,AlertController} from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { host } from '../../environments/environment';
+import { image_path } from '../../environments/environment';
+
 @Component({
   selector: 'app-hose-page',
   templateUrl: './hose-page.page.html',
   styleUrls: ['./hose-page.page.scss'],
 })
 export class HosePagePage implements OnInit {
-  appUrl = "https://theitvibe.com/project/ihose/api/getSubHose";
+  appUrl =host+"getSubHose";
 
 res:any;
 data_list:any;

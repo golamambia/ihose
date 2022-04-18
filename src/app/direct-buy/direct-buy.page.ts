@@ -5,6 +5,8 @@ import { Storage } from '@ionic/storage';
 import { LoadingController,ToastController,AlertController} from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { Platform } from '@ionic/angular';
+import { host } from '../../environments/environment';
+import { image_path } from '../../environments/environment';
 
 @Component({
   selector: 'app-direct-buy',
@@ -13,9 +15,9 @@ import { Platform } from '@ionic/angular';
 })
 export class DirectBuyPage implements OnInit {
 
-	appUrl = "https://theitvibe.com/project/ihose/api/getAddress";
-	bookUrl = "https://theitvibe.com/project/ihose/api/place_order";
-  appUrl_desc="https://theitvibe.com/project/ihose/api/getProductDesc";
+	appUrl = host+"getAddress";
+	bookUrl =host+"place_order";
+  appUrl_desc=host+"getProductDesc";
 	res:any;
 	userDetails: any;
 	editid: any;
@@ -364,7 +366,7 @@ const cancelCallback = error => { // <- Here!
 };
 
 
-Razorpay.open(options, successCallback, cancelCallback);
+//Razorpay.open(options, successCallback, cancelCallback);
 // Razorpay.on('payment.success', successCallback);
 // Razorpay.on('payment.cancel', cancelCallback);
 // Razorpay.open(options);
@@ -490,7 +492,7 @@ var cancelCallback = (error) => { // <- Here!
 // this.platform.ready().then(() => {
 //       Razorpay.open(options, successCallback, cancelCallback);
 //     })
-Razorpay.open(options, successCallback, cancelCallback);
+//Razorpay.open(options, successCallback, cancelCallback);
   // var callApi = function(payment_id, amount) {
   //   let data = {
   //     'payment_id' : payment_id,

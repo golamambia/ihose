@@ -4,6 +4,8 @@ import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { LoadingController,ToastController,AlertController} from '@ionic/angular';
 import { Location } from "@angular/common";
+import { host } from '../../environments/environment';
+import { image_path } from '../../environments/environment';
 
 @Component({
   selector: 'app-order-list',
@@ -11,7 +13,7 @@ import { Location } from "@angular/common";
   styleUrls: ['./order-list.page.scss'],
 })
 export class OrderListPage implements OnInit {
-appUrl = "https://theitvibe.com/project/ihose/api/getOrder";
+appUrl =host+"getOrder";
 res:any;
 	userDetails: any;
 	editid: any;

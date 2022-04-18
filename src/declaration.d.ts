@@ -1,2 +1,2 @@
-declare module '*';
-declare var Razorpay: any;
+//declare module '*';
+//declare var RazorpayCheckout: any;

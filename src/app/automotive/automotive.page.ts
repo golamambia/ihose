@@ -4,6 +4,8 @@ import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { LoadingController,ToastController,AlertController} from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { host } from '../../environments/environment';
+import { image_path } from '../../environments/environment';
 
 @Component({
   selector: 'app-automotive',
@@ -11,9 +13,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./automotive.page.scss'],
 })
 export class AutomotivePage implements OnInit {
-appUrl_maker = "https://theitvibe.com/project/ihose/api/getMaker";
-appUrl_model = "https://theitvibe.com/project/ihose/api/getModel";
-appUrl_part = "https://theitvibe.com/project/ihose/api/getPartType";
+appUrl_maker = host+"getMaker";
+appUrl_model = host+"getModel";
+appUrl_part = host+"getPartType";
 
 
   res:any;
@@ -73,14 +75,14 @@ modelList:any;
    //this.listing_standard();
    this.listing_size();
    this.listing_part();
-    this.storePage('automotive/7');
+    this.storePage('automotive/5');
    
   }
 });
   }
   gotoProductserch(){
   //console.log(this.text_search);
-this.storage.set("goTo", 'automotive/7');
+this.storage.set("goTo", 'automotive/5');
 this.navCtrl.navigateForward('product?text_search='+this.text_search);
 }
   storePage(page){
@@ -90,7 +92,7 @@ this.navCtrl.navigateForward('product?text_search='+this.text_search);
   listing_size(){
    var data ={
     "id": this.id,
-   
+     "mktype":'automotive',
   }
            
    this.http.post(this.appUrl_maker, data)
@@ -172,7 +174,7 @@ this.navCtrl.navigateForward('product?text_search='+this.text_search);
   });
 }
   gotoProduct(){
-    this.storage.set("goTo", 'automotive/7');
+    this.storage.set("goTo", 'automotive/5');
 this.navCtrl.navigateForward('product?maker='+this.mk_name+'&part_no='+this.part_no+'&model_no='+
   this.model_no+'&hp_subcat='+this.id);
 }

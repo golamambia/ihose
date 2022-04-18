@@ -1,4 +1,4 @@
-
+<ion-content [fullscreen]="true">
     <div class="automotive_area">
       <div class="container">
           <div class="automotive_body">
@@ -13,7 +13,7 @@
               </div>
               <h3>Search Automotive Parts</h3>
               <div class="form-group">
-                  <label>Make</label>
+                  <label>Maker</label>
                   <select class="form-control" [(ngModel)]="mk_name" [ngModelOptions]="{standalone: true}" (change)="getModel($event.target.value)">
                   <option value="" selected="selected">Select maker</option>
                  <option *ngFor="let mk_list of data_list_maker" value="{{mk_list.mk_id}}">{{mk_list.mk_name}}</option>
@@ -41,4 +41,4 @@
           </div>
       </div>
     </div>
-  
+  </ion-content>

@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { EarthMovingPageRoutingModule } from './earth-moving-routing.module';
 
 import { EarthMovingPage } from './earth-moving.page';
+import { IonicSelectableModule } from 'ionic-selectable';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EarthMovingPageRoutingModule
+    EarthMovingPageRoutingModule,
+    IonicSelectableModule
   ],
   declarations: [EarthMovingPage]
 })

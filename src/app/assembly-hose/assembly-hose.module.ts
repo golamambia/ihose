@@ -7,13 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { AssemblyHosePageRoutingModule } from './assembly-hose-routing.module';
 
 import { AssemblyHosePage } from './assembly-hose.page';
+import { IonicSelectableModule } from 'ionic-selectable';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AssemblyHosePageRoutingModule
+    AssemblyHosePageRoutingModule,IonicSelectableModule
   ],
   declarations: [AssemblyHosePage]
 })

@@ -18,7 +18,7 @@
       	<h3>Delivery Address</h3>
         </div>
       	<div class="address_area">
-      		<button class="add_address" ><i class="fas fa-plus"></i></button>
+      		<button class="add_address" (click)="gotoAddAddress()"><i class="fas fa-plus"></i></button>
             <div class="address_area_inner">
               <ul >
                  <li *ngFor="let data of address_list; let idx=index" (click)="selectDeliveryAddress(data.usa_id)"  >

@@ -6,16 +6,20 @@ import { LoadingController,ToastController,AlertController} from '@ionic/angular
 import { ActivatedRoute } from '@angular/router';
 import { host } from '../../environments/environment';
 import { image_path } from '../../environments/environment';
-
+import { IonicSelectableComponent } from 'ionic-selectable';
+class Port {
+  public id: number;
+  public name: string;
+}
 @Component({
   selector: 'app-endfitting-hose',
   templateUrl: './endfitting-hose.page.html',
   styleUrls: ['./endfitting-hose.page.scss'],
 })
 export class EndfittingHosePage implements OnInit {
-appUrl_size = "https://theitvibe.com/project/ihose/api/getSize";
-appUrl_part = "https://theitvibe.com/project/ihose/api/getPartType";
-appUrl_description = "https://theitvibe.com/project/ihose/api/getDescription";
+appUrl_size =host+"getSize";
+appUrl_part =host+"getPartType";
+appUrl_description =host+"getDescription";
 
   res:any;
 
@@ -43,6 +47,8 @@ part_no:any ='';
   cartTotal:any;
   cartcount:any=0;
    text_search:any='';
+    ports: Port[];
+  port: Port;
  constructor(public http: Http,
   public navCtrl: NavController,
    public storage: Storage,
@@ -70,12 +76,19 @@ part_no:any ='';
     this.id=params['id'];
    // console.log(this.id);
    //this.listing_standard();
-   this.listing_size();
+    this.listing_size(this.id);
    this.listing_part();
     this.storePage('endfitting-hose/3');
     this.getDescription();
   }
 });
+  }
+  portChange(event: {
+    component: IonicSelectableComponent,
+    value: any
+  }) {
+    this.size=event.value.size_id;
+    //console.log('port:', event.value.size_id);
   }
   gotoProductserch(){
   //console.log(this.text_search);
@@ -86,13 +99,14 @@ this.navCtrl.navigateForward('product?text_search='+this.text_search);
   this.storage.set("goTo", page);
      
   }
-  listing_size(){
+  listing_size(id){
    var data ={
-    "id": this.id,
+    "part_type": id,
    
   }
+ // console.log(id);
            
-   this.http.post(this.appUrl_size, data)
+   this.http.post(host+'getSize2', data)
   .subscribe(res => {
     
     this.res = res.json();
@@ -101,8 +115,12 @@ this.navCtrl.navigateForward('product?text_search='+this.text_search);
 
  this.data_list_size =this.res;
    //this.loading.hide();
-     
+     setTimeout(()=>{
+       //this.ports=this.res;
+   },300);
+    
     }else{
+      this.data_list_size =[];
     alert("Server error");
     //this.loading.hide();
     
@@ -196,5 +214,6 @@ this.cartTotal=this.count;
         });
 
   }
+
 
 }

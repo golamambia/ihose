@@ -50,12 +50,19 @@
               </div>
               <div class="form-group">
                   <label>Size</label>
-                 <select class="form-control"  [(ngModel)]="size" [ngModelOptions]="{standalone: true}">
-                      <option value="">Select Size</option>
-                       <option *ngFor="let data_listsize of data_list_size" value="{{data_listsize.size_id}}">{{data_listsize.size_name}}</option>
-                  </select>
-                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
-              </div>
+  <ionic-selectable
+    class="form-control"
+    item-content
+    [(ngModel)]="port"
+    [items]="data_list_size"
+    itemValueField="size_id"
+    itemTextField="size_name"
+    [canSearch]="true"
+    placeholder="Select size"
+    (onChange)="portChange($event)" >
+      </ionic-selectable>
+</div>
+             
               <div class="form-group">
                   <label>Name</label>
                   <select class="form-control" (change)="getPressure($event.target.value)"  [(ngModel)]="productName" [ngModelOptions]="{standalone: true}">
@@ -83,7 +90,7 @@
              <!--  <div class="form-group" *ngIf="hose_lengthtype == 'Hose Length'"> -->
               <div class="form-group">
                   <label>Hose Length</label>
-                  <input type="text" [(ngModel)]="hose_length" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Text input" />
+                  <input type="text" [(ngModel)]="hose_length" [ngModelOptions]="{standalone: true}" class="form-control form-control1" placeholder="Text input" />
               </div>
               <button class="btn" (click)="tab_click('endfit')" >SELECT END FITTINGS</button>
             </div>
@@ -93,7 +100,7 @@
               <div *ngIf="endfittab_val == 'endfitA'">
               <div class="form-group">
                   <label>Part Type</label>
-                  <select class="form-control" [(ngModel)]="part_type" [ngModelOptions]="{standalone: true}">
+                  <select class="form-control"  #p1 (change)="listing_size_ptype(p1.value,1)" [(ngModel)]="part_type" [ngModelOptions]="{standalone: true}">
                   <option value="" >Select part type</option>
                  <option *ngFor="let part_list of partList" value="{{part_list.part_id}}">{{part_list.part_name}}</option>
                 </select>
@@ -101,19 +108,70 @@
               </div>
               <div class="form-group">
                   <label>Size</label>
-                  <select class="form-control"  [(ngModel)]="endfitsize" [ngModelOptions]="{standalone: true}">
-                      <option value="">Select Size</option>
-                       <option *ngFor="let data_listsize of data_list_size" value="{{data_listsize.size_id}}">{{data_listsize.size_name}}</option>
-                  </select>
+  <ionic-selectable
+    class="form-control"
+    item-content
+    [(ngModel)]="port2"
+    [items]="data_list_size"
+    itemValueField="size_id"
+    itemTextField="size_name"
+    [canSearch]="true"
+    placeholder="Select size"
+    (onChange)="portChange2($event)" >
+      </ionic-selectable>
+</div>
+               
+               <div class="form-group">
+                  <label>Part Type</label>
+                  <select class="form-control"  #p2 (change)="listing_size_ptype(p2.value,2)" [(ngModel)]="part_type2" [ngModelOptions]="{standalone: true}">
+                  <option value="" >Select part type</option>
+                 <option *ngFor="let part_list of partList" value="{{part_list.part_id}}">{{part_list.part_name}}</option>
+                </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
+              <div class="form-group">
+                  <label>Size</label>
+  <ionic-selectable
+    class="form-control"
+    item-content
+    [(ngModel)]="port3"
+    [items]="data_list_size"
+    itemValueField="size_id"
+    itemTextField="size_name"
+    [canSearch]="true"
+    placeholder="Select size"
+    (onChange)="portChange3($event)" >
+      </ionic-selectable>
+</div>
+               <div class="form-group">
+                  <label>Part Type</label>
+                  <select class="form-control"  #p3 (change)="listing_size_ptype(p3.value,3)" [(ngModel)]="part_type3" [ngModelOptions]="{standalone: true}">
+                  <option value="" >Select part type</option>
+                 <option *ngFor="let part_list of partList" value="{{part_list.part_id}}">{{part_list.part_name}}</option>
+                </select>
+                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+              </div>
+              <div class="form-group">
+                  <label>Size</label>
+  <ionic-selectable
+    class="form-control"
+    item-content
+    [(ngModel)]="port4"
+    [items]="data_list_size"
+    itemValueField="size_id"
+    itemTextField="size_name"
+    [canSearch]="true"
+    placeholder="Select size"
+    (onChange)="portChange4($event)" >
+      </ionic-selectable>
+</div>
               <button class="btn" (click)="onChangeHandler('endfitB')">select end-b</button>
 
             </div>
             <div *ngIf="endfittab_val == 'endfitB'">
                <div class="form-group">
                   <label>Part Type</label>
-                  <select class="form-control" [(ngModel)]="endbpart_type" [ngModelOptions]="{standalone: true}">
+                  <select class="form-control"  #p4 (change)="listing_size_ptype(p4.value,4)" [(ngModel)]="endbpart_type" [ngModelOptions]="{standalone: true}">
                   <option value="" >Select part type</option>
                  <option *ngFor="let part_list of partList" value="{{part_list.part_id}}">{{part_list.part_name}}</option>
                 </select>
@@ -121,12 +179,62 @@
               </div>
               <div class="form-group">
                   <label>Size</label>
-                  <select class="form-control"  [(ngModel)]="endbsize" [ngModelOptions]="{standalone: true}">
-                      <option value="">Select Size</option>
-                       <option *ngFor="let data_listsize of data_list_size" value="{{data_listsize.size_id}}">{{data_listsize.size_name}}</option>
-                  </select>
+  <ionic-selectable
+    class="form-control"
+    item-content
+    [(ngModel)]="port5"
+    [items]="data_list_size"
+    itemValueField="size_id"
+    itemTextField="size_name"
+    [canSearch]="true"
+    placeholder="Select size"
+    (onChange)="portChange5($event)" >
+      </ionic-selectable>
+</div>
+               <div class="form-group">
+                  <label>Part Type</label>
+                  <select class="form-control"  #p5 (change)="listing_size_ptype(p5.value,5)" [(ngModel)]="endbpart_type2" [ngModelOptions]="{standalone: true}">
+                  <option value="" >Select part type</option>
+                 <option *ngFor="let part_list of partList" value="{{part_list.part_id}}">{{part_list.part_name}}</option>
+                </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
+              <div class="form-group">
+                  <label>Size</label>
+  <ionic-selectable
+    class="form-control"
+    item-content
+    [(ngModel)]="port6"
+    [items]="data_list_size"
+    itemValueField="size_id"
+    itemTextField="size_name"
+    [canSearch]="true"
+    placeholder="Select size"
+    (onChange)="portChange6($event)" >
+      </ionic-selectable>
+</div>
+               <div class="form-group">
+                  <label>Part Type</label>
+                  <select class="form-control"  #p6 (change)="listing_size_ptype(p6.value,6)" [(ngModel)]="endbpart_type3" [ngModelOptions]="{standalone: true}">
+                  <option value="" >Select part type</option>
+                 <option *ngFor="let part_list of partList" value="{{part_list.part_id}}">{{part_list.part_name}}</option>
+                </select>
+                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+              </div>
+              <div class="form-group">
+                  <label>Size</label>
+  <ionic-selectable
+    class="form-control"
+    item-content
+    [(ngModel)]="port7"
+    [items]="data_list_size"
+    itemValueField="size_id"
+    itemTextField="size_name"
+    [canSearch]="true"
+    placeholder="Select size"
+    (onChange)="portChange7($event)" >
+      </ionic-selectable>
+</div>
               <button class="btn" (click)="onChangeHandler('endfitAngel')">select Angle of Orientation</button>
             </div>
             <div *ngIf="endfittab_val == 'endfitAngel'">
@@ -134,7 +242,10 @@
                   <label>Degree</label>
                   <select class="form-control" [(ngModel)]="angeldegree" [ngModelOptions]="{standalone: true}">
                     <option value="">Select Degree</option>
+                    <option value="0">0</option>
                       <option *ngFor="let item of [].constructor(180); let i = index" value="{{i+1}}">{{i+1}}</option>
+                      <option value="275">275</option>
+                      <option value="360">360</option>
                   </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
@@ -149,7 +260,7 @@
                     <input type="radio" [(ngModel)]="adapterradio" [ngModelOptions]="{standalone: true}" value="no"  [checked]="adapterradio==='no'">no
                 </label>
               </div>
-              <div class="form-group" *ngIf="adapterradio=='yes'">
+              <!-- <div class="form-group" *ngIf="adapterradio=='yes'">
                   <label>Size</label>
                   <select class="form-control"  [(ngModel)]="adaptersize" [ngModelOptions]="{standalone: true}">
                       <option value="">Select Size</option>
@@ -164,7 +275,51 @@
                       <option *ngFor="let item of [].constructor(180); let i = index" value="{{i+1}}">{{i+1}}</option>
                   </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+              </div> -->
+              <div class="form-group" *ngIf="adapterradio=='yes'">
+                  <label>Part Type</label>
+                  <select class="form-control"  #p7 (change)="listing_size_ptype(p7.value,7)" [(ngModel)]="adapterpart_type" [ngModelOptions]="{standalone: true}">
+                  <option value="" >Select part type</option>
+                 <option *ngFor="let part_list of partList" value="{{part_list.part_id}}">{{part_list.part_name}}</option>
+                </select>
+                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
+              <div class="form-group">
+                  <label>Size</label>
+  <ionic-selectable
+    class="form-control"
+    item-content
+    [(ngModel)]="port8"
+    [items]="data_list_size"
+    itemValueField="size_id"
+    itemTextField="size_name"
+    [canSearch]="true"
+    placeholder="Select size"
+    (onChange)="portChange8($event)" >
+      </ionic-selectable>
+</div>
+               <div class="form-group" *ngIf="adapterradio=='yes'">
+                  <label>Part Type</label>
+                  <select class="form-control"  #p8 (change)="listing_size_ptype(p8.value,8)" [(ngModel)]="adapterpart_type2" [ngModelOptions]="{standalone: true}">
+                  <option value="" >Select part type</option>
+                 <option *ngFor="let part_list of partList" value="{{part_list.part_id}}">{{part_list.part_name}}</option>
+                </select>
+                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+              </div>
+              <div class="form-group">
+                  <label>Size</label>
+  <ionic-selectable
+    class="form-control"
+    item-content
+    [(ngModel)]="port9"
+    [items]="data_list_size"
+    itemValueField="size_id"
+    itemTextField="size_name"
+    [canSearch]="true"
+    placeholder="Select size"
+    (onChange)="portChange9($event)" >
+      </ionic-selectable>
+</div>
               <button class="btn" (click)="tab_click('addon')">Select ADD ON</button>
             </div>
           
@@ -174,11 +329,12 @@
               <div *ngIf="tab_val == 'addon'">
                  <div class="form-group">
                   <label>Type of Add on</label>
-                  <select class="form-control" [(ngModel)]="addon_type" [ngModelOptions]="{standalone: true}">
+                  <!-- <select class="form-control" [(ngModel)]="" [ngModelOptions]="{standalone: true}">
                     <option value="">Select type</option>
                       <option value="demo">Demo </option>
-                  </select>
-                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+                  </select> -->
+                  <input type="text" [(ngModel)]="addon_type" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Type of Add on" />
+                  <!-- <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div> -->
               </div>
               <button class="btn"  (click)="send_query('addon_type')">send query</button>
               </div> 

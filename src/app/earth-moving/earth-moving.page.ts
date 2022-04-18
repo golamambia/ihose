@@ -6,6 +6,7 @@ import { LoadingController,ToastController,AlertController} from '@ionic/angular
 import { ActivatedRoute } from '@angular/router';
 import { host } from '../../environments/environment';
 import { image_path } from '../../environments/environment';
+import { IonicSelectableComponent } from 'ionic-selectable';
 
 @Component({
   selector: 'app-earth-moving',
@@ -13,9 +14,9 @@ import { image_path } from '../../environments/environment';
   styleUrls: ['./earth-moving.page.scss'],
 })
 export class EarthMovingPage implements OnInit {
-appUrl_maker = "https://theitvibe.com/project/ihose/api/getMaker";
-appUrl_model = "https://theitvibe.com/project/ihose/api/getModel";
-appUrl_part = "https://theitvibe.com/project/ihose/api/getPartType";
+appUrl_maker =  host+"getMaker";
+appUrl_model =  host+"getModel";
+appUrl_part =  host+"getPartType";
 
 
   res:any;
@@ -71,11 +72,11 @@ modelList:any;
   if (params) {
     //let queryParams = params;
     this.id=params['id'];
-   // console.log(this.id);
+   //console.log(this.id);
    //this.listing_standard();
    this.listing_size();
    this.listing_part();
-    this.storePage('earth-moving/8');
+    this.storePage('earth-moving/6');
    
   }
 });
@@ -169,11 +170,11 @@ modelList:any;
   });
 }
   gotoProductserch(){
-  this.storage.set("goTo", 'earth-moving/8');
+  this.storage.set("goTo", 'earth-moving/6');
 this.navCtrl.navigateForward('product?text_search='+this.text_search);
 }
   gotoProduct(){
-    this.storage.set("goTo", 'earth-moving/8');
+    this.storage.set("goTo", 'earth-moving/6');
 this.navCtrl.navigateForward('product?maker='+this.mk_name+'&part_no='+this.part_no+'&model_no='+
   this.model_no+'&hp_subcat='+this.id);
 }

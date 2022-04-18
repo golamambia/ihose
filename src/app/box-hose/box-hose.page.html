@@ -21,6 +21,7 @@
                   <input type="text" class="form-control" [(ngModel)]="text_search" placeholder="Search Products..." />
               </div>
               <h3>Search Bare Hoses</h3>
+              
               <div class="form-group">
                   <label>Standard</label>
                    <select class="form-control" [(ngModel)]="standard" [ngModelOptions]="{standalone: true}">
@@ -29,14 +30,38 @@
                 </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
               </div>
+
+             
               <div class="form-group">
+                  <label>Maker</label>
+                  <select class="form-control" [(ngModel)]="mk_name" [ngModelOptions]="{standalone: true}" (change)="getModel($event.target.value)">
+                  <option value="" selected="selected">Select maker</option>
+                 <option *ngFor="let mk_list of data_list_maker" value="{{mk_list.mk_id}}">{{mk_list.mk_name}}</option>
+                </select>
+                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+              </div>
+              <!-- <div class="form-group">
                   <label>Size</label>
                   <select class="form-control" [(ngModel)]="size" [ngModelOptions]="{standalone: true}">
                   <option value="" selected="selected">Select size</option>
                  <option *ngFor="let data_listsize of data_list_size" value="{{data_listsize.size_id}}">{{data_listsize.size_name}}</option>
                 </select>
                   <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
-              </div>
+              </div> -->
+                <div class="form-group">
+                  <label>Size</label>
+  <ionic-selectable
+    class="form-control"
+    item-content
+    [(ngModel)]="port"
+    [items]="data_list_size"
+    itemValueField="size_id"
+    itemTextField="size_name"
+    [canSearch]="true"
+    placeholder="Select size"
+    (onChange)="portChange($event)" >
+      </ionic-selectable>
+</div>
               <div class="form-group">
                   <label>Name</label>
                   <select class="form-control" (change)="getPressure($event.target.value)"  [(ngModel)]="productName" [ngModelOptions]="{standalone: true}">

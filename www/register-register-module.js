@@ -67,6 +67,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/http */ "qlzE");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/storage */ "e8h1");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../environments/environment */ "AytR");
+
 
 
 
@@ -83,7 +85,7 @@ let RegisterPage = class RegisterPage {
         this.storage = storage;
         this.loadingController = loadingController;
         this.alertController = alertController;
-        this.appUrl = "https://theitvibe.com/project/ihose/api/registration";
+        this.appUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_7__["host"] + "registration";
     }
     ngOnInit() {
     }

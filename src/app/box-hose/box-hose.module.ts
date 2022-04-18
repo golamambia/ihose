@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { BoxHosePageRoutingModule } from './box-hose-routing.module';
 
 import { BoxHosePage } from './box-hose.page';
-
+import { IonicSelectableModule } from 'ionic-selectable';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BoxHosePageRoutingModule
+    BoxHosePageRoutingModule,
+     
+    IonicSelectableModule
   ],
   declarations: [BoxHosePage]
 })

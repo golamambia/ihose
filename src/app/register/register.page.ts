@@ -4,6 +4,8 @@ import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { LoadingController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
+import { host } from '../../environments/environment';
+import { image_path } from '../../environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +14,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class RegisterPage implements OnInit {
 
-   appUrl = "https://theitvibe.com/project/ihose/api/registration";
+   appUrl =host+"registration";
   email: any;
   pass: any;
   res: any;

@@ -30,8 +30,8 @@ __webpack_require__.r(__webpack_exports__);
 const environment = {
     production: false
 };
-const host = 'https://theitvibe.com/project/ihose/api/';
-const image_path = 'https://theitvibe.com/project/ihose/uploads/';
+const host = 'https://webtechnomind.co.in/project/ihose/api/';
+const image_path = 'https://webtechnomind.co.in/project/ihose/uploads/';
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
@@ -112,6 +112,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.component */ "Sy1n");
 /* harmony import */ var _angular_service_worker__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/service-worker */ "Jho9");
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../environments/environment */ "AytR");
+/* harmony import */ var ionic_selectable__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ionic-selectable */ "8xsl");
+
 
 
 
@@ -130,7 +132,7 @@ AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]],
         entryComponents: [],
         imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"],
-            _angular_http__WEBPACK_IMPORTED_MODULE_6__["HttpModule"],
+            _angular_http__WEBPACK_IMPORTED_MODULE_6__["HttpModule"], ionic_selectable__WEBPACK_IMPORTED_MODULE_11__["IonicSelectableModule"],
             _ionic_storage__WEBPACK_IMPORTED_MODULE_4__["IonicStorageModule"].forRoot(),
             _angular_service_worker__WEBPACK_IMPORTED_MODULE_9__["ServiceWorkerModule"].register('ngsw-worker.js', {
                 enabled: _environments_environment__WEBPACK_IMPORTED_MODULE_10__["environment"].production,
